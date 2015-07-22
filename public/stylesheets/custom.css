@@ -46,5 +46,9 @@ a {
 
 .row2__right {
   height: inherit;
-  padding: 1em;
+  /*padding: 1em;*/
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
+  /*padding-left: 10%;*/
+  /*padding-right: 10%;*/
 }

@@ -11,7 +11,11 @@
   %body
     .w3-container
       = render 'shared/header'
-      .w3-row.w3-container.row2
-        .w3-col.w3-container.l10.m2.s12.row2__right
+      .w3-container
+        .w3-col.l2
+          &nbsp;
+        .w3-col.l8.row2__right
           = yield
+        .w3-col.l2
+          &nbsp;
       = render 'shared/footer'
