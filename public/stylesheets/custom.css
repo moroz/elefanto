@@ -4,7 +4,7 @@
 
 .row1--header {
   height: auto;
-  padding: 1em;
+  padding: none;
   background-position: bottom;
   text-align: center;
 }
@@ -22,6 +22,7 @@
 
 .row1--menu {
   height: auto;
+  padding: none;
   /*outline-color: black;*/
   /*outline-style: solid;*/
   /*outline-offset: 0;*/
@@ -29,9 +30,18 @@
 }
 
 .row1--link {
-  width: 25%;
-  margin: 0 auto;
+  /*width: 25%;*/
+  /*margin: 0 auto;*/
   text-align: center;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: red;
 }
 
 .row2__right {
