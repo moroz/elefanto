@@ -1,8 +1,12 @@
-.row1--header {
-  height: 8em;
-  padding: 1.5em;
+.row1 {
   background-image: url("/images/background-lake.jpg");
+}
+
+.row1--header {
+  height: auto;
+  padding: 1em;
   background-position: bottom;
+  text-align: center;
 }
 
 .row1__title {
@@ -16,13 +20,18 @@
   height: auto;
 }
 
-.row2__left {
-  height: inherit;
-  outline-color: black;
-  outline-style: solid;
-  outline-width: thin;
-  outline-offset: 0;
-  padding: 1em;
+.row1--menu {
+  height: auto;
+  /*outline-color: black;*/
+  /*outline-style: solid;*/
+  /*outline-offset: 0;*/
+  /*outline-width: thin;*/
+}
+
+.row1--link {
+  width: 25%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .row2__right {
