@@ -1,0 +1,7 @@
+RewriteEngine off
+Options FollowSymLinks
+
+PassengerEnabled on
+PassengerAppRoot /home/elefanto/public_html/ror
+PassengerRuby /usr/local/rvm/gems/ruby-2.1.1@global/wrappers/ruby
+RailsEnv production
