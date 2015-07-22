@@ -1,6 +1,6 @@
 .row1--header {
-  height: 10em;
-  padding: 3em;
+  height: 8em;
+  padding: 1.5em;
   background-image: url("/images/background-lake.jpg");
   background-position: bottom;
 }
@@ -10,4 +10,22 @@
   color: white;
   font-variant: small-caps;
   font-size: 3em;
+}
+
+.row2 {
+  height: auto;
+}
+
+.row2__left {
+  height: inherit;
+  outline-color: black;
+  outline-style: solid;
+  outline-width: thin;
+  outline-offset: 0;
+  padding: 1em;
+}
+
+.row2__right {
+  height: inherit;
+  padding: 1em;
 }

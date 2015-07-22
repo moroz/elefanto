@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title
+      Karol Moroz' Personal Website
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'w3', 'custom', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render 'shared/header'
+    .w3-row.w3-container.row2
+      .w3-col.w3-container.l2.m2.s12.row2__left.blue
+        = render 'shared/left'
+      .w3-col.w3-container.l10.m2.s12.row2__right
+        = yield
+    = render 'shared/footer'
