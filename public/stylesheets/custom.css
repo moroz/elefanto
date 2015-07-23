@@ -1,14 +1,21 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .layout--background {
   background-image: url("/images/background-leshan.jpg");
   background-position: center;
   background-attachment: fixed;
-  background-repeat: no-repeat;
-  padding-bottom: 10em;
+  background-repeat: repeat-y;
+  height: 100%;
 }
 
 .row1--header {
   height: auto;
   padding: none;
+  margin-top: 3em;
   /*width: 70%;*/
   background-position: bottom;
   text-align: center;
@@ -57,7 +64,7 @@ a {
 }
 
 .row2__right {
-  height: inherit;
+  height: auto;
   /*padding: 1em;*/
   /*margin-left: auto;*/
   /*margin-right: auto;*/
