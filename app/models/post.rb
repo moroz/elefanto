@@ -17,6 +17,6 @@ class Post < ActiveRecord::Base
   end
 
   scope :blog, -> {
-    where('posts.number > ?', 0).order_by(number: :desc)
+    where('posts.number > ?', 0).order(number: :desc)
   }
 end

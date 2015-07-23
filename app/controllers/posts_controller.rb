@@ -23,4 +23,37 @@ class PostsController < ApplicationController
       # end
     # end
   end
+
+  def new
+    @post = Post.new(:number => Post.blog.first.number + 1,
+      :textile_enabled => true)
+    @title = "Create new post"
+  end
+
+  def create
+    @post = Post.new(post_params)
+    @post.save
+    redirect_to @post
+  end
+
+  def edit
+    @post = Post.find_by_id_or_title(params[:id])
+    @title = "Edit post #{@post.title}"
+    render 'new'
+  end
+
+  def update
+    @post = Post.find_by_id_or_title(params[:id])
+    if @post.update_attributes(post_params)
+      flash[:success] = "The post was successfully saved."
+      redirect_to @post
+    else
+      @post.attributes = post_params
+      render 'edit'
+    end
+  end
+
+  def post_params
+    params.require(:post).permit(:title,:number,:content,:description,:textile_enabled)
+  end
 end
