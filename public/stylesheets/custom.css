@@ -1,12 +1,24 @@
-.row1 {
-  background-image: url("/images/background-lake.jpg");
+.layout--background {
+  background-image: url("/images/background-leshan.jpg");
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  padding-bottom: 10em;
 }
 
 .row1--header {
   height: auto;
   padding: none;
+  /*width: 70%;*/
   background-position: bottom;
   text-align: center;
+}
+
+.row1__logo {
+  float: left;
+  /*height: inherit;*/
+  position: absolute;
+  padding: 1em;
 }
 
 .row1__title {
@@ -33,9 +45,9 @@
   /*width: 25%;*/
   /*margin: 0 auto;*/
   text-align: center;
-  font-family: sans-serif;
-  font-size: 12px;
-  font-variant: small-caps;
+  /*font-family: sans-serif;*/
+  /*font-size: 12px;*/
+  /*font-variant: small-caps;*/
   font-weight: bold;
 }
 

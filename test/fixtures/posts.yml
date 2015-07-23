@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: On The Long-Gone Utopia and the World on the Verge of Extiction
+  number: 189
+  description: ''
+  content: I recall there was a time in my life when I was highly enthusiastic about China and the Chinese language. When I started learning Mandarin almost five years ago, I was absolutely fascinated about Chinese characters, and I spent most of the boring, inert time in school practising my Chinese handwriting, and studying vocabulary and grammar. I once wrote on my blog (albeit the original story has long gone been blasted into oblivion,) about the stories I read in my textbooks, an obsolete vision of Chinese everyday life, the long-gone utopia only preserved now in the form of reading materials...
+
+two:
+  title: Język koreański a erasmusowy tryb życia
+  id: 2
+  number: 188
+  description: ''
+  content: W którymś momencie w Chengdu przestało być zimno jak skurczysyn i kubek z herbatą już nie przymarza mi do biurka. Bez roweru niewiele jednak mam pożytku z pięknej wiosennej pogody i któregoś dnia nogi same zaprowadziły mnie do baru. Powróciłem więc do erasmusowego stylu życia i wszystko wskazuje na to, że tak już zostanie. Po pierwszym semestrze bezwstydnego pobierania stypendium na rozbijanie się trzydziestometrowymi limuzynami od popijawy do popijawy i barłożenie w narkomańskich melinach, postanowiłem zakasać rękawy i uczciwie wziąć się do nauki.

@@ -1,6 +1,20 @@
-.w3-container
-  %header.w3-row.row1
-    .w3-row.row1--header.w3-padding
-      %span.row1__title Karol Moroz' homepage
-    .w3-topnav.row1--menu
-      = render 'shared/left'
+%header.w3-row.row1
+  .w3-row.w3-container
+    .w3-col.l2
+      &nbsp;
+    .w3-col.l8.s12.row1--header
+      .light-green
+        .row1__logo.w3-quarter
+          = image_tag 'logo.png', width: "100px", height: "100px"
+        %span.row1__title Elefanto<br />
+        Memoirs of an elephant</small>
+      .w3-topnav.row1--menu
+        .w3-col.w3-quarter.row1--link.light-green.w3-padding
+          %span.row1--link= link_to "Strona główna", '#'
+        .w3-col.w3-quarter.row1--link.teal.w3-padding
+          %span.row1--link= link_to "Blog", '#'
+        .w3-col.w3-quarter.row1--link.light-green.w3-padding
+          %span.row1--link= link_to "O mnie", '#'
+        .w3-col.w3-quarter.row1--link.teal.w3-padding
+          %span.row1--link= link_to "Linki", '#'
+    .w3-col.l2
