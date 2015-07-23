@@ -5,11 +5,11 @@
   = #render 'posts/buttons', :post => @post
   %span.timestamp
     -# if signed_in? and current_user.admin?
-    -#  Modified:
-    -#  = @post.updated_at.to_s
-    -#  %br
-    -#  Created:
-    -#  = @post.created_at.to_s
+    Modified:
+    = @post.updated_at.to_s
+    %br
+    Created:
+    = @post.created_at.to_s
     -# else
     -#  = @post.updated_at.to_s
     %br
@@ -21,11 +21,11 @@
       = link_to "Delete", post, :method => :delete, :confirm => "You sure?",
         :title => "Delete #{post.title}"
   - unless @post.description == nil or @post.description == ""
-    %div.post_description= do_formatting(@post.description, true)
+    %div.post_description= do_formatting(@post.description, @post.textile_enabled)
   -#%div.lang_versions= raw(lang_version(@post))
   -# lang_class = "lang_#{@post.properties[:lang]}" unless @post.properties[:lang].nil?
   = content_tag :div, do_formatting(@post.content, true) #, class: lang_class
-  -# %p.views= "This post has been viewed " + pluralize(@post.views+1, 'time') + "."
+  %p.views= "This post has been viewed " + pluralize(@post.views+1, 'time') + "."
   -# = render :partial => 'category', :collection => @categories
   -# = render 'posts/signature' unless @post.number == 0
   -# = render :partial => 'linkbox', :post => @post

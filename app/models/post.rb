@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
-  validates :title, presence: true
+#  attr_accessible :title, :number, :textile_enabled, :content, :description
+  validates :title, presence: true, uniqueness: { case_sensitive: false }
+  validates :content, presence: true
 
   def self.find_by_id_or_title(string)
     unless string.to_i == 0
@@ -9,4 +11,12 @@ class Post < ActiveRecord::Base
     end
       post.exists? ? post.first : nil
   end
+
+  def increment_views
+    Post.increment_counter(:views, self.id)
+  end
+
+  scope :blog, -> {
+    where('posts.number > ?', 0).order_by(number: :desc)
+  }
 end

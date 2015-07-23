@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       # @comments = @post.comments.paginate(:page => params[:page])
       # @categories = @post.categories
       # session[:post_id] = @post.id
-      # @post.increment_views
+      @post.increment_views
       # if @post.number != 0
         # @previous_post = Post.blog.where("number < #{@post.number}").first
         # @next_post = Post.blog.where("number > #{@post.number}").last
