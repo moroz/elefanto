@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :posts
   get 'posts/new'
+  get '/blog' => 'posts#index'
   resources :blog, :controller => 'posts', :only => [:show]
   match '/latest' => 'posts#show', :id => Post.blog.first.id, :via => [:get]
 
