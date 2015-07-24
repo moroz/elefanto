@@ -1,16 +1,16 @@
 class PostsController < ApplicationController
   def show
     @post = Post.find_by_id_or_title(params[:id])
-    # if @post.nil?
+    if @post.nil?
     #   if allowed?
     #     @post = current_user.posts.build(:title => params[:id])
     #     @title = "Creating new post"
     #     render 'new'
     #   else
-    #     flash[:error] = "There is no such post."
-    #     redirect_to root_path
+        flash[:error] = "There is no such post."
+        redirect_to root_path
     #   end
-    # else
+    else
       @title = "Presenting post: #{@post.title}"
       # @new_comment = @post.comments.build
       # @comments = @post.comments.paginate(:page => params[:page])
@@ -21,7 +21,11 @@ class PostsController < ApplicationController
         # @previous_post = Post.blog.where("number < #{@post.number}").first
         # @next_post = Post.blog.where("number > #{@post.number}").last
       # end
-    # end
+    end
+  end
+
+  def index
+    @posts = Post.paginate(:page => params[:page])
   end
 
   def new
@@ -55,5 +59,16 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title,:number,:content,:description,:textile_enabled)
+  end
+
+  def destroy
+    @post = Post.find_by_id_or_title(params[:id])
+    if @post.destroy
+      flash[:success] = "The post was successfully destroyed."
+      redirect_to root_path
+    else
+      flash[:error] = "The post cannot be removed."
+      redirect_to post_path(@post)
+    end
   end
 end

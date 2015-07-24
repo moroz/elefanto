@@ -14,7 +14,7 @@
     -#  = @post.updated_at.to_s
     %br
     = link_to 'Permalink', post_path(@post)
-    -# if allowed?
+    - if true
       &bull;
       = link_to "Edit", edit_post_path(post)
       &bull;
