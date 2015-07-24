@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 gem 'RedCloth'
 gem 'will_paginate'
+gem 'yaml_db'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

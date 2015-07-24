@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'posts/new'
   get '/blog' => 'posts#index'
   resources :blog, :controller => 'posts', :only => [:show]
-  match '/latest' => 'posts#show', :id => Post.blog.first.id, :via => [:get]
+  #match '/latest' => 'posts#show', :id => Post.blog.first.id, :via => [:get]
 
   # Example resource route with options:
   #   resources :products do
