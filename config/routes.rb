@@ -11,12 +11,11 @@ Rails.application.routes.draw do
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :posts
   get 'posts/new'
   get '/blog' => 'posts#index'
   resources :blog, :controller => 'posts', :only => [:show]
-  #match '/latest' => 'posts#show', :id => Post.blog.first.id, :via => [:get]
+  match '/latest' => 'posts#show', :id => Post.blog.first.id, :via => [:get]
 
   # Example resource route with options:
   #   resources :products do
