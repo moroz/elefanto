@@ -24,7 +24,7 @@
     %div.post_description= do_formatting(@post.description, @post.textile_enabled)
   -#%div.lang_versions= raw(lang_version(@post))
   -# lang_class = "lang_#{@post.properties[:lang]}" unless @post.properties[:lang].nil?
-  = content_tag :div, do_formatting(@post.content, true) #, class: lang_class
+  = content_tag :div, do_formatting(@post.content, @post.textile_enabled) #, class: lang_class
   %p.views= "This post has been viewed " + pluralize(@post.views+1, 'time') + "."
   -# = render :partial => 'category', :collection => @categories
   -# = render 'posts/signature' unless @post.number == 0

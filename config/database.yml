@@ -26,4 +26,4 @@ test:
 
 production:
   <<: *default
-  database: elefanto_ror
+  database: elefanto_dev
