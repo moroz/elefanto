@@ -18,8 +18,10 @@
 
 .w3-group
   <label class="w3-checkbox" for="post_textile_enabled">
-  = f.check_box :textile_enabled, :class => "w3-checkbox blue-d2"
-  <div class="w3-checkmark blue-d2"></div> Textile enabled<br />(check if you want to use Textile for rendering)
+  <input name="post[textile_enabled]" type="hidden" value="0" />
+  <input class="w3-checkbox blue-d2" type="checkbox" value="1" checked="checked" name="post[textile_enabled]" id="post_textile_enabled" />
+  <div class="w3-checkmark"></div> Textile enabled<br />(check if you want to use Textile for rendering)
   </label>
+
 
 = f.submit "Send", :class => "w3-btn blue-d2"

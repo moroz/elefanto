@@ -5,9 +5,9 @@
   -# %span.langversions= raw(lang_versions_list(post))
   - text = truncate(post.content, :length => 250, :omission => '&hellip;')
   - if post.description == "" or post.description == nil
-    %p= render_textilized(text)
+    %p= do_formatting(text, post.textile_enabled)
   - else
-    %p= render_textilized(post.description)
+    %p= do_formatting(post.description, post.textile_enabled)
   .read_more
     - words = count_words(post.content, false) #post.is_chinese?)
     = "#{pluralize(words, "word")}"# & #{pluralize(post.comments.count, "comment")}"
