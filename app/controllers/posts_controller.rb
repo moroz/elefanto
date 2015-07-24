@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.paginate(:page => params[:page])
+    @posts = Post.blog.paginate(:page => params[:page])
   end
 
   def new
