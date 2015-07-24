@@ -11,7 +11,7 @@ class PostsController < ApplicationController
         redirect_to root_path
     #   end
     else
-      @title = "Presenting post: #{@post.title}"
+      @title = "Elefanto: #{@post.number}. #{@post.title}"
       # @new_comment = @post.comments.build
       # @comments = @post.comments.paginate(:page => params[:page])
       # @categories = @post.categories
@@ -26,6 +26,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.blog.paginate(:page => params[:page])
+    @title = "Elefanto — blog archive"
   end
 
   def new
