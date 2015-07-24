@@ -1,6 +1,7 @@
-%h1 List of posts
+%h1 Blog archive
 = will_paginate
 = page_entries_info @posts
+%br
 - for post in @posts
     = render :partial => 'posts/post_list', :locals => { :post => post }
 = will_paginate

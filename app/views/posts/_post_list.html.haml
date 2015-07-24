@@ -1,15 +1,6 @@
-.list.round
+%span.list
   - post_title = (post.number > 0 ? "#{post.number}. " : "") + post.title
   %strong= link_to post_title, post_path(post)
-  -#= render 'posts/buttons', :post => post
-  -# %span.langversions= raw(lang_versions_list(post))
-  - text = truncate(post.content, :length => 250, :omission => '&hellip;')
-  - if post.description == "" or post.description == nil
-    %p= do_formatting(text, post.textile_enabled)
-  - else
-    %p= do_formatting(post.description, post.textile_enabled)
-  .read_more
-    - words = count_words(post.content, false) #post.is_chinese?)
-    = "#{pluralize(words, "word")}"# & #{pluralize(post.comments.count, "comment")}"
-    = link_to "click to read more...", post_path(post)
-  %hr
+  - words = count_words(post.content, false) #post.is_chinese?)
+  = "(#{pluralize(words, "word")})"# & #{pluralize(post.comments.count, "comment")}"
+  %br

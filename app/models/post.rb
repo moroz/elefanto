@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   validates :title, presence: true, uniqueness: { case_sensitive: false }
   validates :content, presence: true
   cattr_reader :per_page
-  @@per_page = 10
+  @@per_page = 25
 
   def self.find_by_id_or_title(string)
     unless string.to_i == 0
