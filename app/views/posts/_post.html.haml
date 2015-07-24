@@ -29,3 +29,8 @@
   -# = render :partial => 'category', :collection => @categories
   -# = render 'posts/signature' unless @post.number == 0
   -# = render :partial => 'linkbox', :post => @post
+  - if Rails.env.development?
+    - if @post.textile_enabled
+      TEXTILE IS ENABLED
+    - else
+      TEXTILE NOT ENABLED
