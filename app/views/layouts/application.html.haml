@@ -16,8 +16,7 @@
       .w3-col.l8.light-green-l2.row2__right.w3-padding
         - flash.each do |key, value|
           %div{:class => "flash #{key}"}= value
-        .w3-padding
-          = yield
+        = yield
       .w3-col.l2
         &nbsp;
       = render 'shared/footer'
