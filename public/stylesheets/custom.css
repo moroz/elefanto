@@ -13,11 +13,8 @@ body {
 
 .row1--header {
   height: auto;
-  padding: none;
   margin-top: 2em;
-  /*width: 70%;*/
-  /*background-position: bottom;*/
-  margin-bottom: -1px;
+  color: #020;
   text-align: center;
 }
 
@@ -30,8 +27,14 @@ body {
 
 .row1__title {
   font-family: Arial, sans-serif;
-  color: white;
+  color: #020;
   font-variant: small-caps;
+  line-height: 0px;
+  padding-bottom: 1em;
+  padding-top: 0px;
+}
+
+.row1__title h1 {
   font-size: 3em;
 }
 
@@ -41,13 +44,9 @@ body {
   padding-bottom: 1em;
 }
 
-.row1--menu {
+.row1__menu {
   height: auto;
   padding: none;
-  /*outline-color: black;*/
-  /*outline-style: solid;*/
-  /*outline-offset: 0;*/
-  /*outline-width: thin;*/
 }
 
 .row1--link {
@@ -75,13 +74,13 @@ a {
 }
 
 .timestamp {
-    color: #999;
+    color: #555;
     font-size: 90%;
     font-variant: small-caps;
 }
 
 .post h1, .post h2, .post h3 {
-    color: #600;
+    color: #020;
     font-weight: bold;
     margin: 5px 0;
     padding: 0;
