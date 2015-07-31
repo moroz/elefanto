@@ -15,10 +15,10 @@
           &nbsp;
         .w3-col.l8.s12
           = render 'shared/header'
-          .green-l1.w3-container.row2
+          .grey-l2.w3-container.row2
             - flash.each do |key, value|
               %div{:class => "flash #{key}"}= value
-            = yield
+            %article= yield
           = render 'shared/footer'
         .w3-col.l2
           &nbsp;

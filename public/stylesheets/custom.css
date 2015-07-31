@@ -1,8 +1,9 @@
 body {
-  background-image: url("/images/background-leshan.jpg");
+  background-image: url("/images/background-sand.jpg");
   background-position: center;
   background-attachment: fixed;
   background-repeat: repeat-y;
+  background-color: #6b6;
   height: 100%;
   font-family: Helvetica, Tahoma, Arial, sans-serif;
 }
@@ -14,7 +15,7 @@ body {
 .row1--header {
   height: auto;
   margin-top: 2em;
-  color: #020;
+  color: #040;
   text-align: center;
 }
 
@@ -27,7 +28,7 @@ body {
 
 .row1__title {
   font-family: Arial, sans-serif;
-  color: #020;
+  color: #040;
   font-variant: small-caps;
   line-height: 0px;
   padding-bottom: 1em;
@@ -39,9 +40,13 @@ body {
 }
 
 .row2 {
-  /*height: auto;*/
   padding-top: 1em;
   padding-bottom: 1em;
+  color: #030;
+}
+
+.row2 article {
+  color: #030;
 }
 
 .row1__menu {
@@ -50,27 +55,13 @@ body {
 }
 
 .row1--link {
-  /*width: 25%;*/
-  /*margin: 0 auto;*/
   text-align: center;
-  /*font-family: sans-serif;*/
-  /*font-size: 12px;*/
-  /*font-variant: small-caps;*/
   font-weight: bold;
 }
 
 a {
   text-decoration: none;
   /*color: red;*/
-}
-
-.row2__right {
-  height: auto;
-  /*padding: 1em;*/
-  /*margin-left: auto;*/
-  /*margin-right: auto;*/
-  /*padding-left: 10%;*/
-  /*padding-right: 10%;*/
 }
 
 .timestamp {
@@ -96,6 +87,7 @@ div.post {
 
 .post__content {
   /*font-family: Tahoma, Geneva, sans-serif;*/
+  color: #030;
 }
 
 hr {
