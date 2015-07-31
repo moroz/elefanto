@@ -87,7 +87,7 @@ a {
 }
 
 div.post {
-  padding: 0.5em;
+  padding: none;
 }
 
 .post--lang_zh {
@@ -111,8 +111,8 @@ hr {
 }
 
 /*Tylko na komórce!*/
-@media only screen and (max-device-width: 480px) {
+@media only screen and (min-device-width: 480px) {
   div.post {
-    padding: none;
+    padding: 0.5em;
   }
 }
