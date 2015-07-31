@@ -109,3 +109,10 @@ hr {
     -webkit-border-radius: 10px;
     border-radius:         10px;
 }
+
+/*Tylko na komórce!*/
+@media only screen and (max-device-width: 480px) {
+  div.post {
+    padding: none;
+  }
+}
