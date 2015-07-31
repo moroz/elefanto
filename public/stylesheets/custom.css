@@ -36,7 +36,9 @@ body {
 }
 
 .row2 {
-  height: auto;
+  /*height: auto;*/
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .row1--menu {
@@ -83,6 +85,18 @@ a {
     font-weight: bold;
     margin: 5px 0;
     padding: 0;
+}
+
+div.post {
+  padding: 0.5em;
+}
+
+.post--lang_zh {
+  font-size: 120%;
+}
+
+.post__content {
+  /*font-family: Tahoma, Geneva, sans-serif;*/
 }
 
 hr {
