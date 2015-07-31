@@ -10,13 +10,15 @@
     = csrf_meta_tags
   %body
     .w3-container.layout--background
-      = render 'shared/header'
-      .w3-col.l2
-        &nbsp;
-      .w3-col.l8.light-green-l2.row2__right.w3-padding
-        - flash.each do |key, value|
-          %div{:class => "flash #{key}"}= value
-        = yield
-      .w3-col.l2
-        &nbsp;
-      = render 'shared/footer'
+      .w3-row.w3-container.wrapper
+        .w3-col.l2
+          &nbsp;
+        .w3-col.l8.s12
+          = render 'shared/header'
+          .light-green.w3-container.row2
+            - flash.each do |key, value|
+              %div{:class => "flash #{key}"}= value
+            = yield
+          = render 'shared/footer'
+        .w3-col.l2
+          &nbsp;

@@ -7,6 +7,10 @@ body {
   font-family: Helvetica, Tahoma, Arial, sans-serif;
 }
 
+.wrapper {
+  margin-bottom: 1em;
+}
+
 .row1--header {
   height: auto;
   padding: none;
