@@ -3,17 +3,17 @@
     = post_number(@post.number) + @post.title
   = #render 'posts/buttons', :post => @post
   %span.timestamp
-    -# if signed_in? and current_user.admin?
-    Modified:
-    = @post.updated_at.to_s
-    %br
-    Created:
-    = @post.created_at.to_s
-    -# else
-    -#  = @post.updated_at.to_s
+    - if logged_in?
+      Modified:
+      = @post.updated_at.to_s
+      %br
+      Created:
+      = @post.created_at.to_s
+    - else
+      = @post.updated_at.to_s
     %br
     = link_to 'Permalink', post_path(@post)
-    - if true
+    - if logged_in?
       &bull;
       = link_to "Edit", edit_post_path(post)
       &bull;

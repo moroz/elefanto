@@ -13,4 +13,9 @@ module ApplicationHelper
       "background-buddha.jpg", "background-tatooine.jpg"]
     path = "url(/images/backgrounds/" + images.shuffle.first + ")"
   end
+
+  def logged_in?
+    return true if current_user
+    nil
+  end
 end
