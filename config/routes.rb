@@ -12,10 +12,15 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   resources :posts
+  resources :users
   get 'posts/new'
   get '/blog' => 'posts#index'
   resources :blog, :controller => 'posts', :only => [:show]
   match '/latest' => 'posts#show', :id => Post.blog.first.id, :via => [:get]
+
+  get "/log-in" => "sessions#new"
+  post "/log-in" => "sessions#create"
+  get "/log-out" => "sessions#destroy", as: :log_out
 
   # Example resource route with options:
   #   resources :products do

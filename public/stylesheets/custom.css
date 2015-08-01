@@ -8,7 +8,7 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-repeat: repeat-y;
-  background-color: #6b6;
+  background-color: #195555;
   height: 100%;
   font-family: Helvetica, Tahoma, Arial, sans-serif;
 }
@@ -20,7 +20,7 @@ body {
 .row1--header {
   height: auto;
   margin-top: 2em;
-  color: #040;
+  color: #002626;
   text-align: center;
 }
 
@@ -33,7 +33,7 @@ body {
 
 .row1__title {
   font-family: Arial, sans-serif;
-  color: #040;
+  color: #195555;
   font-variant: small-caps;
   line-height: 0px;
   padding-bottom: 1em;
@@ -44,14 +44,38 @@ body {
   font-size: 3em;
 }
 
+.row1__green a {
+  color: #227122;
+}
+
+.row1__blue a {
+  color: #23355f;
+}
+
+.row1__blue {
+  background-color: #d5d5d5;
+}
+
+.row1__green {
+  background-color: #ddd;
+}
+
 .row2 {
   padding-top: 1em;
   padding-bottom: 1em;
-  color: #030;
+  color: #002626;
 }
 
 .row2 article {
-  color: #030;
+  color: #002626;
+}
+
+.row2 a {
+  color: #0c4f0c;
+}
+
+.row2 a:visited {
+  color: #23355f;
 }
 
 .row1__menu {
@@ -70,13 +94,13 @@ a {
 }
 
 .timestamp {
-    color: #555;
+    color: #003300;
     font-size: 90%;
     font-variant: small-caps;
 }
 
 .post h1, .post h2, .post h3 {
-    color: #020;
+    color: #23355f;
     font-weight: bold;
     margin: 5px 0;
     padding: 0;
@@ -92,7 +116,7 @@ div.post {
 
 .post__content {
   /*font-family: Tahoma, Geneva, sans-serif;*/
-  color: #030;
+  color: #002626;
 }
 
 hr {
