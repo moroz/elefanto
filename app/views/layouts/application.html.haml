@@ -8,7 +8,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     <meta name="viewport" content="width=device-width, initial-scale=1">
     = csrf_meta_tags
-  %body
+  %body{:style => "background-image: #{background}"}
     .w3-container.layout--background
       .w3-row.w3-container.wrapper
         .w3-col.l2
