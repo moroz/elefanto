@@ -1,7 +1,6 @@
 .post
   %h3
-    = "#{@post.number}. " unless @post.number == 0
-    = @post.title
+    = post_number(@post.number) + @post.title
   = #render 'posts/buttons', :post => @post
   %span.timestamp
     -# if signed_in? and current_user.admin?
