@@ -40,6 +40,18 @@ body {
   padding-top: 0px;
 }
 
+.row1__langs {
+  position: relative;
+  float: right;
+  /*right: 0;*/
+  height: 0;
+  margin-left: 0.5em;
+  margin-bottom: 0.5em;
+  /*top: -30px;*/
+  overflow: visible;
+  clear: none;
+}
+
 .row1__title h1 {
   font-size: 3em;
 }

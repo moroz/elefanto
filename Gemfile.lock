@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/svenfuchs/i18n.git
+  revision: f19893d84262261d9c8abe303f465ea28ba057e4
+  specs:
+    i18n (0.7.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -70,7 +76,6 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
-    i18n (0.7.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -175,6 +180,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   haml-rails
+  i18n!
   jbuilder (~> 2.0)
   jquery-rails
   mysql2

@@ -18,4 +18,8 @@ module ApplicationHelper
     return true if current_user
     nil
   end
+
+  def current_locale
+    I18n.locale
+  end
 end

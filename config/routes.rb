@@ -11,10 +11,17 @@ Rails.application.routes.draw do
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
-  resources :posts
+  scope "(:locale)", locale: /en|pl|zh/ do
+    resources :posts
+  end
   resources :users
-  get 'posts/new'
-  get '/blog' => 'posts#index'
+  get '/blog' => 'posts#index', locale: /en|pl|zh/
+  get '/:locale/blog' => 'posts#index', locale: /en|pl|zh/
+  get '/:locale' => 'pages#home', locale: /en|pl|zh/
+  get "/:locale/about" => 'pages#about', locale: /en|pl|zh/
+  get "/:locale/links" => 'pages#links', locale: /en|pl|zh/
+  get "/links" => 'pages#links'
+  get "/about" => 'pages#about'
   resources :blog, :controller => 'posts', :only => [:show]
   match '/latest' => 'posts#show', :id => Post.blog.first.id, :via => [:get]
 

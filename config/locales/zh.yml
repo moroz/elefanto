@@ -1,0 +1,16 @@
+zh:
+  hello: "你好，世界！"
+  blog_archive: "博客档案"
+  homepage: "主页"
+  blog: "博客"
+  about: "关于我"
+  links: "连接"
+  elefanto: "大象日記"
+  memoirs: "來自波蘭的大象日記"
+
+  will_paginate:
+    next_label: "下一页 &#8594;"
+    previous_label: "&#8592; 上一页"
+    page_entries_info:
+      multi_page_html: "在显示第<b>%{from}</b>至第<b>%{to}</b>篇文章（总<b>%{count}</b>篇）"
+    page_gap: "&hellip;"

@@ -16,6 +16,10 @@
         .w3-col.l8.s12
           = render 'shared/header'
           .grey-l2.w3-container.row2
+            %nav.w3-topnav.w3-padding.row1__langs
+              = link_to("English", url_for( :locale => :en))
+              = link_to("中文版", url_for( :locale => :zh))
+              = link_to("Polish", url_for( :locale => :pl))
             - flash.each do |key, value|
               %div{:class => "flash #{key}"}= value
             %article= yield

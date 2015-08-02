@@ -20,4 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello: "Hello World!"
+  blog_archive: "Blog archive"
+  homepage: "Homepage"
+  blog: "Blog"
+  about: "About me"
+  links: "Links"
+  elefanto: "Elefanto"
+  memoirs: "Memoirs of an elephant"
+
+  will_paginate:
+    next_label: "Next &#8594;"
+    previous_label: "&#8592; Previous"
+    page_entries_info:
+      multi_page_html: "Presenting %{model}s <b>%{from}&nbsp;-&nbsp;%{to}</b> out of <b>%{count}</b>:"
+    page_gap: "&hellip;"

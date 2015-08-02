@@ -1,14 +1,15 @@
 .row1--header
   .grey-l2
     .row1__title
-      <h1>Elefanto</h1>
-      Memoirs of an elephant
+      %h1= t("elefanto")
+      = t("memoirs") #Memoirs of an elephant
     .w3-topnav.row1__menu
       .w3-col.w3-quarter.row1--link.w3-padding.row1__blue
-        %span.row1--link= link_to "Strona główna", :controller => :pages, :action => :home
+        %span.row1--link= link_to t("homepage"), :controller => :pages, :action => :home, :locale => current_locale
       .w3-col.w3-quarter.row1--link.w3-padding.row1__green
-        %span.row1--link= link_to "Blog", '/blog'
+        %span.row1--link= link_to t("blog"), :controller => :posts, :action => :index, :locale => current_locale
       .w3-col.w3-quarter.row1--link.w3-padding.row1__blue
-        %span.row1--link= link_to "O mnie", '#'
+        %span.row1--link= link_to t("about"), :controller => :pages, :action => :about, :locale => current_locale
       .w3-col.w3-quarter.row1--link.w3-padding.row1__green
-        %span.row1--link= link_to "Linki", '#'
+        %span.row1--link= link_to t("links") , :controller => :pages, :action => :links,  :locale => current_locale
+    

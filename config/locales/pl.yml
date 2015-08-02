@@ -1,0 +1,16 @@
+pl:
+  hello: "Witaj, świecie!"
+  blog_archive: "Archiwum bloga"
+  homepage: "Strona główna"
+  blog: "Blog"
+  about: "O mnie"
+  links: "Linki"
+  elefanto: "Elefanto"
+  memoirs: "Pamiętniki słonia"
+
+  will_paginate:
+    next_label: "Następna &#8594;"
+    previous_label: "&#8592; Poprzednia"
+    page_entries_info:
+      multi_page_html: "%{model}y <b>%{from}&nbsp;-&nbsp;%{to}</b> z <b>%{count}</b>:"
+    page_gap: "&hellip;"
