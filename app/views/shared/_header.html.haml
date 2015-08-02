@@ -1,5 +1,11 @@
 .row1--header
   .grey-l2
+    .w3-topnav.w3-center.w3-small
+      = link_to("English", url_for( :locale => :en))
+      &bull;
+      = link_to("中文", url_for( :locale => :zh))
+      &bull;
+      = link_to("polski", url_for( :locale => :pl))
     .row1__title
       %h1= t("elefanto")
       = t("memoirs") #Memoirs of an elephant
@@ -12,4 +18,3 @@
         %span.row1--link= link_to t("about"), :controller => :pages, :action => :about, :locale => current_locale
       .w3-col.w3-quarter.row1--link.w3-padding.row1__green
         %span.row1--link= link_to t("links") , :controller => :pages, :action => :links,  :locale => current_locale
-    

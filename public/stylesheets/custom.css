@@ -19,7 +19,7 @@ body {
 
 .row1--header {
   height: auto;
-  margin-top: 2em;
+  /*margin-top: 2em;*/
   color: #002626;
   text-align: center;
 }
@@ -41,7 +41,7 @@ body {
 }
 
 .row1__langs {
-  position: relative;
+  /*position: relative;*/
   float: right;
   /*right: 0;*/
   height: 0;
@@ -54,6 +54,7 @@ body {
 
 .row1__title h1 {
   font-size: 3em;
+  margin-top: 0em;
 }
 
 .row1__green a {
