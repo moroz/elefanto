@@ -7,8 +7,7 @@
       &bull;
       = link_to("polski", url_for( :locale => :pl))
     .row1__title
-      %h1= t("elefanto")
-      = t("memoirs") #Memoirs of an elephant
+      = image_tag "elephant-zh-long.png", :id => "elephant"
     .w3-topnav.row1__menu
       .w3-col.w3-quarter.row1--link.w3-padding.row1__blue
         %span.row1--link= link_to t("homepage"), :controller => :pages, :action => :home, :locale => current_locale

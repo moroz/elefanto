@@ -151,3 +151,9 @@ hr {
     padding: 0.5em;
   }
 }
+
+img#elephant {
+  height: auto;
+  width: auto;
+  max-width: 95%;
+}
