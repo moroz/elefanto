@@ -41,15 +41,16 @@ body {
 }
 
 .row1__langs {
-  /*position: relative;*/
-  float: right;
-  /*right: 0;*/
-  height: 0;
-  margin-left: 0.5em;
-  margin-bottom: 0.5em;
-  /*top: -30px;*/
-  overflow: visible;
-  clear: none;
+  color: #23355f;
+  font-weight: bold;
+}
+
+.row1__langs a {
+  color: #0c4f0c;
+}
+
+.row1__langs a:hover {
+  text-decoration: underline;
 }
 
 .row1__title h1 {
