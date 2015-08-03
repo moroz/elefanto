@@ -155,5 +155,6 @@ hr {
 img#elephant {
   height: auto;
   width: auto;
+  display: block;
   max-width: 95%;
 }
