@@ -1,3 +1,16 @@
 div.post {
   padding: none;
 }
+
+body {
+  background-color: #ddd;
+}
+
+.row1__langs {
+
+}
+
+.row2 {
+  padding-left: 1.2em;
+  padding-right: 1.2em;
+}

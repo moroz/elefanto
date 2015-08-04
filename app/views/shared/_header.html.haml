@@ -9,11 +9,11 @@
     .row1__title
       = image_tag "elephant-zh-long.png", :id => "elephant"
     .w3-topnav.row1__menu
-      .w3-col.w3-quarter.row1--link.w3-padding.row1__blue
+      .w3-col.w3-quarter.row1--link.w3-padding.row1--blue
         %span.row1--link= link_to t("homepage"), :controller => :pages, :action => :home, :locale => current_locale
-      .w3-col.w3-quarter.row1--link.w3-padding.row1__green
+      .w3-col.w3-quarter.row1--link.w3-padding.row1--green
         %span.row1--link= link_to t("blog"), :controller => :posts, :action => :index, :locale => current_locale
-      .w3-col.w3-quarter.row1--link.w3-padding.row1__blue
+      .w3-col.w3-quarter.row1--link.w3-padding.row1--blue
         %span.row1--link= link_to t("about"), :controller => :pages, :action => :about, :locale => current_locale
-      .w3-col.w3-quarter.row1--link.w3-padding.row1__green
+      .w3-col.w3-quarter.row1--link.w3-padding.row1--green
         %span.row1--link= link_to t("links") , :controller => :pages, :action => :links,  :locale => current_locale

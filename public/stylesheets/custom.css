@@ -4,17 +4,11 @@ overflow-y: scroll;
 }
 
 body {
-  /*background-image: url("/images/background-sand.jpg");*/
   background-position: center;
   background-attachment: fixed;
   background-repeat: repeat-y;
-  background-color: #195555;
   height: 100%;
   font-family: Helvetica, Tahoma, Arial, sans-serif;
-}
-
-.wrapper {
-  margin-bottom: 1em;
 }
 
 .row1--header {
@@ -24,11 +18,8 @@ body {
   text-align: center;
 }
 
-.row1__logo {
-  float: left;
-  /*height: inherit;*/
-  position: absolute;
-  padding: 1em;
+.wrapper {
+  margin-bottom: 1em;
 }
 
 .row1__title {
@@ -39,6 +30,7 @@ body {
   padding-bottom: 1em;
   padding-top: 0px;
 }
+
 
 .row1__langs {
   color: #23355f;
@@ -58,19 +50,25 @@ body {
   margin-top: 0em;
 }
 
-.row1__green a {
+.row1--green a {
   color: #227122;
+  font-weight: bold;
 }
 
-.row1__blue a {
+.row1--blue a {
   color: #23355f;
+  font-weight: bold;
 }
 
-.row1__blue {
+.row1--blue a:hover, .row1--green a:hover {
+  text-decoration: underline;
+}
+
+.row1--blue {
   background-color: #d5d5d5;
 }
 
-.row1__green {
+.row1--green {
   background-color: #ddd;
 }
 
@@ -84,18 +82,14 @@ body {
   color: #002626;
 }
 
-.row2 a {
+a {
   color: #0c4f0c;
 }
 
-.row2 a:visited {
+a:visited {
   color: #23355f;
 }
 
-.row1__menu {
-  height: auto;
-  padding: none;
-}
 
 .row1--link {
   text-align: center;
@@ -113,9 +107,9 @@ a {
     font-variant: small-caps;
 }
 
-.post h1, .post h2, .post h3 {
+.post h1, .post h2, .post h3, h1 {
     color: #23355f;
-    font-weight: bold;
+    /*font-weight: bold;*/
     margin: 5px 0;
     padding: 0;
 }
@@ -143,13 +137,6 @@ hr {
     -moz-border-radius:    10px;
     -webkit-border-radius: 10px;
     border-radius:         10px;
-}
-
-/*Tylko na komórce!*/
-@media only screen and (min-device-width: 480px) {
-  div.post {
-    padding: 0.5em;
-  }
 }
 
 img#elephant {
