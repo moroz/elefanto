@@ -30,9 +30,4 @@ module PostsHelper
       return ""
     end
   end
-
-  def logged_in?
-    return true if current_user
-    nil
-  end
 end

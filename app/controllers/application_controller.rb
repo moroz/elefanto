@@ -25,5 +25,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def logged_in?
+    return true if current_user
+    nil
+  end
+
   helper_method :current_user
 end
