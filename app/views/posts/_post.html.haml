@@ -10,8 +10,8 @@
       Created:
       = @post.created_at.to_s
     - else
-      = @post.updated_at.to_s
-    %br
+      = l @post.updated_at, :format => :long
+    &bull;
     = link_to 'Permalink', post_path(@post)
     - if logged_in?
       &bull;
