@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def which_layout
-    if browser.mobile? || browser.tablet?
+    if browser.mobile?
       'mobile'
     else
       'application'

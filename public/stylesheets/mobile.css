@@ -14,3 +14,11 @@ body {
   padding-left: 1.2em;
   padding-right: 1.2em;
 }
+
+img#elephant {
+  height: auto;
+  width: auto;
+  display: block;
+  max-width: 75%;
+  margin: 0 auto;
+}
