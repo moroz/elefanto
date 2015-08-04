@@ -14,5 +14,5 @@
       .grey-l2.w3-container.row2
         - flash.each do |key, value|
           %div{:class => "flash #{key}"}= value
-          %article= yield
+        = yield
       = render 'shared/footer'
