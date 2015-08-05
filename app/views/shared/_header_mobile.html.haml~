@@ -9,7 +9,7 @@
     .row1--green
       = link_to t("about"), :controller => :pages, :action => :about, :locale => current_locale
       &bull;
-      = link_to t("faq") , :controller => :pages, :action => :faq,  :locale => current_locale
+      = link_to t("links") , :controller => :pages, :action => :links,  :locale => current_locale
   .w3-center.row1--blue
     = link_to("English", url_for( :locale => :en))
     &bull;

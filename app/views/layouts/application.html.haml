@@ -11,7 +11,9 @@
   %body{:style => "background-image: #{background}"}
     .container.wrapper
       = render 'shared/header'
-      - flash.each do |key, value|
-        %div{:class => "alert alert-#{key}"}= value
-      = yield
+      <!-- %hr -->
+      .row2
+        - flash.each do |key, value|
+          %div{:class => "alert alert-#{key}"}= value
+        = yield
       = render 'shared/footer'
