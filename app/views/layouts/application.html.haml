@@ -4,21 +4,14 @@
     %title
       = @title ? @title : "Elefanto — Memoirs of an Elephant"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = stylesheet_link_tag 'w3', 'custom', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     <meta name="viewport" content="width=device-width, initial-scale=1">
     = csrf_meta_tags
   %body{:style => "background-image: #{background}"}
-    .w3-container
-      .w3-row.w3-container.wrapper
-        .w3-col.l2
-          &nbsp;
-        .w3-col.l8.s12
-          = render 'shared/header'
-          .grey-l2.w3-container.row2
-            - flash.each do |key, value|
-              %div{:class => "flash #{key}"}= value
-            %article= yield
-          = render 'shared/footer'
-        .w3-col.l2
-          &nbsp;
+    .container.wrapper
+      = render 'shared/header'
+      - flash.each do |key, value|
+        %div{:class => "flash #{key}"}= value
+      = yield
+      = render 'shared/footer'

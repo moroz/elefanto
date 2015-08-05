@@ -1,8 +1,15 @@
 .post
-  %h3
-    = post_number(@post.number) + @post.title
+  .page-header
+    %h3
+      = post_number(@post.number) + @post.title
   = #render 'posts/buttons', :post => @post
   %span.timestamp
+    - if true
+      = link_to 'Permalink', post_path(@post), class: 'btn btn-primary'
+      = link_to "Edit", edit_post_path(post), class: 'btn btn-warning'
+      = link_to "Delete", post, :method => :delete, :confirm => "You sure?",
+        :title => "Delete #{post.title}", :class => 'btn btn-danger'
+    %br
     - if logged_in?
       Modified:
       = @post.updated_at.to_s
@@ -11,14 +18,6 @@
       = @post.created_at.to_s
     - else
       = l @post.updated_at, :format => :long
-    &bull;
-    = link_to 'Permalink', post_path(@post)
-    - if logged_in?
-      &bull;
-      = link_to "Edit", edit_post_path(post)
-      &bull;
-      = link_to "Delete", post, :method => :delete, :confirm => "You sure?",
-        :title => "Delete #{post.title}"
   - unless @post.description == nil or @post.description == ""
     %span.post_description= do_formatting(@post.description, @post.textile_enabled)
   -#%div.lang_versions= raw(lang_version(@post))
