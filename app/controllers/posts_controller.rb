@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     #     @title = "Creating new post"
     #     render 'new'
     #   else
-        flash[:error] = "There is no such post."
+        flash[:danger] = "There is no such post."
         redirect_to root_path
     #   end
     else
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
   def new
     unless logged_in?
-      flash[:error] = "You are not allowed to perform this action"
+      flash[:danger] = "You are not allowed to perform this action"
       redirect_to 'pages#home'
     else
       @post = Post.new(:number => Post.blog.first.number + 1, :textile_enabled => true)
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
 
   def create
     unless logged_in?
-      flash[:error] = "You are not allowed to perform this action"
+      flash[:danger] = "You are not allowed to perform this action"
       redirect_to 'pages#home'
     else
       @post = Post.new(post_params)
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find_by_id_or_title(params[:id])
     unless logged_in?
-      flash[:error] = "You are not allowed to perform this action"
+      flash[:danger] = "You are not allowed to perform this action"
       redirect_to @post
     else
       @title = "Edit post #{@post.title}"
@@ -79,7 +79,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by_id_or_title(params[:id])
     if not logged_in?
-      flash[:error] = "You are not allowed to perform this action"
+      flash[:danger] = "You are not allowed to perform this action"
       redirect_to post_path(@post)
     elsif
       flash[:success] = "The post was successfully destroyed."

@@ -12,6 +12,6 @@
     .container.wrapper
       = render 'shared/header'
       - flash.each do |key, value|
-        %div{:class => "flash #{key}"}= value
+        %div{:class => "alert alert-#{key}"}= value
       = yield
       = render 'shared/footer'

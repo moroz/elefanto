@@ -2,22 +2,20 @@
   .page-header
     %h3
       = post_number(@post.number) + @post.title
-  = #render 'posts/buttons', :post => @post
-  %span.timestamp
-    - if true
-      = link_to 'Permalink', post_path(@post), class: 'btn btn-primary'
-      = link_to "Edit", edit_post_path(post), class: 'btn btn-warning'
-      = link_to "Delete", post, :method => :delete, :confirm => "You sure?",
-        :title => "Delete #{post.title}", :class => 'btn btn-danger'
-    %br
-    - if logged_in?
-      Modified:
-      = @post.updated_at.to_s
-      %br
-      Created:
-      = @post.created_at.to_s
-    - else
-      = l @post.updated_at, :format => :long
+    %span.timestamp
+      - if logged_in?
+        Modified:
+        = @post.updated_at.to_s
+        %br
+        Created:
+        = @post.created_at.to_s
+      - else
+        = l @post.updated_at, :format => :long
+      = link_to 'Permalink', post_path(@post), class: 'btn-xs btn-primary'
+      - if logged_in?
+        = link_to "Edit", edit_post_path(post), class: 'btn-xs btn-warning'
+        = link_to "Delete", post, :method => :delete, :confirm => "You sure?",
+          :title => "Delete #{post.title}", :class => 'btn-xs btn-danger'
   - unless @post.description == nil or @post.description == ""
     %span.post_description= do_formatting(@post.description, @post.textile_enabled)
   -#%div.lang_versions= raw(lang_version(@post))
