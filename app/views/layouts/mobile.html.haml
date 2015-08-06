@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     = csrf_meta_tags
   %body
-    .wrapper
+    .container
       = render 'shared/header_mobile'
-      .grey-l2.w3-container.row2
+      .row2
         - flash.each do |key, value|
           %div{:class => "flash #{key}"}= value
         = yield
