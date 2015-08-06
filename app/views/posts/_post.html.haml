@@ -13,9 +13,9 @@
         = l @post.updated_at, :format => :long
       = link_to 'Permalink', post_path(@post), class: 'btn-xs btn-primary'
       - if logged_in?
-        = link_to "Edit", edit_post_path(post), class: 'btn-xs btn-warning'
+        = link_to "Edit", edit_post_path(post), class: 'btn-xs btn-success'
         = link_to "Delete", post, :method => :delete, :confirm => "You sure?",
-          :title => "Delete #{post.title}", :class => 'btn-xs btn-danger'
+          :title => "Delete #{post.title}", :class => 'btn-xs btn-warning'
   - unless @post.description == nil or @post.description == ""
     %span.post_description= do_formatting(@post.description, @post.textile_enabled)
   -#%div.lang_versions= raw(lang_version(@post))

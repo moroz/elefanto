@@ -62,12 +62,14 @@ img#elephant {
 //   padding-bottom: 1em;
 //   padding-top: 0px;
 // }
-//
-// .row1__langs {
-//   color: #23355f;
-//   font-weight: bold;
-// }
-//
+
+.row1__langs {
+  color: #23355f;
+  font-weight: bolder;
+  margin-top: 5px;
+  margin-bottom: -30px;
+}
+
 // .row1__langs a {
 //   color: #0c4f0c;
 // }
@@ -132,6 +134,18 @@ img#elephant {
   // padding: 1em;
   // clear: both;
   margin: auto;
+}
+
+.row1__menu {
+  div {
+    background-color: #ccc;
+    padding: 5px;
+  }
+
+  a {
+    color: #030;
+    font-weight: bolder;
+  }
 }
 
 // a {
