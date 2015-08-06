@@ -23,6 +23,7 @@ overflow-y: scroll;
 
 body {
   background-image: none;
+  font-family: Tahoma, Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback" sans-serif;
 }
 
 
@@ -67,7 +68,7 @@ img#elephant {
   color: #23355f;
   font-weight: bolder;
   margin-top: 5px;
-  margin-bottom: -30px;
+  // margin-bottom: -30px;
 }
 
 // .row1__langs a {
@@ -170,15 +171,10 @@ img#elephant {
 //   padding: none;
 // }
 //
-// .post--lang_zh {
-//   font-size: 120%;
-// }
-//
 // .post__content {
-//   /*font-family: Tahoma, Geneva, sans-serif;*/
 //   color: #002626;
+//   font-size: 110%;
 // }
-//
 // hr {
 //     width: 50%;
 //     margin: 0 auto;
