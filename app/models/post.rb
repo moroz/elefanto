@@ -36,6 +36,10 @@ class Post < ActiveRecord::Base
     self.save
   end
 
+  def is_chinese?
+    self.language == "zh"
+  end
+
   scope :blog, -> {
     where('posts.number > ?', 0).order(number: :desc)
   }

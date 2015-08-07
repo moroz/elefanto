@@ -1,6 +1,9 @@
 %span
   - post_title = post_number(post.number) + post.title
   %strong= link_to post_title, post_path(post)#, class: "blue"
-  - words = count_words(post.content, false) #post.is_chinese?)
-  = "(#{pluralize(words, "word")})"# & #{pluralize(post.comments.count, "comment")}"
+  - words = count_words(post.content, post.is_chinese?)
+  - if post.is_chinese?
+    = "(#{pluralize(words, "character")})"
+  - else
+    = "(#{pluralize(words, "word")})"
   %br
