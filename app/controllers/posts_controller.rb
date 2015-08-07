@@ -74,7 +74,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title,:number,:content,:description,:textile_enabled)
+    params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:language)
   end
 
   def post_number(number)
