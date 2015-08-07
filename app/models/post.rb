@@ -24,11 +24,11 @@ class Post < ActiveRecord::Base
   end
 
   def previous_post
-    self.class.where("number < ?", number).last
+    self.class.where("number < ?", number).order(number: :desc).first
   end
 
   def next_post
-    self.class.where("number > ?", number).first
+    self.class.where("number > ?", number).order(number: :asc).first
   end
 
   def set_lang(lang)
