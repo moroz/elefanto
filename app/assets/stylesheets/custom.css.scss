@@ -26,7 +26,6 @@ body {
   font-family: Tahoma, Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback" sans-serif;
 }
 
-
 img#elephant {
   display: block;
   max-width: 75%;
@@ -55,15 +54,6 @@ img#elephant {
   }
 }
 
-// .row1__title {
-//   font-family: Arial, sans-serif;
-//   color: #195555;
-//   font-variant: small-caps;
-//   line-height: 0px;
-//   padding-bottom: 1em;
-//   padding-top: 0px;
-// }
-
 .row1__langs {
   color: #23355f;
   font-weight: bolder;
@@ -71,41 +61,6 @@ img#elephant {
   // margin-bottom: -30px;
 }
 
-// .row1__langs a {
-//   color: #0c4f0c;
-// }
-//
-// .row1__langs a:hover {
-//   text-decoration: underline;
-// }
-//
-// .row1__title h1 {
-//   font-size: 3em;
-//   margin-top: 0em;
-// }
-//
-// .row1--green a {
-//   color: #227122;
-//   font-weight: bold;
-// }
-//
-// .row1--blue a {
-//   color: #23355f;
-//   font-weight: bold;
-// }
-//
-// .row1--blue a:hover, .row1--green a:hover {
-//   text-decoration: underline;
-// }
-//
-// .row1--blue {
-//   background-color: #d5d5d5;
-// }
-//
-// .row1--green {
-//   background-color: #ddd;
-// }
-//
 .row2 {
   padding-top: 1em;
   // padding-bottom: 1em;
@@ -116,15 +71,14 @@ img#elephant {
 // .row2 article {
 //   color: #002626;
 // }
-//
-// a {
-//   color: #0c4f0c;
-// }
-//
-// a:visited {
-//   color: #23355f;
-// }
-//
+
+a {
+  color: #0c4f0c;
+}
+
+a:visited {
+  color: #23355f;
+}
 
 .row1--link {
   text-align: center;
@@ -140,7 +94,7 @@ img#elephant {
 .row1__menu {
   div {
     background-color: #ccc;
-    padding: 5px;
+    padding: 0.5em;
   }
 
   a {
@@ -149,41 +103,43 @@ img#elephant {
   }
 }
 
-// a {
-//   text-decoration: none;
-//   /*color: red;*/
-// }
-//
-// .timestamp {
-//     color: #003300;
-//     font-size: 90%;
-//     /*font-variant: small-caps;*/
-// }
-//
-// .post h1, .post h2, .post h3, h1 {
-//     color: #23355f;
-//     /*font-weight: bold;*/
-//     margin: 5px 0;
-//     padding: 0;
-// }
-//
-// div.post {
-//   padding: none;
-// }
-//
-// .post__content {
-//   color: #002626;
-//   font-size: 110%;
-// }
-// hr {
-//     width: 50%;
-//     margin: 0 auto;
-//     color: #666;
-// }
-//
-// .round {
-//     -moz-border-radius:    10px;
-//     -webkit-border-radius: 10px;
-//     border-radius:         10px;
-// }
-//
+.timestamp {
+    color: #003300;
+    font-size: 90%;
+    /*font-variant: small-caps;*/
+}
+
+.post__content {
+  color: #002626;
+  // font-size: 110%;
+}
+
+hr {
+    width: 50%;
+}
+
+.post--lang_en {
+  // font-size: 100%;
+}
+
+.post--lang_zh {
+  font-size: 115%;
+}
+
+.post__lang_versions {
+  background-color: #ccc;
+  border: solid 1px #999;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  margin-top: -0.5em;
+  border-radius: 4px;
+}
+
+.post__linkbox {
+  background-color: #ccc;
+  border: solid 1px #999;
+  padding: 1em;
+  margin: 1em;
+  height: auto;
+  font-weight: bolder;
+}

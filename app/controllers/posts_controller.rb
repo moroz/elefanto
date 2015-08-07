@@ -11,12 +11,13 @@ class PostsController < ApplicationController
         redirect_to root_path
     #   end
     else
-      @title = "Elefanto: #{@post.number}. #{@post.title}"
+      @title = I18n.t("elefanto") + ": #{post_number(@post.number)}#{@post.title}"
       # @new_comment = @post.comments.build
       # @comments = @post.comments.paginate(:page => params[:page])
       # @categories = @post.categories
       # session[:post_id] = @post.id
       @post.increment_views
+      @lang_versions = @post.lang_versions
       # if @post.number != 0
         # @previous_post = Post.blog.where("number < #{@post.number}").first
         # @next_post = Post.blog.where("number > #{@post.number}").last
@@ -74,6 +75,16 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title,:number,:content,:description,:textile_enabled)
+  end
+
+  def post_number(number)
+    if number == number.to_i
+      return "%d. " % number
+    elsif number != number.to_i
+      return (("%.1f" % number).gsub('.', ',')) + ". "
+    elsif number == 0
+      return ""
+    end
   end
 
   def destroy

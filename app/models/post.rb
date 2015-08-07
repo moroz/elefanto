@@ -18,6 +18,18 @@ class Post < ActiveRecord::Base
     Post.increment_counter(:views, self.id)
   end
 
+  def lang_versions
+    self.class.where("number = ? and id <> ?", number, id).to_a
+  end
+
+  def previous_post
+    self.class.where("number < ?", number).last
+  end
+
+  def next_post
+    self.class.where("number > ?", number).first
+  end
+
   scope :blog, -> {
     where('posts.number > ?', 0).order(number: :desc)
   }

@@ -2,11 +2,20 @@ pl:
   hello: "Witaj, świecie!"
   blog_archive: "Archiwum bloga"
   homepage: "Strona główna"
+  elefanto: Elefanto
   blog: "Blog"
   about: "O mnie"
   faq: "FAQ"
   elefanto: "Elefanto"
   memoirs: "Pamiętniki słonia"
+  lang_separator: ", "
+  language_versions: "Ten post jest w języku <strong>%{language}m</strict>. Inne wersje językowe: %{versions}."
+  pl: polski
+  en: angielski
+  zh: chiński
+  de: niemiecki
+  ru: rosyjski
+  es: hiszpański
 
   will_paginate:
     next_label: "Następna &#8594;"
