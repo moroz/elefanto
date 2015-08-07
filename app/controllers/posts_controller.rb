@@ -11,7 +11,8 @@ class PostsController < ApplicationController
         redirect_to root_path
     #   end
     else
-      @title = I18n.t("elefanto") + ": #{post_number(@post.number)}#{@post.title}"
+      post_number = PostsHelper::post_number(@post.number)
+      @title = I18n.t("elefanto") + ": #{post_number}#{@post.title}"
       # @new_comment = @post.comments.build
       # @comments = @post.comments.paginate(:page => params[:page])
       # @categories = @post.categories
@@ -57,7 +58,8 @@ class PostsController < ApplicationController
       flash[:danger] = "You are not allowed to perform this action"
       redirect_to @post
     else
-      @title = "Edit post #{@post.title}"
+      post_number = PostsHelper::post_number(@post.number)
+      @title = "Editing post #{post_number}#{@post.title}"
       render 'new'
     end
   end
@@ -75,16 +77,6 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:language)
-  end
-
-  def post_number(number)
-    if number == number.to_i
-      return "%d. " % number
-    elsif number != number.to_i
-      return (("%.1f" % number).gsub('.', ',')) + ". "
-    elsif number == 0
-      return ""
-    end
   end
 
   def destroy

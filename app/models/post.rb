@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   validates :content, presence: true
   cattr_reader :per_page
   @@per_page = 25
+  LANGUAGES = {"en" => "English", "pl" => "Polish", "zh" => "Chinese", "es" => "Spanish", "ru" => "Russian"}
 
   def self.find_by_id_or_title(string)
     unless string.to_i == 0

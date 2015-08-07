@@ -21,7 +21,7 @@ module PostsHelper
     return s
   end
 
-  def post_number(number)
+  def self.post_number(number)
     if number == number.to_i
       return "%d. " % number
     elsif number != number.to_i
@@ -29,6 +29,10 @@ module PostsHelper
     elsif number == 0
       return ""
     end
+  end
+
+  def post_number(number)
+    return PostsHelper.post_number(number)
   end
 
   def languages(lang_versions)
