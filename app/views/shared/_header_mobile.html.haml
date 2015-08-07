@@ -10,9 +10,10 @@
       = link_to t("about"), :controller => :pages, :action => :about, :locale => current_locale
     .col-xs-6.text-center
       = link_to t("faq") , :controller => :pages, :action => :faq,  :locale => current_locale
-  .w3-center.row1__langs
-    = link_to("English", url_for( :locale => :en))
-    &bull;
-    = link_to("中文", url_for( :locale => :zh))
-    &bull;
-    = link_to("polski", url_for( :locale => :pl))
+  .row.row1__langs.text-center
+    .col-xs-4
+      = link_to("English", url_for( :locale => :en))
+    .col-xs-4
+      = link_to("中文", url_for( :locale => :zh))
+    .col-xs-4
+      = link_to("polski", url_for( :locale => :pl))

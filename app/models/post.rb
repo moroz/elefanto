@@ -30,6 +30,11 @@ class Post < ActiveRecord::Base
     self.class.where("number > ?", number).first
   end
 
+  def set_lang(lang)
+    self.language = lang.to_s
+    self.save
+  end
+
   scope :blog, -> {
     where('posts.number > ?', 0).order(number: :desc)
   }
