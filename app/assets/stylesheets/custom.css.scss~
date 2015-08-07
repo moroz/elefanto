@@ -150,6 +150,4 @@ hr {
 
 .faq__questions {
   font-size: 115%;
-  font-weight: bolder;
-  color: #002626;
-}
+  
