@@ -1,27 +1,30 @@
 = render 'shared/error_messages', :object => f.object
-.w3-group
-  = f.text_field :title, :class => "w3-input blue-d2"
-  = f.label :title, 'Title:', :class => "w3-label"
+.form-group
+  = f.label :title, 'Title:'
+  = f.text_field :title, :class => "form-control"
 
-.w3-group
-  = f.text_field :number, :size => 5, :class => "w3-input blue-d2"
-  = f.label :title, 'Post number:', :class => "w3-label"
+.form-group
+  = f.label :title, 'Post number:'
+  = f.text_field :number, :size => 5, :class => "form-control"
   (blog posts only - type in 0 for a non-blog post)
 
-.w3-group
-  = f.text_field :description, :class => "w3-input blue-d2"
-  = f.label :description, 'Description:', :class => "w3-label"
+.form-group
+  = f.label :description, 'Description:'
+  = f.text_field :description, :class => "form-control"
 
-.w3-group
-  = f.text_area :content, :class => "w3-input blue-d2"
-  = f.label :content, :class => "w3-label"
+.form-group
+  = f.label :language, 'Language:'
+  = f.collection_select :language, Post::LANGUAGES, :first, :last,
+       :include_blank => false
 
-.w3-group
-  <label class="w3-checkbox" for="post_textile_enabled">
+.form-group
+  = f.label :content
+  = f.text_area :content, :class => "form-control"
+
+.form-group
   <input name="post[textile_enabled]" type="hidden" value="0" />
-  <input class="w3-checkbox blue-d2" type="checkbox" value="1" name="post[textile_enabled]" id="post_textile_enabled" />
-  <div class="w3-checkmark"></div>
+  <input type="checkbox" value="1" name="post[textile_enabled]" id="post_textile_enabled" />
   Textile enabled<br />(check if you want to use Textile for rendering)
   </label>
 
-= f.submit "Send", :class => "w3-btn blue-d2"
+= f.submit "Send", :class => "btn btn-default"

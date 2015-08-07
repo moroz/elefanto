@@ -1,5 +1,20 @@
----
 pl:
+  hello: "Witaj, świecie!"
+  blog_archive: "Archiwum bloga"
+  homepage: "Strona główna"
+  blog: "Blog"
+  about: "O mnie"
+  links: "Linki"
+  elefanto: "Elefanto"
+  memoirs: "Pamiętniki słonia"
+
+  will_paginate:
+    next_label: "Następna &#8594;"
+    previous_label: "&#8592; Poprzednia"
+    page_entries_info:
+      multi_page_html: "%{model}y <b>%{from}&nbsp;-&nbsp;%{to}</b> z <b>%{count}</b>:"
+    page_gap: "&hellip;"
+
   date:
     abbr_day_names:
     - nie
@@ -10,7 +25,7 @@ pl:
     - pi?
     - sob
     abbr_month_names:
-    - 
+    -
     - sty
     - lut
     - mar
@@ -36,19 +51,19 @@ pl:
       long: "%B %d, %Y"
       short: "%d %b"
     month_names:
-    - 
-    - stycze?
-    - luty
-    - marzec
-    - kwiecie?
-    - maj
-    - czerwiec
-    - lipiec
-    - sierpie?
-    - wrzesie?
-    - pa?dziernik
-    - listopad
-    - grudzie?
+    -
+    - stycznia
+    - lutego
+    - marca
+    - kwietnia
+    - maja
+    - czerwca
+    - lipca
+    - sierpnia
+    - września
+    - października
+    - listopada
+    - grudnia
     order:
     - :day
     - :month
@@ -232,6 +247,6 @@ pl:
     am: przed po?udniem
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
-      long: "%B %d, %Y %H:%M"
+      long: "%d %B %Y, %H:%M"
       short: "%d %b %H:%M"
     pm: po po?udniu

@@ -25,16 +25,9 @@ en:
   homepage: "Homepage"
   blog: "Blog"
   about: "About me"
-  faq: "Q&A"
+  links: "Links"
   elefanto: "Elefanto"
   memoirs: "Memoirs of an elephant"
-  language_versions: "This post is in <b>%{language}</b> language. Available versions: %{versions}."
-  en: English
-  pl: Polish
-  zh: Chinese
-  de: German
-  es: Spanish
-  ru: Russian
 
   will_paginate:
     next_label: "Next &#8594;"

@@ -1,19 +1,17 @@
-.row1--header
-  .grey-l2
-    .w3-center.w3-small.row1__langs
-      = link_to("English", url_for( :locale => :en))
-      &bull;
-      = link_to("中文", url_for( :locale => :zh))
-      &bull;
-      = link_to("polski", url_for( :locale => :pl))
-    .row1__title
-      = image_tag "elephant-zh-long.png", :id => "elephant"
-    .w3-topnav.row1__menu
-      .w3-col.w3-quarter.row1--link.w3-padding.row1--blue
-        %span.row1--link= link_to t("homepage"), :controller => :pages, :action => :home, :locale => current_locale
-      .w3-col.w3-quarter.row1--link.w3-padding.row1--green
-        %span.row1--link= link_to t("blog"), :controller => :posts, :action => :index, :locale => current_locale
-      .w3-col.w3-quarter.row1--link.w3-padding.row1--blue
-        %span.row1--link= link_to t("about"), :controller => :pages, :action => :about, :locale => current_locale
-      .w3-col.w3-quarter.row1--link.w3-padding.row1--green
-        %span.row1--link= link_to t("links") , :controller => :pages, :action => :links,  :locale => current_locale
+.row1__langs
+  = link_to("English", url_for( :locale => :en))
+  &bull;
+  = link_to("中文", url_for( :locale => :zh))
+  &bull;
+  = link_to("polski", url_for( :locale => :pl))
+.row1__title
+  = image_tag "elephant-zh-long.png", class: "img-responsive", id: 'elephant'
+%nav.row1__menu.row
+  .col-sm-3.row1--link.col-xs-6
+    = link_to t("homepage"), :controller => :pages, :action => :home, :locale => current_locale
+  .col-sm-3.row1--link.col-xs-6
+    = link_to t("blog"), :controller => :posts, :action => :index, :locale => current_locale
+  .col-sm-3.row1--link.col-xs-6
+    = link_to t("about"), :controller => :pages, :action => :about, :locale => current_locale
+  .col-sm-3.row1--link.col-xs-6
+    = link_to t("faq"), :controller => :pages, :action => :faq,  :locale => current_locale

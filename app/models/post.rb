@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   validates :content, presence: true
   cattr_reader :per_page
   @@per_page = 25
+  LANGUAGES = {"en" => "English", "pl" => "Polish", "zh" => "Chinese", "es" => "Spanish", "ru" => "Russian"}
 
   def self.find_by_id_or_title(string)
     unless string.to_i == 0
@@ -16,6 +17,27 @@ class Post < ActiveRecord::Base
 
   def increment_views
     Post.increment_counter(:views, self.id)
+  end
+
+  def lang_versions
+    self.class.where("number = ? and id <> ?", number, id).to_a
+  end
+
+  def previous_post
+    self.class.where("number < ?", number).order(number: :desc).first
+  end
+
+  def next_post
+    self.class.where("number > ?", number).order(number: :asc).first
+  end
+
+  def set_lang(lang)
+    self.language = lang.to_s
+    self.save
+  end
+
+  def is_chinese?
+    self.language == "zh"
   end
 
   scope :blog, -> {

@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def count_words(string, chinese = false)
+  def count_words(string, chinese)
     unless chinese
       strip_tags(string).split.length
     else

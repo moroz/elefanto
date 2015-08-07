@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/:locale' => 'pages#home', locale: /en|pl|zh/
   get "/:locale/about" => 'pages#about', locale: /en|pl|zh/
   get "/:locale/links" => 'pages#links', locale: /en|pl|zh/
-  get "/faq" => 'pages#faq'
+  get "/links" => 'pages#links'
   get "/about" => 'pages#about'
   resources :blog, :controller => 'posts', :only => [:show]
   match '/latest' => 'posts#show', :id => Post.blog.first.id, :via => [:get]

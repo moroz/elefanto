@@ -1,8 +1,14 @@
 .row1--header
   .row1__title
+<<<<<<< HEAD
+    = image_tag "elephant-zh-mobile.png", :id => "elephant"
+  .row1__menu
+    .row1--blue
+=======
     = image_tag "/images/elephant-zh-mobile.png", :id => "elephant"
   %nav.row1__menu.row
     .col-xs-6.text-center
+>>>>>>> bootstrap
       = link_to t("homepage"), :controller => :pages, :action => :home, :locale => current_locale
     .col-xs-6.text-center
       = link_to t("blog"), :controller => :posts, :action => :index, :locale => current_locale

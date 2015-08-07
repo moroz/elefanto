@@ -1,0 +1,149 @@
+html {
+overflow: -moz-scrollbars-vertical;
+overflow-y: scroll;
+}
+
+.row1 {
+  height: auto;
+  /*margin-top: 2em;*/
+  color: #002626;
+  text-align: center;
+  // padding: 1em;
+  margin: auto;
+  background-color: #ddd;
+}
+
+.wrapper {
+  margin-bottom: 1em;
+  background-color: #ddd;
+  max-width: 800px;
+  padding: 0.7em;
+  margin: 1em auto;
+}
+
+body {
+  background-image: none;
+  font-family: Tahoma, Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback" sans-serif;
+}
+
+img#elephant {
+  display: block;
+  max-width: 75%;
+  margin: 0 auto;
+  // content: url(elephant-zh-mobile.png)
+}
+
+// On desktop
+@media (min-width: 500px) {
+  .wrapper {
+    padding: 1.5em;
+  }
+
+  body {
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: repeat-y;
+    height: 100%;
+  }
+
+  img#elephant {
+    display: block;
+    max-width: 95%;
+    margin: 0 auto;
+    // content: url(elephant-zh-long.png)
+  }
+}
+
+.row1__langs {
+  color: #23355f;
+  font-weight: bolder;
+  margin-top: 5px;
+  // margin-bottom: -30px;
+}
+
+.row2 {
+  padding-top: 1em;
+  // padding-bottom: 1em;
+  color: #002626;
+  background-color: #ddd;
+}
+//
+// .row2 article {
+//   color: #002626;
+// }
+
+a {
+  color: #0c4f0c;
+}
+
+a:visited {
+  color: #23355f;
+}
+
+.row1--link {
+  text-align: center;
+  vertical-align: middle;
+  height: auto;
+  // font-weight: bold;
+  // outline: solid 1px #000;
+  // padding: 1em;
+  // clear: both;
+  margin: auto;
+}
+
+.row1__menu {
+  div {
+    background-color: #ccc;
+    padding: 0.5em;
+  }
+
+  a {
+    color: #030;
+    font-weight: bolder;
+  }
+}
+
+.timestamp {
+    color: #003300;
+    font-size: 90%;
+    /*font-variant: small-caps;*/
+}
+
+.post__content {
+  color: #002626;
+  // font-size: 110%;
+}
+
+hr {
+    width: 50%;
+}
+
+.post--lang_en {
+  // font-size: 100%;
+}
+
+.post--lang_zh {
+  font-size: 115%;
+}
+
+.post__lang_versions {
+  background-color: #ccc;
+  border: solid 1px #999;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  margin-top: -0.5em;
+  border-radius: 4px;
+}
+
+.post__header--margin {
+  margin-top: -1.5em;
+}
+
+.post__linkbox {
+  background-color: #ccc;
+  border: solid 1px #999;
+  padding: 1em;
+  margin: 1em;
+  height: auto;
+  font-weight: bolder;
+}
