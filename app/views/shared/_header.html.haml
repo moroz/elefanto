@@ -5,13 +5,8 @@
   &bull;
   = link_to("polski", url_for( :locale => :pl))
 .row1__title
-  = image_tag "elephant-zh-long.png", class: "img-responsive", id: 'elephant'
-%nav.row1__menu.row
-  .col-sm-3.row1--link.col-xs-6
-    = link_to t("homepage"), :controller => :pages, :action => :home, :locale => current_locale
-  .col-sm-3.row1--link.col-xs-6
-    = link_to t("blog"), :controller => :posts, :action => :index, :locale => current_locale
-  .col-sm-3.row1--link.col-xs-6
-    = link_to t("about"), :controller => :pages, :action => :about, :locale => current_locale
-  .col-sm-3.row1--link.col-xs-6
-    = link_to t("faq"), :controller => :pages, :action => :faq,  :locale => current_locale
+  %h1
+    = t("elefanto")
+    %small= t("memoirs")
+.row1__content
+  = yield :header_text
