@@ -35,7 +35,6 @@ en:
   de: German
   es: Spanish
   ru: Russian
-  homepage_desc: ""
 
   will_paginate:
     next_label: "Next &#8594;"

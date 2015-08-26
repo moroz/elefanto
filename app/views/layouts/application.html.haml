@@ -7,14 +7,18 @@
     = stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//fonts.googleapis.com/css?family=Roboto:400,300,200,100&subset=latin,cyrillic" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,300,200,100&subset=latin,latin-ext" rel="stylesheet">
     = csrf_meta_tags
   %body
     -# {:style => "background-image: #{background}"}
     .row1
       .wrapper.container
         = render 'shared/header'
+        .row1__content
+          = yield :row1_abovenav
         = render 'shared/header_nav'
+        .row1__content
+          = yield :row1_belownav
       <!-- %hr -->
       .row2
         .wrapper.container

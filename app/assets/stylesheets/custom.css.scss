@@ -11,6 +11,7 @@ overflow-y: scroll;
   // padding: 1em;
   margin: auto;
   background-image: url(/images/backgrounds/background-night.jpg);
+  // background-position: center;
   // background-color: #ddd;
 }
 
@@ -23,8 +24,7 @@ overflow-y: scroll;
 }
 
 body {
-
-  font-family: Roboto, "Myriad Pro", Tahoma, Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback" sans-serif;
+  font-family: Roboto, "Myriad Pro", Tahoma, Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback", sans-serif;
 }
 
 img#elephant {
@@ -74,16 +74,10 @@ img#elephant {
   // padding: 1em;
   // padding-bottom: 1em;
   color: #002626;
-  background-color: #ddd;
+  background-color: #ccc;
 }
 
 @media (min-width: 800px) {
-  // .row2 {
-  //   -webkit-column-count: 2; /* Chrome, Safari, Opera */
-  //   -moz-column-count: 2; /* Firefox */
-  //   column-count: 2;
-  // }
-
   body {
     font-size: 160%;
   }
@@ -121,7 +115,7 @@ a:visited {
 }
 
 .row3 {
-  background-color: #003300;
+  background-color: #002626;
   color: #fff;
   // padding: 1em;
 }
@@ -152,7 +146,7 @@ hr {
 }
 
 .post--lang_zh {
-  font-size: 115%;
+  font-size: 110%;
 }
 
 .post__lang_versions {
