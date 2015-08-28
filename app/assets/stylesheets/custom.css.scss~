@@ -7,23 +7,24 @@ overflow-y: scroll;
   height: auto;
   /*margin-top: 2em;*/
   color: #002626;
-  text-align: center;
+  text-align: left;
   // padding: 1em;
   margin: auto;
-  background-color: #ddd;
+  background-image: url(/images/backgrounds/background-night.jpg);
+  // background-position: center;
+  // background-color: #ddd;
 }
 
 .wrapper {
-  margin-bottom: 1em;
-  background-color: #ddd;
+  margin: auto;
+  // background-color: #ddd;
   max-width: 800px;
   padding: 0.7em;
-  margin: 1em auto;
+  // margin: 1em auto;
 }
 
 body {
-  background-image: none;
-  font-family: Tahoma, Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback" sans-serif;
+  font-family: Roboto, "Myriad Pro", Tahoma, Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback", sans-serif;
 }
 
 img#elephant {
@@ -61,16 +62,26 @@ img#elephant {
   // margin-bottom: -30px;
 }
 
+.row1__title {
+  font-family: Roboto, "Myriad Pro", Helvetica, Arial, sans-serif;
+}
+
+.row1__content {
+  color: #fff;
+}
+
 .row2 {
-  padding-top: 1em;
+  // padding: 1em;
   // padding-bottom: 1em;
   color: #002626;
-  background-color: #ddd;
+  background-color: #ccc;
 }
-//
-// .row2 article {
-//   color: #002626;
-// }
+
+@media (min-width: 800px) {
+  body {
+    font-size: 160%;
+  }
+}
 
 a {
   color: #0c4f0c;
@@ -103,6 +114,18 @@ a:visited {
   }
 }
 
+.row3 {
+  background-color: #002626;
+  color: #fff;
+  // padding: 1em;
+}
+
+.row3 a {
+  color: #bbb;
+  font-weight: bold;
+
+}
+
 .timestamp {
     color: #003300;
     font-size: 90%;
@@ -123,7 +146,7 @@ hr {
 }
 
 .post--lang_zh {
-  font-size: 115%;
+  font-size: 110%;
 }
 
 .post__lang_versions {
@@ -150,4 +173,6 @@ hr {
 
 .faq__questions {
   font-size: 115%;
-  
+  font-weight: bolder;
+  color: #002626;
+}
