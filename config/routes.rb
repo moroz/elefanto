@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   scope "(:locale)", locale: /en|pl|zh/ do
-    resources :posts
+    resources :posts do
+      resources :comments, shallow: true
+    end
   end
   resources :users
   get '/blog' => 'posts#index', locale: /en|pl|zh/, show_all: false

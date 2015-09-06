@@ -62,10 +62,6 @@ img#elephant {
   // margin-bottom: -30px;
 }
 
-.row1__title {
-  font-family: Roboto, "Myriad Pro", Helvetica, Arial, sans-serif;
-}
-
 .row1__content {
   color: #fff;
 }
@@ -175,4 +171,9 @@ hr {
   font-size: 115%;
   font-weight: bolder;
   color: #002626;
+}
+
+.post__comment {
+  border: solid 1px #999;
+  padding: 1em;
 }

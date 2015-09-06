@@ -13,8 +13,8 @@ class PostsController < ApplicationController
     else
       post_number = PostsHelper::post_number(@post.number)
       @title = I18n.t("elefanto") + ": #{post_number}#{@post.title}"
-      # @new_comment = @post.comments.build
-      # @comments = @post.comments.paginate(:page => params[:page])
+      @new_comment = @post.comments.build
+      @comments = @post.comments.paginate(:page => params[:page])
       # @categories = @post.categories
       # session[:post_id] = @post.id
       @post.increment_views
