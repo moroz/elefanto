@@ -35,6 +35,7 @@ en:
   de: German
   es: Spanish
   ru: Russian
+  no_such_post: "Sorry, this is the end&#133;"
 
   will_paginate:
     next_label: "Next &#8594;"

@@ -7,7 +7,7 @@
       - if previous_post
         = link_to "#{post_number(previous_post.number)}#{previous_post.title}", previous_post
       - else
-        = t("no_such_post")
+        = raw(t("no_such_post"))
     .col-sm-6.col-xs-12.text-right
       %strong= t("next_post")
       %br
@@ -15,7 +15,7 @@
       - if next_post
         = link_to "#{post_number(next_post.number)}#{next_post.title}", next_post
       - else
-        = t("no_such_post")
+        = raw(t("no_such_post"))
   .row
     .col-sm-12.col-xs-12.text-center
-      = link_to "Blog Archive", "/blog"
+      %strong= link_to t("blog_archive"), "/blog"

@@ -5,26 +5,24 @@ overflow-y: scroll;
 
 .row1 {
   height: auto;
-  /*margin-top: 2em;*/
   color: #002626;
   text-align: left;
-  // padding: 1em;
   margin: auto;
   background-image: url(/images/backgrounds/background-night.jpg);
-  // background-position: center;
-  // background-color: #ddd;
 }
 
 .wrapper {
   margin: auto;
-  // background-color: #ddd;
+  padding: 0.5em;
   max-width: 800px;
-  padding: 0.7em;
-  // margin: 1em auto;
 }
 
 body {
-  font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback", sans-serif;
+  font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT",
+   "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma,
+   Geneva, "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei,
+   "华文细黑", "Droid Sans Fallback", sans-serif;
+  font-size: 160%;
 }
 
 img#elephant {
@@ -67,7 +65,7 @@ img#elephant {
 }
 
 .row2 {
-  // padding: 1em;
+  padding: 0.6em;
   // padding-bottom: 1em;
   color: #002626;
   background-color: #ccc;
@@ -164,7 +162,7 @@ hr {
   padding: 1em;
   margin: 1em;
   height: auto;
-  font-weight: bolder;
+  // font-weight: bolder;
 }
 
 .faq__questions {

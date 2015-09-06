@@ -16,6 +16,9 @@ pl:
   de: niemiecki
   ru: rosyjski
   es: hiszpański
+  next_post: "Następny post"
+  previous_post: "Poprzedni post"
+  no_such_post: "To już koniec&hellip;"
 
   will_paginate:
     next_label: "Następna &#8594;"
