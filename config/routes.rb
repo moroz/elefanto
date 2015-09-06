@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     resources :posts
   end
   resources :users
-  get '/blog' => 'posts#index', locale: /en|pl|zh/
-  get '/:locale/blog' => 'posts#index', locale: /en|pl|zh/
+  get '/blog' => 'posts#index', locale: /en|pl|zh/, show_all: false
+  get '/:locale/blog' => 'posts#index', locale: /en|pl|zh/, show_all: false
   get '/:locale' => 'pages#home', locale: /en|pl|zh/
   get "/:locale/about" => 'pages#about', locale: /en|pl|zh/
   get "/:locale/links" => 'pages#links', locale: /en|pl|zh/

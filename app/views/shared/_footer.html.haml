@@ -1,5 +1,7 @@
 &copy; 2008-2015 by Karol Moroz.
 - unless logged_in?
-  <a href="/log-in">Log in</a>
+  = link_to "Log in", "/log-in"
 - else
-  <a href="/log-out">Log out</a>
+  = link_to "Log out", "/log-out"
+  &bull;
+  = link_to "New post", "/posts/new"

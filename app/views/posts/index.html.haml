@@ -1,8 +1,17 @@
 %h1= t("blog_archive")
 = will_paginate
+- unless params[:show_all]
+  = link_to "Show all posts", :show_all => true, :page => params[:page]
+- else
+  = link_to "Only show blog posts", :show_all => nil, :page => params[:page]
+%br
 = page_entries_info @posts
 %br
 - for post in @posts
-    = render :partial => 'posts/post_list', :locals => { :post => post }
+  = render :partial => 'posts/post_list', :locals => { :post => post }
 = will_paginate
-= page_entries_info @posts
+-# = page_entries_info @posts
+- unless params[:show_all]
+  = link_to "Show all posts", :show_all => true, :page => params[:page]
+- else
+  = link_to "Only show blog posts", :show_all => nil, :page => params[:page]

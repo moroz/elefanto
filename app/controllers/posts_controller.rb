@@ -27,7 +27,12 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.blog.paginate(:page => params[:page])
+    if params[:show_all]
+      scope = Post.all.order(number: :desc)
+    else
+      scope = Post.blog
+    end
+    @posts = scope.paginate(:page => params[:page])
     @title = "Elefanto — blog archive"
   end
 
@@ -76,7 +81,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:language)
+    params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:language,:order,:show_all)
   end
 
   def destroy
