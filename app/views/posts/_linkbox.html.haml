@@ -1,17 +1,21 @@
-.post__linkbox.row
-  .col-sm-6.col-xs-12
-    %strong= t("previous_post")
-    %br
-    - previous_post = @post.previous_post
-    - if previous_post
-      = link_to "#{post_number(previous_post.number)}#{previous_post.title}", previous_post
-    - else
-      = t("no_such_post")
-  .col-sm-6.col-xs-12.text-right
-    %strong= t("next_post")
-    %br
-    - next_post = @post.next_post
-    - if next_post
-      = link_to "#{post_number(next_post.number)}#{next_post.title}", next_post
-    - else
-      = t("no_such_post")
+.post__linkbox
+  .row
+    .col-sm-6.col-xs-12
+      %strong= t("previous_post")
+      %br
+      - previous_post = @post.previous_post
+      - if previous_post
+        = link_to "#{post_number(previous_post.number)}#{previous_post.title}", previous_post
+      - else
+        = t("no_such_post")
+    .col-sm-6.col-xs-12.text-right
+      %strong= t("next_post")
+      %br
+      - next_post = @post.next_post
+      - if next_post
+        = link_to "#{post_number(next_post.number)}#{next_post.title}", next_post
+      - else
+        = t("no_such_post")
+  .row
+    .col-sm-12.col-xs-12.text-center
+      = link_to "Blog Archive", "/blog"
