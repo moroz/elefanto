@@ -174,4 +174,14 @@ hr {
 .post__comment {
   border: solid 1px #999;
   padding: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+.post__newcomment {
+  border: solid 1px #999;
+  padding: 1em;
+  margin: 1em;
 }

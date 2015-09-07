@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       @new_comment = @post.comments.build
       @comments = @post.comments.paginate(:page => params[:page])
       # @categories = @post.categories
-      # session[:post_id] = @post.id
+      session[:post_id] = @post.id
       @post.increment_views
       @lang_versions = @post.lang_versions
       # if @post.number != 0

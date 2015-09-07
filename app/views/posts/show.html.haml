@@ -1,5 +1,9 @@
 = render @post
 %a{:name => "comments"}
-= render :partial => 'shared/comment', :collection => @comments
--# %a{:name => "new_comment"}
--# = render 'shared/comment_form'
+- unless @post.comments.count == 0
+  %h3 Comments
+  = render :partial => 'shared/comment', :collection => @comments
+%a{:name => "new_comment"}
+%h3 New comment
+= form_for [@post,Comment.new] do |f|
+  = render 'shared/comment_form', :f => f

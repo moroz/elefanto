@@ -1,0 +1,15 @@
+.post__newcomment
+  = render 'shared/error_messages', :object => f.object
+  .form-group
+    = f.text_area :text, :class => "form-control"
+
+  .form-group
+    = f.label :signature, t("signature")
+    = f.text_field :signature, :class => "form-control"
+
+  .form-group
+    = f.label :website, t("your_website")
+    http://
+    = f.text_field :website, :class => "form-control"
+
+  = f.submit "Send", class: "form-control"

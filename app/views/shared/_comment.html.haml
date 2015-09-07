@@ -1,4 +1,6 @@
+%a{:name => "comment_#{comment.id}"}
 .post__comment
   %p= comment.text
   %strong= comment.signature
-  %span.timestamps= comment.created_at
+  = "from #{comment.ip} on"
+  %span.timestamps= l comment.created_at, format: :long
