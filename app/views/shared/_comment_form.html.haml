@@ -5,11 +5,12 @@
 
   .form-group
     = f.label :signature, t("signature")
+    (required)
     = f.text_field :signature, :class => "form-control"
 
   .form-group
     = f.label :website, t("your_website")
-    http://
+    (optional) http://
     = f.text_field :website, :class => "form-control"
 
   = f.submit "Send", class: "form-control"

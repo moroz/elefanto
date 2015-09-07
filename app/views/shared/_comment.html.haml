@@ -3,4 +3,5 @@
   %p= comment.text
   %strong= comment.signature
   = "from #{comment.ip} on"
-  %span.timestamps= l comment.created_at, format: :long
+  %span.timestamps= l(comment.created_at, format: :long) + "."
+  = link_to "Web: " + comment.website, comment.website unless comment.website.empty?

@@ -18,14 +18,14 @@
           :title => "Delete #{post.title}", :class => 'btn-xs btn-warning'
   - unless @post.description == nil or @post.description == ""
     %span.post_description= do_formatting(@post.description, @post.textile_enabled)
-  - unless @lang_versions.empty?
+  - unless @post.lang_versions.empty?
     .post__lang_versions= raw(t("language_versions", language: t(@post.language), versions: languages(post.lang_versions)))
   - lang_class = "post--lang_#{@post.language}"
   = content_tag :div, do_formatting(@post.content, @post.textile_enabled), class: "post__content #{lang_class}"
   %p.views= "This post has been viewed " + pluralize(@post.views+1, 'time') + "."
   -# = render :partial => 'category', :collection => @categories
   -# = render 'posts/signature' unless @post.number == 0
-  = render :partial => 'linkbox', :post => @post
+  = render :partial => 'posts/linkbox', :post => @post
   - if false # if Rails.env.development?
     - if @post.textile_enabled
       TEXTILE IS ENABLED

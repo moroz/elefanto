@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
       redirect_to post_path(@post, :anchor => "comment_#{@comment.id}")
     else
       flash[:danger] = "There was an error saving your comment."
-      redirect_to @post, anchor: "new_comment", new_comment: @comment
+      @new_comment = @comment
+      render :template => "posts/show", post: @post, lang_versions: @post.lang_versions
     end
   end
 
