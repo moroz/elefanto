@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   validates :title, presence: true, uniqueness: { case_sensitive: false }
   validates :content, presence: true
   has_many :comments
+  has_and_belongs_to_many :categories
   cattr_reader :per_page
   @@per_page = 25
   LANGUAGES = {"en" => "English", "pl" => "Polish", "zh" => "Chinese", "es" => "Spanish", "ru" => "Russian"}
