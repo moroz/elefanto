@@ -4,10 +4,5 @@
   %h3 Comments
   = render :partial => 'shared/comment', :collection => @comments
 %a{:name => "new_comment"}
-%h3 New comment
-- unless @new_comment
-  - @new_comment = [@post,Comment.new]
-- else
-  - @new_comment = [@post,@new_comment]
-= form_for @new_comment do |f|
-  = render 'shared/comment_form', :f => f
+- @new_comment ||= Comment.new
+= render 'shared/comment_form', :post => [@post,@new_comment]

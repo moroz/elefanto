@@ -16,6 +16,7 @@ zh:
   zh: 中文
   es: 西班牙文
   no_such_post: "沒有下一篇喔……"
+  new_comment: "你觉得呢？"
 
   will_paginate:
     next_label: "下一页 &#8594;"
@@ -223,6 +224,6 @@ zh:
     am: 上午
     formats:
       default: "%Y年%b%d日 %A %H:%M:%S %Z"
-      long: "%Y年%b%d日 %H:%M"
+      long: "%Y年%b%e日 %H:%M"
       short: "%b%d日 %H:%M"
     pm: 下午

@@ -9,7 +9,7 @@ pl:
   elefanto: "Elefanto"
   memoirs: "Pamiętniki słonia"
   lang_separator: ", "
-  language_versions: "Ten post jest w języku <strong>%{language}m</strict>. Inne wersje językowe: %{versions}."
+  language_versions: "Ten post jest w języku <strong>%{language}m</strong>. Inne wersje językowe: %{versions}."
   pl: polski
   en: angielski
   zh: chiński
@@ -19,6 +19,7 @@ pl:
   next_post: "Następny post"
   previous_post: "Poprzedni post"
   no_such_post: "To już koniec&hellip;"
+  new_comment: "A co <i>Ty</i> o tym sądzisz?"
 
   will_paginate:
     next_label: "Następna &#8594;"
@@ -32,9 +33,9 @@ pl:
     - nie
     - pon
     - wto
-    - ?ro
+    - śro
     - czw
-    - pi?
+    - pią
     - sob
     abbr_month_names:
     -
@@ -47,16 +48,16 @@ pl:
     - lip
     - sie
     - wrz
-    - pa?
+    - paź
     - lis
     - gru
     day_names:
     - niedziela
-    - poniedzia?ek
+    - poniedziałek
     - wtorek
-    - ?roda
+    - środa
     - czwartek
-    - pi?tek
+    - piątek
     - sobota
     formats:
       default: "%d-%m-%Y"
@@ -148,12 +149,12 @@ pl:
   errors:
     format: "%{attribute} %{message}"
     messages:
-      accepted: musi zosta? zaakceptowane
-      blank: nie mo?e by? puste
-      confirmation: nie zgadza si? z polem %{attribute}
-      empty: nie mo?e by? puste
-      equal_to: musi by? r?wne %{count}
-      even: musi by? parzyste
+      accepted: musi zostać zaakceptowane
+      blank: nie może być puste
+      confirmation: nie zgadza się z polem %{attribute}
+      empty: nie może być puste
+      equal_to: musi być równe %{count}
+      even: musi być parzyste
       exclusion: jest zarezerwowane
       greater_than: musi by? wi?ksze od %{count}
       greater_than_or_equal_to: musi by? wi?ksze lub r?wne %{count}
@@ -259,6 +260,6 @@ pl:
     am: przed po?udniem
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
-      long: "%d %B %Y, %H:%M"
+      long: "%e %B %Y, %H:%M"
       short: "%d %b %H:%M"
     pm: po po?udniu

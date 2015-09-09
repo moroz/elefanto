@@ -2,6 +2,8 @@
 .post__comment
   %p= comment.text
   %strong= comment.signature
-  = "from #{comment.ip} on"
+  = ", #{comment.ip},"
   %span.timestamps= l(comment.created_at, format: :long) + "."
   = link_to "Web: " + comment.website, comment.website unless comment.website.empty?
+  - if logged_in?
+    = link_to "Delete", comment, method: :delete, :confirm => "Are you sure you want to delete this comment?", :class => "btn-xs btn-warning"

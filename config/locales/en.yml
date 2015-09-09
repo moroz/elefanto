@@ -28,7 +28,7 @@ en:
   faq: "Q&A"
   elefanto: "Elefanto"
   memoirs: "Memoirs of an elephant"
-  language_versions: "This post is in <b>%{language}</b> language. Available versions: %{versions}."
+  language_versions: "This post is in <strong>%{language}</strong> language. Available versions: %{versions}."
   en: English
   pl: Polish
   zh: Chinese
@@ -36,6 +36,7 @@ en:
   es: Spanish
   ru: Russian
   no_such_post: "Sorry, this is the end&#133;"
+  new_comment: "And what do <em>you</em> think?"
 
   will_paginate:
     next_label: "Next &#8594;"
