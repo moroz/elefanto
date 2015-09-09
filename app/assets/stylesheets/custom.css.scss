@@ -19,23 +19,24 @@ overflow-y: scroll;
 
 body {
   font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, //"Myriad Pro", Myriad,
-  "Lucida Grande", Tahoma, Geneva, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Helvetica, Arial,
-  //  "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Arial, Helvetica, Geneva, "Helvetica Neue", Tahoma,
-  "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback", sans-serif;
-  font-size: 160%;
+  "Helvetica Neue", "Helvetica", Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback", sans-serif;
+  font-size: 140%;
 }
 
 img#elephant {
   display: block;
   max-width: 75%;
   margin: 0 auto;
-  // content: url(elephant-zh-mobile.png)
 }
 
 // On desktop
 @media (min-width: 500px) {
   .wrapper {
     padding: 1.5em;
+  }
+
+  .row1__title--linebreak {
+    display: none;
   }
 
   body {
@@ -66,6 +67,7 @@ img#elephant {
 
 .row1__content {
   color: #fff;
+  margin-bottom: 0.5em;
 }
 
 .row2 {
@@ -77,7 +79,8 @@ img#elephant {
 
 @media (min-width: 800px) {
   body {
-    font-size: 160%;
+    // font-size: 155%;
+    font-weight: 400;
   }
 }
 
@@ -103,12 +106,13 @@ a:visited {
 .row1__menu {
   div {
     background-color: #ccc;
-    // padding: 0.5em;
+    padding: 0.5em;
+    margin-right: 0;
   }
 
   a {
     color: #030;
-    font-weight: bolder;
+    font-weight: 600;
   }
 }
 
