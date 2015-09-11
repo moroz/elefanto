@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get "/faq" => 'pages#faq'
   get "/about" => 'pages#about'
   resources :blog, :controller => 'posts', :only => [:show]
-  match '/latest' => 'posts#show', :id => Post.blog.first.id, :via => [:get]
+  #match '/latest' => 'posts#show', :id => Post.blog.first.id, :via => [:get]
 
   get "/log-in" => "sessions#new"
   post "/log-in" => "sessions#create"
