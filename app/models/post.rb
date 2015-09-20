@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   validates :content, presence: true
   has_many :comments
   has_and_belongs_to_many :categories
+  before_save :set_word_count
   cattr_reader :per_page
   @@per_page = 25
   LANGUAGES = {"en" => "English", "pl" => "Polish", "zh" => "Chinese", "es" => "Spanish", "ru" => "Russian"}
@@ -38,6 +39,17 @@ class Post < ActiveRecord::Base
     self.save
   end
 
+  def set_word_count
+    self.word_count = count_words(self.content,self.is_chinese?)
+  end
+
+  def set_word_count!
+    Post.record_timestamps = false
+    self.set_word_count
+    self.save
+    Post.record_timestamps = true
+  end
+
   def is_chinese?
     self.language == "zh"
   end
@@ -45,4 +57,12 @@ class Post < ActiveRecord::Base
   scope :blog, -> {
     where('posts.number > ?', 0).order(number: :desc)
   }
+  private
+  def count_words(string, chinese)
+    unless chinese
+      ActionController::Base.helpers.strip_tags(string).split.length
+    else
+      ActionController::Base.helpers.strip_tags(string).split('').length
+    end
+  end
 end

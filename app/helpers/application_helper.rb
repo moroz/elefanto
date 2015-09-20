@@ -1,12 +1,4 @@
 module ApplicationHelper
-  def count_words(string, chinese)
-    unless chinese
-      strip_tags(string).split.length
-    else
-      strip_tags(string).split('').length
-    end
-  end
-
   def background
     images = ["background-sand.jpg", "background-spain.jpg",
       "background-night.jpg", "background-xian.jpg", "background-creatures.jpg", "background-tht.jpg", "background-gate.jpg",

@@ -30,5 +30,13 @@ class ApplicationController < ActionController::Base
     nil
   end
 
-  helper_method :current_user
+  def count_words(string, chinese)
+    unless chinese
+      strip_tags(string).split.length
+    else
+      strip_tags(string).split('').length
+    end
+  end
+
+  helper_method :current_user, :count_words
 end

@@ -1,7 +1,7 @@
 %span
   - post_title = post_number(post.number) + post.title
   %strong= link_to post_title, post_path(post)#, class: "blue"
-  - words = count_words(post.content, post.is_chinese?)
+  - words = post.word_count
   - if post.is_chinese?
     - word_count = "(" + pluralize(words, "character")
   - else

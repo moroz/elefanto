@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908071025) do
+ActiveRecord::Schema.define(version: 20150920131228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150908071025) do
     t.boolean  "textile_enabled", default: false
     t.integer  "views",           default: 0
     t.string   "language",        default: "en"
+    t.integer  "word_count",      default: 0
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
