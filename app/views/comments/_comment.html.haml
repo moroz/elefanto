@@ -1,9 +1,12 @@
 %a{:name => "comment_#{comment.id}"}
 .comment.round{:id => "comment_#{comment.id}"}
   %p= comment.text
-  %strong= comment.signature
-  = ", #{comment.ip},"
+  - unless comment.website.empty?
+    = link_to "<b>#{comment.signature}</b>,", comment.website
+  = "#{comment.ip},"
   %span.timestamps= l(comment.created_at, format: :long) + "."
-  = link_to "Web: " + comment.website, comment.website unless comment.website.empty?
+  - unless comment.website.empty?
+    Web:
+    = link_to comment.website, comment.website
   - if logged_in?
     = link_to "Delete", comment, method: :delete, :confirm => "Are you sure you want to delete this comment?", :class => "btn-xs btn-warning"
