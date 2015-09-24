@@ -2,7 +2,9 @@
 .comment.round{:id => "comment_#{comment.id}"}
   %p= comment.text
   - unless comment.website.empty?
-    = link_to raw("<b>#{comment.signature}</b>,"), comment.website
+    %strong= (link_to "#{comment.signature}", comment.website) + ','
+  - else
+    %strong= comment.signature
   = "#{comment.ip},"
   %span.timestamps= l(comment.created_at, format: :long) + "."
   - unless comment.website.empty?
