@@ -1,6 +1,6 @@
-.post__newcomment
+.comment__newcomment.round
   %h3= raw(t("new_comment"))
-  = form_for post do |f|
+  = form_for post, remote: true do |f|
     = render 'shared/error_messages', :object => f.object
     .form-group
       = f.text_area :text, :class => "form-control", :rows => 5
@@ -15,4 +15,4 @@
       (optional) http://
       = f.text_field :website, :class => "form-control"
 
-    = f.submit "Send", class: "form-control"
+    = f.submit "Send", class: "form-control btn btn-success"

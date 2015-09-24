@@ -1,5 +1,5 @@
 %a{:name => "comment_#{comment.id}"}
-.post__comment
+.comment.round{:id => "comment_#{comment.id}"}
   %p= comment.text
   %strong= comment.signature
   = ", #{comment.ip},"

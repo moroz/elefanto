@@ -1,8 +1,9 @@
 = render @post
 %a{:name => "comments"}
-- unless @post.comments.count == 0
-  %h3 Comments
-  = render :partial => 'shared/comment', :collection => @comments
+%section#comments
+  - unless @post.comments.count == 0
+    %h3 Comments
+    = render @comments
 %a{:name => "new_comment"}
 - @new_comment ||= Comment.new
-= render 'shared/comment_form', :post => [@post,@new_comment]
+= render 'comments/comment_form', :post => [@post,@new_comment]

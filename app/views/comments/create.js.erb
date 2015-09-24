@@ -1,0 +1,5 @@
+$('#comments').append("<%= j render @comment %>");
+$('#comment_text').val("");
+$('#comment_signature').val("");
+$('#comment_website').val("");
+$('<%= "#comment_#{@comment.id}" %>').addClass('comment--saved');

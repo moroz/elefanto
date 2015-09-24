@@ -171,7 +171,7 @@ hr {
   color: #002626;
 }
 
-.post__comment {
+.comment {
   border: solid 1px #999;
   padding: 1em;
   margin-left: 1em;
@@ -180,7 +180,11 @@ hr {
   margin-bottom: 0;
 }
 
-.post__newcomment {
+.comment--saved {
+  background-color: #7cba7c;
+}
+
+.comment__newcomment {
   border: solid 1px #999;
   padding: 1em;
   margin: 1em;
@@ -189,4 +193,10 @@ hr {
 
 .row2__flashbox {
   margin-bottom: 2.5em;
+}
+
+.round {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }

@@ -5,8 +5,14 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.ip = request.remote_ip
     if @comment.save
-      flash[:success] = "Your comment was saved successfully."
-      redirect_to post_path(@post, :anchor => "comment_#{@comment.id}")
+
+        respond_to do |format|
+          format.html {
+            flash[:success] = "Your comment was saved successfully."
+            redirect_to post_path(@post, :anchor => "comment_#{@comment.id}")
+          }
+          format.js
+        end
     else
       flash[:danger] = "There was an error saving your comment."
       @new_comment = @comment
