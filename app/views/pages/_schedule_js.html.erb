@@ -1,5 +1,9 @@
 $(function() {
   $('td').click(function() {
-    $(this).find('.details').toggle();
+    if($(this).html() != "")
+      $(this).find('.details,.time').toggle();
+    else {
+      $(this).html("<span class=\"details\">Nie ma zajęć! Hurra!!!</span>");
+    }
   });
 });
