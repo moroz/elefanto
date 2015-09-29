@@ -16,13 +16,13 @@
         = render 'shared/header'
         .row1__content
           = yield :row1_abovenav
-        = render 'shared/header_nav'
-      <!-- %hr -->
-      .row2
-        .wrapper.container
-          - flash.each do |key, value|
-            %div{:class => "row2__flashbox alert alert-#{key}"}= value
-          = yield
-      .row3
-        .wrapper.container
-          = render 'shared/footer'
+          = render 'shared/header_nav'
+    <!-- %hr -->
+    .row2
+      .wrapper.container
+        - flash.each do |key, value|
+          %div{:class => "row2__flashbox alert alert-#{key}"}= value
+        = yield
+    .row3
+      .wrapper.container
+        = render 'shared/footer'
