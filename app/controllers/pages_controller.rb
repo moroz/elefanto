@@ -10,4 +10,8 @@ class PagesController < ApplicationController
   def faq
     @title = "Elefanto — " + I18n.t("faq")
   end
+
+  def schedule
+    @title = "Plan lekcji"
+  end
 end

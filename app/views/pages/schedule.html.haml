@@ -1,0 +1,43 @@
+- content_for :head do
+  <script type="text/javascript">
+  $(function() {
+  $('td').click(function() {
+  $(this).find('.details').toggle();
+  });
+  });
+  </script>
+
+%h1 Timetable
+%table.table.table-hover#timetable
+  %tr
+    %td poniedziałek
+    %td wtorek
+    %td środa
+    %td czwartek
+    %td piątek
+  %tr
+    %td
+      konwersacje
+      %span.details
+        120
+        lic. Sun Huiyi
+    %td
+      gramatyka opisowa
+      %span.details
+        120
+        dr Maria Kurpaska
+    %td
+    %td
+      lektura tekstów literackich
+      %span.details
+        120
+        dr Maria Kurpaska
+    %td
+      konwersacje
+      %span.details
+        120
+        lic. Sun Huiyi
+  %tr
+    %td
+      lektura tekstów specjalistycznych
+      %span.details
