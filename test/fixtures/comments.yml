@@ -3,7 +3,11 @@
 one:
   text: MyText
   signature: MyString
+  website: http://example.com
+  post_id: 1
 
 two:
   text: MyText
   signature: MyString
+  website: http://google.pl
+  post_id: 2

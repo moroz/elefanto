@@ -30,8 +30,6 @@ gem 'RedCloth'
 gem 'will_paginate'
 gem 'yaml_db'
 gem 'bcrypt', '~> 3.1.5', require: "bcrypt"
-gem 'browser'
-
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
@@ -53,4 +51,5 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'minitest-reporters'
 end
