@@ -9,6 +9,7 @@ zh:
   memoirs: "來自波蘭的大象日記"
   lang_separator: "、"
   language_versions: "本文章的语言为<strong>%{language}</strong>。本文章还有%{versions}版本。"
+  contact_me: "联系我"
   pl: 波兰文
   en: 英文
   de: 德文

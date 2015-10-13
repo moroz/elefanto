@@ -9,6 +9,7 @@ pl:
   elefanto: "Elefanto"
   memoirs: "Pamiętniki słonia"
   lang_separator: ", "
+  contact_me: "Kontakt"
   language_versions: "Ten post jest w języku <strong>%{language}m</strong>. Inne wersje językowe: %{versions}."
   pl: polski
   en: angielski
