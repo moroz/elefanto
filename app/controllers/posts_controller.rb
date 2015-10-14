@@ -38,12 +38,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    if only_authorized('pages#home')
+    if only_authorized
       @post = Post.new(post_params)
       @post.save
       redirect_to @post
-    else
-      redirect_to 'pages#home'
     end
   end
 
