@@ -4,8 +4,7 @@ class PostsController < ApplicationController
 
   def show
     if @post.nil?
-        flash[:danger] = "There is no such post."
-        redirect_to posts_index_path
+      no_such_post(params[:id])
     else
       post_number = PostsHelper::post_number(@post.number)
       @title = I18n.t("elefanto") + ": #{post_number}#{@post.title}"
@@ -91,6 +90,12 @@ class PostsController < ApplicationController
         redirect_to redirecting_to
         return false
       end
+    end
+
+    def no_such_post(id)
+      logger.error "Attempt to access inexistent post #{id}, from #{request.remote_ip}."
+      flash[:danger] = "There is no such post."
+      redirect_to posts_path
     end
 
     def find_post
