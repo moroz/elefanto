@@ -33,4 +33,8 @@ class PostTest < ActiveSupport::TestCase
     assert post.invalid?
     assert_equal ["has already been taken"], post.errors[:title]
   end
+
+  test "Post.latest should return the latest post" do
+    assert_equal posts(:one), Post.latest
+  end
 end

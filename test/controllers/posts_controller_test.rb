@@ -12,8 +12,9 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should display a post" do
-    get :show, id: posts(:one)
+    post = posts(:one)
+    get :show, id: post
     assert_response :success
-    assert_select 'h3', posts(:one).title
+    assert_select 'h3', "#{post.number.to_i}. #{post.title}"
   end
 end

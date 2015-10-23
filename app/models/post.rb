@@ -10,12 +10,15 @@ class Post < ActiveRecord::Base
   LANGUAGES = {"en" => "English", "pl" => "Polish", "zh" => "Chinese", "es" => "Spanish", "ru" => "Russian"}
 
   def self.find_by_id_or_title(string)
-    unless string.to_i == 0
-      post = self.where(id: string.to_i)
+    if string.to_i == 0
+      post = self.find_by(title: string)
     else
-      post = self.where(:title => string)
+      post = self.find_by(id: string)
     end
-      post.exists? ? post.first : nil
+  end
+
+  def self.latest
+    self.order(:updated_at).last
   end
 
   def increment_views
