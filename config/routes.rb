@@ -15,17 +15,15 @@ Rails.application.routes.draw do
     resources :posts do
       resources :comments, shallow: true
     end
+    get '/blog' => 'posts#index', show_all: false
+    get "/faq" => 'pages#faq'
+    get "/about" => 'pages#about'
+    get '/' => 'pages#home'
+    get "/links" => 'pages#links'
+    resources :categories
   end
   resources :users
-  get '/blog' => 'posts#index', locale: /en|pl|zh/, show_all: false
-  get '/:locale/blog' => 'posts#index', locale: /en|pl|zh/, show_all: false
-  get '/:locale' => 'pages#home', locale: /en|pl|zh/
-  get "/:locale/about" => 'pages#about', locale: /en|pl|zh/
-  get "/:locale/links" => 'pages#links', locale: /en|pl|zh/
-  get "/faq" => 'pages#faq'
-  get "/about" => 'pages#about'
   resources :blog, :controller => 'posts', :only => [:show]
-  #match '/latest' => 'posts#show', :id => Post.blog.first.id, :via => [:get]
 
   get "/log-in" => "sessions#new"
   post "/log-in" => "sessions#create"

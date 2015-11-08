@@ -1,0 +1,4 @@
+%h1= "Category: #{@category.name_en}"
+
+- for post in @posts
+  = render 'posts/post_list', :post => post

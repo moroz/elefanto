@@ -1,3 +1,24 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.comment {
+  border: solid 1px #999;
+  padding: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+.comment--saved {
+  background-color: #7cba7c;
+}
+
+.comment__newcomment {
+  border: solid 1px #999;
+  padding: 1em;
+  margin: 1em;
+  padding-top: 0;
+}
