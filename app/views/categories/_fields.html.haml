@@ -1,0 +1,19 @@
+= render 'shared/error_messages', :object => f.object
+
+.form-group
+  = f.label :name_en, 'Name in English:'
+  = f.text_field :name_en, :class => 'form-control'
+
+.form-group
+  = f.label :name_en, 'Name in English:'
+  = f.text_field :name_en, :class => 'form-control'
+
+.form-group
+  = f.label :name_en, 'Name in English:'
+  = f.text_field :name_en, :class => 'form-control'
+
+.form-group
+  = f.label :description, "Description:"
+  = f.text_area :description, :class => "form-control", :rows => 4
+
+= f.submit "Send", :class => "btn btn-success"
