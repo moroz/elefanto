@@ -1,0 +1,8 @@
+%h1!= "Add posts to category &ldquo;#{@category.name_en}&rdquo;"
+= link_to "Back to category", @category
+
+%ul
+  = for post in @posts
+    %li
+      = "#{post.number}. #{post.title} (#{post.id})"
+      = link_to "+", add_category_path(:post_id => post.id), :method => :post

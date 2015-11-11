@@ -20,7 +20,13 @@ Rails.application.routes.draw do
     get "/about" => 'pages#about'
     get '/' => 'pages#home'
     get "/links" => 'pages#links'
-    resources :categories
+    resources :categories do
+      member do
+        get 'add'
+        get 'remove'
+        post 'add' => 'categories#add_post'
+      end
+    end
   end
   resources :users
   resources :blog, :controller => 'posts', :only => [:show]
