@@ -1,4 +1,6 @@
 %h1= t("blog_archive")
+%p
+  %strong= link_to "Categories", categories_path
 = will_paginate
 - unless params[:show_all]
   = link_to "Show all posts", :show_all => true, :page => params[:page]
@@ -10,7 +12,6 @@
 - for post in @posts
   = render :partial => 'posts/post_list', :locals => { :post => post }
 = will_paginate
--# = page_entries_info @posts
 - unless params[:show_all]
   = link_to "Show all posts", :show_all => true, :page => params[:page]
 - else

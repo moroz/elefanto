@@ -1,5 +1,6 @@
 %h1= "Category: #{@category.name_en}"
-%p= link_to "Add posts", add_category_path(@category)
+- if logged_in?
+  %p= link_to "Add posts", add_category_path(@category)
 
 - for post in @posts
   = render 'posts/post_list', :post => post

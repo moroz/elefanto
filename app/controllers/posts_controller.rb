@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, :only => [:show,:edit,:update,:destroy]
-  # only_authorized used in new, create, edit, destroy,
+  include LoggedIn
 
   def show
     if @post.nil?
@@ -78,17 +78,6 @@ class PostsController < ApplicationController
   end
 
   private
-    def only_authorized(redirecting_to = root_path)
-      # this method checks if the user is logged in, if not, it redirects to redirecting_to
-      if logged_in?
-        return true
-      else
-        logger.error "Attempt to access #{request.fullpath} by an unauthorized person, from #{request.remote_ip}."
-        flash[:danger] = "You are not allowed to perform this action."
-        redirect_to redirecting_to
-        return false
-      end
-    end
 
     def no_such_post(id)
       logger.error "Attempt to access inexistent post #{id}, from #{request.remote_ip}."

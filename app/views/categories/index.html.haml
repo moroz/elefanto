@@ -1,3 +1,5 @@
 %h1 Categories
-
+- if logged_in?
+  %p
+    %strong= link_to "New category", new_category_path
 = render @categories
