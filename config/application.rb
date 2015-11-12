@@ -18,7 +18,7 @@ module ElefantoNew
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.18n.enforce_available_locales = false
-    config.i18n.available_locales = [:en, :pl, :zh]
+    config.i18n.available_locales = [:en, :pl, :zh, :eo]
     config.i18n.default_locale = :en
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
