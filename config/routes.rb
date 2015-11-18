@@ -22,8 +22,8 @@ Rails.application.routes.draw do
     get "/links" => 'pages#links'
     resources :categories do
       member do
-        get 'add'
-        get 'remove'
+        get 'manage'
+        post 'remove' => 'categories#remove_post'
         post 'add' => 'categories#add_post'
       end
     end

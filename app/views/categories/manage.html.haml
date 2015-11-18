@@ -1,0 +1,11 @@
+%h1!= "Add posts to category &ldquo;#{@category.name_en}&rdquo;"
+= link_to "Back to category", @category
+
+%ul
+  - for post in @posts
+    %li
+      != "#{post.read_number} <b>#{post.title}</b> (id: #{post.id})"
+      - unless post.categories.include?(@category)
+        %b= link_to "+", add_category_path(:post_id => post.id), :method => :post, :class => 'btn btn-xs btn-success'
+      - else
+        %b= link_to "-", remove_category_path(:post_id => post.id), :method => :post, :class => 'btn btn-xs btn-danger'

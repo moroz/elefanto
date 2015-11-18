@@ -38,7 +38,7 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def add
+  def manage
     if only_authorized(categories_url)
       @category = Category.find(params[:id])
       @posts = Post.all
@@ -52,11 +52,31 @@ class CategoriesController < ApplicationController
       respond_to do |format|
         if @category.posts.include?(@post)
           format.html { flash[:warning] = "This post is already in the category." }
+          redirect_to manage_category_path(@category)
         else
           @category.posts << @post
           format.html {
             flash[:success] = "The post \"#{@post.title}\" was added to the category."
-            redirect_to add_category_path(@category)
+            redirect_to manage_category_path(@category)
+          }
+        end
+      end
+    end
+  end
+
+  def remove_post
+    if only_authorized(categories_url)
+      @category = Category.find(params[:id])
+      @post = Post.find(params[:post_id])
+      respond_to do |format|
+        unless @category.posts.include?(@post)
+          format.html { flash[:warning] = "This post doesn't belong to the category." }
+          redirect_to manage_category_path(@category)
+        else
+          @category.posts.delete(@post)
+          format.html {
+            flash[:success] = "The post \"#{@post.title}\" was removed from the category."
+            redirect_to manage_category_path(@category)
           }
         end
       end
