@@ -59,6 +59,7 @@ class CategoriesController < ApplicationController
             flash[:success] = "The post \"#{@post.title}\" was added to the category."
             redirect_to manage_category_path(@category)
           }
+          format.js
         end
       end
     end
@@ -78,6 +79,7 @@ class CategoriesController < ApplicationController
             flash[:success] = "The post \"#{@post.title}\" was removed from the category."
             redirect_to manage_category_path(@category)
           }
+          format.js
         end
       end
     end
