@@ -1,7 +1,7 @@
 .post
   .page-header.post__header--margin
     %h3
-      = post_number(@post.number) + @post.title
+      = (@post.read_number) + @post.title
     %span.timestamp
       - if logged_in?
         Modified:

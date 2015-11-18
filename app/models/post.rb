@@ -37,6 +37,16 @@ class Post < ActiveRecord::Base
     self.class.where("number > ?", number).order(number: :asc).first
   end
 
+  def read_number
+    if number == number.to_i
+      return "%d. " % number
+    elsif number != number.to_i
+      return (("%.1f" % number).gsub('.', ',')) + ". "
+    elsif number == 0
+      return ""
+    end
+  end
+
   def set_lang(lang)
     self.language = lang.to_s
     self.save

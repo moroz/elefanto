@@ -1,4 +1,6 @@
 module PostsHelper
+  include PostNumber
+
   def do_formatting(str, textile_enabled)
     if textile_enabled
       render_textilized(str)
@@ -19,20 +21,6 @@ module PostsHelper
     #s = word_wrap(s)
     s = simple_format(s)
     return s
-  end
-
-  def self.post_number(number)
-    if number == number.to_i
-      return "%d. " % number
-    elsif number != number.to_i
-      return (("%.1f" % number).gsub('.', ',')) + ". "
-    elsif number == 0
-      return ""
-    end
-  end
-
-  def post_number(number)
-    return PostsHelper.post_number(number)
   end
 
   def languages(lang_versions)

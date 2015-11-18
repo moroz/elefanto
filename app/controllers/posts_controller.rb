@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
   before_action :find_post, :only => [:show,:edit,:update,:destroy]
   include LoggedIn
+  include PostNumber
 
   def show
     if @post.nil?
       no_such_post(params[:id])
     else
-      post_number = PostsHelper::post_number(@post.number)
-      @title = I18n.t("elefanto") + ": #{post_number}#{@post.title}"
+      @title = I18n.t("elefanto") + ": #{post_number(@post.number)}#{@post.title}"
       @new_comment = Comment.new
       @comments = @post.comments.paginate(:page => params[:page])
       session[:post_id] = @post.id
