@@ -1,5 +1,6 @@
 %span
   - post_title = post_number(post.number) + post.title
+  %div{:class => "post__language post__language--#{post.language}"}= post.language
   %strong= link_to post_title, post_path(post)#, class: "blue"
   - words = post.word_count
   - if post.is_chinese?

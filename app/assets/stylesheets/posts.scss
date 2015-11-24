@@ -22,3 +22,22 @@
   margin: 1em;
   padding-top: 0;
 }
+
+.post__language {
+  background-color: #328cd6;
+  color: #fff;
+  font-variant: small-caps;
+  padding-left: 3px;
+  padding-right: 3px;
+  display: inline;
+}
+
+.post__language--zh, .post__language--zh-hans, .post__language--zh-hant {
+  background-color: #ffcc2e;
+  color: #000;
+}
+
+.post__language--pl {
+  background-color: #ff6c2e;
+  color: #000;
+}
