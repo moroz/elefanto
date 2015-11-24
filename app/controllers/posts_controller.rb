@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :find_post, :only => [:show,:edit,:update,:destroy]
   include LoggedIn
   include PostNumber
+  include ClientData
 
   def show
     if @post.nil?
@@ -11,8 +12,10 @@ class PostsController < ApplicationController
       @new_comment = Comment.new
       @comments = @post.comments.paginate(:page => params[:page])
       session[:post_id] = @post.id
-      @post.increment_views
+      @post.increment_views(request.remote_ip, browser_name, request.location)
       @lang_versions = @post.lang_versions
+      @previous_post = @post.previous_post
+      @next_post = @post.next_post
       # if @post.number != 0
         # @previous_post = Post.blog.where("number < #{@post.number}").first
         # @next_post = Post.blog.where("number > #{@post.number}").last

@@ -7,7 +7,8 @@ class Post < ActiveRecord::Base
   before_save :set_word_count
   cattr_reader :per_page
   @@per_page = 25
-  LANGUAGES = {"en" => "English", "pl" => "Polish", "zh" => "Chinese", "es" => "Spanish", "ru" => "Russian"}
+  LANGUAGES = {"en" => "English", "pl" => "Polish", "zh" => "Chinese",
+    "zh-hans" => "Chinese (Simplified)", "zh-hant" => "Chinese (Traditional)", "es" => "Spanish", "ru" => "Russian"}
 
   def self.find_by_id_or_title(string)
     if string.to_i == 0
@@ -21,8 +22,9 @@ class Post < ActiveRecord::Base
     self.order(:updated_at).last
   end
 
-  def increment_views
+  def increment_views(ip,browser,location)
     Post.increment_counter(:views, self.id)
+    Visit.create(:post_id => self.id, :ip => ip, :browser => browser, :city => location.city, :country => location.country)
   end
 
   def lang_versions
