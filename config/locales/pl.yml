@@ -17,6 +17,8 @@ pl:
   de: niemiecki
   ru: rosyjski
   es: hiszpański
+  zh-hans: chiński (uproszczony)
+  zh-hant: chiński (tradycyjny)
   next_post: "Następny post"
   previous_post: "Poprzedni post"
   no_such_post: "To już koniec&hellip;"
