@@ -24,8 +24,8 @@ class Post < ActiveRecord::Base
     self.order(:updated_at).last
   end
 
-  def increment_views(ip,browser,browser_name,location)
-    Post.increment_counter(:views, self.id) unless browser.bot?
+  def increment_views(ip,bot,browser_name,location)
+    Post.increment_counter(:views, self.id) unless bot
     Visit.create(:post_id => self.id, :ip => ip, :browser => browser_name, :city => location.city, :country => location.country)
   end
 
@@ -68,7 +68,7 @@ class Post < ActiveRecord::Base
   end
 
   def is_chinese?
-    self.language == "zh"
+    ["zh","zh-hans","zh-hant"].include?(self.language)
   end
 
   scope :blog, -> {
