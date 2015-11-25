@@ -25,19 +25,19 @@
 
 .post__language {
   background-color: #328cd6;
-  color: #fff;
-  font-variant: small-caps;
+  color: #ddd;
   padding-left: 3px;
   padding-right: 3px;
   display: inline;
+  font-weight: bold;
 }
 
 .post__language--zh, .post__language--zh-hans, .post__language--zh-hant {
   background-color: #ffcc2e;
-  color: #000;
+  color: #333;
 }
 
 .post__language--pl {
   background-color: #ff6c2e;
-  color: #000;
+  color: #333;
 }

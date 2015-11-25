@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get '/' => 'pages#home'
     get "/links" => 'pages#links'
     resources :visits, :only => [:index]
-    get "/visits/:post_id" => 'visits#show'
+    get "/visits/:post_id" => 'visits#show', :as => 'show_visits'
     resources :categories do
       member do
         get 'manage'

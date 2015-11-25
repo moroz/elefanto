@@ -22,6 +22,12 @@ class PostsController < ApplicationController
   def index
     if params[:show_all]
       scope = Post.all.order(number: :desc)
+    elsif params[:lang]
+      if params[:lang] == "zh"
+        scope = Post.where(:language => ["zh","zh-hans","zh-hant"]).order(number: :desc)
+      else
+        scope = Post.where(:language => params[:lang]).order(number: :desc)
+      end
     else
       scope = Post.blog
     end

@@ -31,4 +31,29 @@ module PostsHelper
     end
     array.join(I18n.t("lang_separator"))
   end
+
+  def language_label(language)
+    css_class = "post__language"
+    label = ""
+    case language
+    when "pl"
+      css_class << " post__language--pl"
+      label = "波"
+    when "en"
+      css_class << " post__language--en"
+      label = "英"
+    when "zh"
+      css_class << " post__language--zh"
+      label = "中"
+    when "zh-hans"
+      css_class << " post__language--zh"
+      label = "简"
+    when "zh-hant"
+      css_class << " post__language--zh"
+      label = "繁"
+    else
+      label = "外"
+    end
+    content_tag :div, label, :class => css_class
+  end
 end
