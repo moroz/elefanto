@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
     get "/about" => 'pages#about'
     get '/' => 'pages#home'
     get "/links" => 'pages#links'
+    resources :visits, :only => [:index]
+    get "/visits/:post_id" => 'visits#show'
     resources :categories do
       member do
         get 'manage'

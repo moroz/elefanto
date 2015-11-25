@@ -1,0 +1,20 @@
+%h1 Visits
+
+%table.table
+  %thead
+    %td ID
+    %td Post id
+    %td Time
+    %td IP
+    %td City
+    %td Country
+    %td Browser
+  - @visits.each do |visit|
+    %tr
+      %td= visit.id
+      %td= visit.post_id
+      %td= visit.timestamp
+      %td= visit.ip
+      %td= visit.city
+      %td= visit.country
+      %td= visit.browser
