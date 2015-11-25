@@ -1,5 +1,18 @@
-= will_paginate
-- unless params[:show_all]
-  = link_to "Show all posts", :show_all => true, :page => params[:page]
-- else
-  = link_to "Only show blog posts", :show_all => nil, :page => params[:page]
+%p
+  = will_paginate
+  %br
+  - if false
+    - unless params[:show_all]
+      = link_to "Show all posts", :show_all => true, :page => params[:page]
+    - else
+      = link_to "Only show blog posts", :show_all => nil, :page => params[:page]
+    &bull;
+  - if params[:lang]
+    = link_to "Show posts in all languages", :lang => nil, :page => params[:page]
+  - else
+    Show only posts in
+    = link_to "English", :lang => "en"
+    = link_to "Polish", :lang => "pl"
+    = link_to "Chinese", :lang => "zh"
+  %br
+  = page_entries_info @posts
