@@ -52,7 +52,7 @@ class PostsController < ApplicationController
 
   def edit
     if only_authorized(@post)
-      post_number = PostsHelper::post_number(@post.number)
+      post_number = post_number(@post.number)
       @title = "Editing post #{post_number}#{@post.title}"
       render 'new'
     end
