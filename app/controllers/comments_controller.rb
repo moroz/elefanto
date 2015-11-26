@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :find_post
+  invisible_captcha :only => [:create]
 
   def create
     @comment = @post.comments.build(comment_params)

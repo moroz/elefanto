@@ -97,6 +97,8 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    invisible_captcha (0.8.0)
+      rails
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -233,6 +235,7 @@ DEPENDENCIES
   geocoder
   haml-rails
   i18n!
+  invisible_captcha
   jbuilder (~> 2.0)
   jquery-rails
   minitest-reporters
