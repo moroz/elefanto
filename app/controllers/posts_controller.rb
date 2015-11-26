@@ -16,6 +16,9 @@ class PostsController < ApplicationController
       @lang_versions = @post.lang_versions
       @previous_post = @post.previous_post
       @next_post = @post.next_post
+      if @post.id == 185
+        params[:locale] = "zh"
+      end
     end
   end
 

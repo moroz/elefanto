@@ -20,6 +20,11 @@ zh:
   zh-hant: 繁體中文
   no_such_post: "沒有下一篇喔……"
   new_comment: "你觉得呢？"
+  signature: "您贵姓？"
+  required: "（必要）"
+  optional: "（不必要）"
+  your_website: "你的网站："
+  send: "发送"
 
   will_paginate:
     next_label: "下一页 &#8594;"

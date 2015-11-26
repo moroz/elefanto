@@ -23,6 +23,11 @@ pl:
   previous_post: "Poprzedni post"
   no_such_post: "To już koniec&hellip;"
   new_comment: "A co <i>Ty</i> o tym sądzisz?"
+  signature: "Podpis"
+  required: "(pole wymagane)"
+  optional: "(opcjonalnie)"
+  send: "Wyślij!"
+  your_website: "Twoja strona internetowa"
 
   will_paginate:
     next_label: "Następna &#8594;"

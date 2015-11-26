@@ -40,6 +40,10 @@ en:
   zh-hant: Chinese (Traditional)
   no_such_post: "Sorry, this is the end&#133;"
   new_comment: "And what do <em>you</em> think?"
+  signature: "Signature"
+  required: "(required)"
+  optional: "(optional)"
+  send: "Send!"
 
   will_paginate:
     next_label: "Next &#8594;"
