@@ -29,7 +29,7 @@ en:
   elefanto: "Elefanto"
   memoirs: "Memoirs of an elephant"
   language_versions: "This post is in <strong>%{language}</strong> language. Available versions: %{versions}."
-  contact_me: "Contact me"
+  contact_me: "Contact"
   en: English
   pl: Polish
   zh: Chinese
