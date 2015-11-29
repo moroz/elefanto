@@ -6,10 +6,17 @@ font-size: 85%;
 
 .row1 {
   height: auto;
-  color: #002626;
-  text-align: left;
+  color: #bf2501;
+  text-align: center;
   margin: auto;
   background-image: url(background-night.jpg);
+  font-weight: 600;
+}
+
+.row1__subtitle {
+  color: #711600;
+  font-size: 1.5rem;
+  font-weight: 400;
 }
 
 .wrapper {
@@ -19,8 +26,8 @@ font-size: 85%;
 }
 
 body {
-  font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Open Sans",
-  "Helvetica Neue", "Helvetica", Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback", sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Arial, "Microsoft Yahei",
+    "微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback", sans-serif;
 }
 
 img#elephant {
@@ -44,13 +51,6 @@ img#elephant {
     background-attachment: fixed;
     background-repeat: repeat-y;
     height: 100%;
-  }
-
-  img#elephant {
-    display: block;
-    max-width: 95%;
-    margin: 0 auto;
-    // content: url(elephant-zh-long.png)
   }
 
   .row1__menu div {
@@ -81,14 +81,18 @@ img#elephant {
   body {
     font-weight: 400;
   }
+
+  .row1 {
+    text-align: left;
+  }
 }
 
 a {
-  color: #0c4f0c;
+  color: #396700;
 }
 
 a:visited {
-  color: #23355f;
+  color: #065678;
 }
 
 .row1--link {
@@ -96,17 +100,12 @@ a:visited {
   vertical-align: middle;
   height: auto;
   margin: auto;
+  font-size: 125%;
 }
 
 .row1__menu {
-  div {
-    background-color: #ccc;
-    padding: 0.5em;
-    margin-right: 0;
-  }
-
   a {
-    color: #030;
+    color: #034662;
     font-weight: 600;
   }
 }
