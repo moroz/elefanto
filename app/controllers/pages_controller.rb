@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
   def about
     @title = "Elefanto — " + I18n.t("about")
+    @mobile = browser.mobile?
   end
 
   def faq
