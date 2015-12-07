@@ -35,9 +35,14 @@ gem 'autoprefixer-rails'
 gem 'browser'
 gem 'geocoder'
 gem 'invisible_captcha'
+gem 'decent_exposure'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+group :development do
+  gem 'puma'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
+end
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -53,10 +58,15 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '1.4.0'
-  gem 'minitest-reporters'
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'spring'
+end
+
+group :test do
+  gem 'minitest-reporters'
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
+  gem 'launchy'
 end

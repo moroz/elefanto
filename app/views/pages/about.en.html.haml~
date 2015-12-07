@@ -1,0 +1,12 @@
+%h1 About me
+%p Hi! My name is Karol Moroz, I'm a student of Chinese studies at the Adam Mickiewicz University in Poznań, and I like writing about nothing in particular. My plan for the next few years is to become one of the few Ruby on Rails developers fluent in Polish, English and Mandarin Chinese in this country. Or, to put it another way, the only interpreter of Chinese and English also fluent in Ruby (however, as you can see, front end development and Web design are not my strong point yet.)
+
+%p If you want to know what I look like, this is me with my friend in Anshun, Guizhou province:
+- if @mobile
+  = image_tag 'pictures/anshun-square.jpg', :class => 'img-responsive'
+- else
+  = image_tag 'pictures/anshun-rectangle.jpg', :class => 'img-responsive'
+%p If you dare, you can hire me to do whatever job that you need done and that you think I could do.
+%p If you want to contact me, the best way to do so is via e-mail: k&#46;j&#46;moroz&#64;gmail&#46;com or mobile phone: +48&nbsp;735&nbsp;935&nbsp;972.
+%p You can also find me on Facebook.
+-# %p Or you can send me an e-mail and ask for my telephone number.
