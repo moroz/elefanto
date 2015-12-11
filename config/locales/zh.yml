@@ -1,8 +1,8 @@
 zh:
   hello: "你好，世界！"
-  blog_archive: "博客档案"
+  blog_archive: "网志档案"
   homepage: "主页"
-  blog: "博客"
+  blog: "网志"
   about: "关于我"
   faq: "标准问题 标准答案"
   elefanto: "大象日記"
@@ -25,6 +25,7 @@ zh:
   optional: "（不必要）"
   your_website: "你的网站："
   send: "发送"
+  post_views: "此文章已被访问过%{views}次。"
 
   will_paginate:
     next_label: "下一页 &#8594;"

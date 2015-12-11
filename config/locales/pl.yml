@@ -28,6 +28,7 @@ pl:
   optional: "(opcjonalnie)"
   send: "Wyślij!"
   your_website: "Twoja strona internetowa"
+  post_views: "Ten post został wyświetlony %{views} razy."
 
   will_paginate:
     next_label: "Następna &#8594;"

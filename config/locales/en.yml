@@ -45,6 +45,7 @@ en:
   optional: "(optional)"
   send: "Send!"
   your_website: "Your website"
+  post_views: "This post has been viewed %{views} times."
 
   will_paginate:
     next_label: "Next &#8594;"
