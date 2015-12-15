@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  post_id: one
+  ip: 101.226.125.119
+  browser: "Chrome 30.0.1599.12 mobile other"
+  city: Shanghai
+  country: China
+  timestamp: 2015-12-14 00:29:38 UTC
+
+two:
+  post_id: two
+  ip: 77.65.95.12
+  browser: Chrome 47.0.2526.80 windows
+  city:
+  country: Poland
+  timestamp: 2015-12-12 21:55:43 UTC

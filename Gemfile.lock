@@ -90,6 +90,8 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    faker (1.6.1)
+      i18n (~> 0.5)
     ffi (1.9.10)
     geocoder (1.2.12)
     globalid (0.3.6)
@@ -176,22 +178,23 @@ GEM
     rdoc (4.2.0)
       json (~> 1.4)
     ref (1.0.5)
-    rspec-core (3.0.4)
-      rspec-support (~> 3.0.0)
-    rspec-expectations (3.0.4)
+    rspec-core (3.2.3)
+      rspec-support (~> 3.2.0)
+    rspec-expectations (3.2.1)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.0.0)
-    rspec-mocks (3.0.4)
-      rspec-support (~> 3.0.0)
-    rspec-rails (3.0.2)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (~> 3.0.0)
-      rspec-expectations (~> 3.0.0)
-      rspec-mocks (~> 3.0.0)
-      rspec-support (~> 3.0.0)
-    rspec-support (3.0.4)
+      rspec-support (~> 3.2.0)
+    rspec-mocks (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-rails (3.2.3)
+      actionpack (>= 3.0, < 4.3)
+      activesupport (>= 3.0, < 4.3)
+      railties (>= 3.0, < 4.3)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
+      rspec-support (~> 3.2.0)
+    rspec-support (3.2.2)
     ruby-progressbar (1.7.5)
     ruby_parser (3.7.0)
       sexp_processor (~> 4.1)
@@ -212,6 +215,8 @@ GEM
       rubyzip (~> 1.0)
       websocket (~> 1.0)
     sexp_processor (4.6.0)
+    shoulda-matchers (3.0.0)
+      activesupport (>= 4.0.0)
     slop (3.6.0)
     spring (1.4.0)
     sprockets (3.3.4)
@@ -263,6 +268,7 @@ DEPENDENCIES
   database_cleaner
   decent_exposure
   factory_girl_rails
+  faker
   geocoder
   haml-rails
   i18n!
@@ -276,10 +282,11 @@ DEPENDENCIES
   pry-rails
   puma
   rails (= 4.2.4)
-  rspec-rails (~> 3.0.0)
+  rspec-rails (~> 3.2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   selenium-webdriver
+  shoulda-matchers
   spring
   therubyracer
   turbolinks
@@ -289,4 +296,4 @@ DEPENDENCIES
   yaml_db
 
 BUNDLED WITH
-   1.10.6
+   1.11.0
