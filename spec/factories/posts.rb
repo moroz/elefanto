@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :post do
-    number  110
-    title   "My New Year's resolution"
-    updated_at  "2011-02-03 14:10:13 UTC"
-    created_at  "2011-02-03 14:10:13 UTC"
+    number { rand(25..150) }
+    title { Faker::Lorem.sentence }
+    updated_at { Faker::Time.backward(14, :evening) }
+    created_at { Faker::Time.backward(13, :evening) }
     textile_enabled true
-    content "This is the content of the post number 110."
+    content { Faker::Lorem.paragraph(3) }
   end
 end

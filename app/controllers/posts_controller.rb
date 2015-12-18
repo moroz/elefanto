@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, :only => [:show,:edit,:update,:destroy]
+  before_action :only_authorized, :only => [:new,:create,:update,:destroy]
   include LoggedIn
   include PostNumber
   include ClientData
@@ -36,37 +37,30 @@ class PostsController < ApplicationController
   end
 
   def new
-    if only_authorized
-      @post = Post.new(:number => Post.blog.first.number + 1, :textile_enabled => true)
-      @title = "Create new post"
-    end
+    number = Post.blog.first.try(:number).to_i + 1
+    @post = Post.new(:number => number, :textile_enabled => true)
+    @title = "Create new post"
   end
 
   def create
-    if only_authorized
-      @post = Post.new(post_params)
-      @post.save
-      redirect_to @post
-    end
+    @post = Post.new(post_params)
+    @post.save
+    redirect_to @post
   end
 
   def edit
-    if only_authorized(@post)
-      post_number = post_number(@post.number)
-      @title = "Editing post #{post_number}#{@post.title}"
-      render 'new'
-    end
+    post_number = post_number(@post.number)
+    @title = "Editing post #{post_number}#{@post.title}"
+    render 'new'
   end
 
   def update
-    if only_authorized(@post)
-      if @post.update_attributes(post_params)
-        flash[:success] = "The post was successfully saved."
-        redirect_to @post
-      else
-        @post.attributes = post_params
-        render 'edit'
-      end
+    if @post.update_attributes(post_params)
+      flash[:success] = "The post was successfully saved."
+      redirect_to @post
+    else
+      @post.attributes = post_params
+      render 'edit'
     end
   end
 

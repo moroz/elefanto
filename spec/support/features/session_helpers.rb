@@ -10,9 +10,9 @@ module Features
       end
     end
 
-    def sign_in
+    def sign_in(capybara: false)
       user = create(:user)
-      if false
+      if capybara
         visit login_path
         fill_in 'Email', with: user.email
         fill_in 'Password', with: user.password

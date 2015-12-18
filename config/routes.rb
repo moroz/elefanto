@@ -16,11 +16,9 @@ Rails.application.routes.draw do
     resources :posts do
       resources :comments, shallow: true
     end
-    get '/blog' => 'posts#index', show_all: false
-    get "/faq" => 'pages#faq'
-    get "/about" => 'pages#about'
-    get '/' => 'pages#home'
-    get "/links" => 'pages#links'
+    get '/blog' => 'posts#index', show_all: false, :as => :blog
+    get "/about" => 'pages#about', as: :about
+    get '/' => 'pages#home', as: :home
     resources :visits, :only => [:index]
     get "/visits/:post_id" => 'visits#show', :as => 'show_visits'
     resources :categories do
@@ -36,7 +34,7 @@ Rails.application.routes.draw do
 
   get "/log-in" => "sessions#new", as: :login
   post "/log-in" => "sessions#create"
-  get "/log-out" => "sessions#destroy", as: :log_out
+  get "/log-out" => "sessions#destroy", as: :logout
   get "/schedule" => "pages#schedule"
 
   # Example resource route with options:
