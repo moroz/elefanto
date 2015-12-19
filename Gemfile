@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use PostgreSQL as the database for Active Record and MySQL on deployment
@@ -38,11 +37,12 @@ gem 'invisible_captcha'
 gem 'decent_exposure'
 
 group :development do
-  gem 'devise'
   gem 'puma'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem "rack-livereload"
+  gem "guard-livereload"
 end
 
 # Use Unicorn as the app server
