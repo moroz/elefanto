@@ -1,33 +1,32 @@
 .post
   .page-header.post__header--margin
     %h3
-      = (@post.read_number) + @post.title
+      = (post.read_number) + post.title
     %span.timestamp
       - if logged_in?
         Modified:
-        = @post.updated_at.to_s
+        = post.updated_at.to_s
         %br
         Created:
-        = @post.created_at.to_s
+        = post.created_at.to_s
       - else
-        = l @post.updated_at, :format => :long
-      = link_to 'Permalink', post_path(@post), class: 'btn-xs btn-primary'
+        = l post.updated_at, :format => :long
+      = link_to 'Permalink', post_path(post), class: 'btn-xs btn-primary'
       - if logged_in?
         = link_to "Edit", edit_post_path(post), class: 'btn-xs btn-success'
         = link_to "Delete", post, :method => :delete, :confirm => "You sure?",
           :title => "Delete #{post.title}", :class => 'btn-xs btn-warning'
-  - unless @post.description == nil or @post.description == ""
-    %span.post_description= do_formatting(@post.description, @post.textile_enabled)
-  - unless @post.lang_versions.empty?
-    .post__lang_versions= raw(t("language_versions", language: t(@post.language), versions: languages(post.lang_versions)))
-  - lang_class = "post--lang_#{@post.language}"
-  = content_tag :div, do_formatting(@post.content, @post.textile_enabled), class: "post__content #{lang_class}"
-  %p.views= t('post_views', :views => @post.views+1)
+  - unless post.description == nil or post.description == ""
+    %span.post_description= do_formatting(post.description, post.textile_enabled)
+  - unless post.lang_versions.empty?
+    .post__lang_versions= raw(t("language_versions", language: t(post.language), versions: languages(post.lang_versions)))
+  - lang_class = "post--lang_#{post.language}"
+  = content_tag :div, do_formatting(post.content, post.textile_enabled), class: "post__content #{lang_class}"
+  %p.views= t('post_views', :views => post.views+1)
   -# = render :partial => 'category', :collection => @categories
-  -# = render 'posts/signature' unless @post.number == 0
-  = render :partial => 'posts/linkbox', :post => @post
+  = render :partial => 'posts/linkbox', :post => post
   - if false # if Rails.env.development?
-    - if @post.textile_enabled
+    - if post.textile_enabled
       TEXTILE IS ENABLED
     - else
       TEXTILE NOT ENABLED

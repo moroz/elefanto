@@ -8,6 +8,11 @@ class Post < ActiveRecord::Base
   before_save :set_word_count
   cattr_reader :per_page
 
+  scope :blog, -> { where('posts.number > ?', 0).order(:number => :desc) }
+  scope :lang_zh, -> { where(:language => ["zh","zh-hans","zh-hant"]) }
+  scope :lang_pl, -> { where(:language => "pl") }
+  scope :lang_en, -> { where(:language => "en") }
+
   @@per_page = 25
   LANGUAGES = {"en" => "English", "pl" => "Polish", "zh" => "Chinese",
     "zh-hans" => "Chinese (Simplified)", "zh-hant" => "Chinese (Traditional)", "es" => "Spanish", "ru" => "Russian"}
@@ -71,9 +76,6 @@ class Post < ActiveRecord::Base
     ["zh","zh-hans","zh-hant"].include?(self.language)
   end
 
-  scope :blog, -> {
-    where('posts.number > ?', 0).order(number: :desc)
-  }
   private
   def count_words(string, chinese)
     unless chinese

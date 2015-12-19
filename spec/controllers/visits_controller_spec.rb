@@ -17,7 +17,6 @@ RSpec.describe VisitsController, :type => :controller do
       it "denies access and redirects to root_path" do
         get :index
         expect(response).to redirect_to root_path
-        expect(page).to have_content "You are not allowed to perform this action."
       end
     end
 
@@ -25,7 +24,6 @@ RSpec.describe VisitsController, :type => :controller do
       it "denies access and redirects to root_path" do
         subject { get :show, :post_id => post.to_param }
         expect(response).to redirect_to root_path
-        expect(page).to have_content "You are not allowed to perform this action."
       end
     end
   end

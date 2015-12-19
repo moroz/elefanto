@@ -1,5 +1,5 @@
 %p
-  = will_paginate
+  = will_paginate posts
   %br
   - if params[:lang]
     = link_to "Show posts in all languages", :lang => nil, :page => params[:page]
@@ -9,4 +9,4 @@
     = link_to "Polish", :lang => "pl"
     = link_to "Chinese", :lang => "zh"
   %br
-  = page_entries_info @posts
+  = page_entries_info posts
