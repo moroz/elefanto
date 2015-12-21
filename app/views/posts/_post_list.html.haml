@@ -1,13 +1,13 @@
 %span
   - post_title = post_number(post.number) + post.title
   = language_label post.language
-  %strong= link_to post_title, post_path(post)#, class: "blue"
+  %strong= link_to post_title, post_path(post), class: "post__link"
   - words = post.word_count
   - if post.is_chinese?
     - word_count = "(" + pluralize(words, "character")
   - else
     - word_count = "(" + pluralize(words, "word")
-  - comment_count = post.comments.count
+  - comment_count = post.comments.size
   - if comment_count != 0
     - word_count << " and " + pluralize(comment_count, "comment")
   = word_count + ")"

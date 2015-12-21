@@ -41,3 +41,30 @@
   background-color: #ff6c2e;
   color: #333;
 }
+
+
+.post--lang_zh, .post--lang_zh-hant, .post--lang_zh-hans {
+  font-size: 1.25rem;
+}
+
+.post__lang_versions {
+  background-color: #ccc;
+  border: solid 1px #999;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  margin-top: -0.5em;
+  border-radius: 4px;
+}
+
+.post__header--margin {
+  margin-top: -1.5em;
+}
+
+.post__linkbox {
+  background-color: #ccc;
+  border: solid 1px #999;
+  padding: 1em;
+  margin: 1em;
+  height: auto;
+  // font-weight: bolder;
+}

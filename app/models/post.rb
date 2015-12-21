@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
 #  attr_accessible :title, :number, :textile_enabled, :content, :description
   validates :title, presence: true, uniqueness: { case_sensitive: false }
   validates :content, presence: true
-  has_many :comments
+  has_many :comments, counter_cache: :comments_count
   has_many :visits
   has_and_belongs_to_many :categories
   before_save :set_word_count

@@ -5,6 +5,6 @@ FactoryGirl.define do
     updated_at { Faker::Time.backward(14, :evening) }
     created_at { Faker::Time.backward(13, :evening) }
     textile_enabled true
-    content { Faker::Lorem.paragraph(3) }
+    content { Faker::Lorem.paragraph(6) }
   end
 end
