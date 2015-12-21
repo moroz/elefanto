@@ -19,3 +19,4 @@
 config/database.yml
 /db/import
 /public/assets/*
+/public/assets/.*
