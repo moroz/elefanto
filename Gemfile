@@ -73,5 +73,6 @@ group :test do
   gem 'shoulda-matchers', require: false
   gem 'launchy'
   gem 'faker'
+  gem 'fuubar'
   gem 'selenium-webdriver'
 end
