@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get '/blog' => 'posts#index', show_all: false, :as => :blog
     get "/about" => 'pages#about', as: :about
     get '/' => 'pages#home', as: :home
+    get ':id(/:slug)' => 'posts#show', as: 'post_slug'
     resources :visits, :only => [:index]
     get "/visits/:post_id" => 'visits#show', :as => 'show_visits'
     resources :categories do

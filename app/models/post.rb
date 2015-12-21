@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
   has_and_belongs_to_many :categories
   before_save :set_word_count
   cattr_reader :per_page
+  acts_as_url :title, :allow_duplicates => true, :limit => 35
 
   scope :blog, -> { where('posts.number > ?', 0).order(:number => :desc) }
   scope :lang_zh, -> { where(:language => ["zh","zh-hans","zh-hant"]) }
@@ -65,14 +66,6 @@ class Post < ActiveRecord::Base
     self.word_count = count_words(self.content,self.is_chinese?)
   end
 
-  def set_comments_count!
-    Post.record_timestamps = false
-    self.comments_count = self.comments.count
-    self.save
-    Post.record_timestamps = true
-  end
-
-
   def set_word_count!
     Post.record_timestamps = false
     self.set_word_count
@@ -82,6 +75,14 @@ class Post < ActiveRecord::Base
 
   def is_chinese?
     ["zh","zh-hans","zh-hant"].include?(self.language)
+  end
+
+  def locale
+    if ["zh","zh-hans","zh-hant"].include?(self.language)
+      "zh"
+    else
+      self.language
+    end
   end
 
   private

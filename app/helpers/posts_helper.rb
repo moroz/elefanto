@@ -56,4 +56,8 @@ module PostsHelper
     end
     content_tag :div, label, :class => css_class
   end
+
+  def slug(post)
+    post_slug_path(post, :slug => post.url, :locale => post.locale)
+  end
 end

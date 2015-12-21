@@ -11,7 +11,7 @@
         = post.created_at.to_s
       - else
         = l post.updated_at, :format => :long
-      = link_to 'Permalink', post_path(post), class: 'btn-xs btn-primary'
+      = link_to 'Permalink', slug(post), class: 'btn-xs btn-primary'
       - if logged_in?
         = link_to "Edit", edit_post_path(post), class: 'btn-xs btn-success'
         = link_to "Delete", post, :method => :delete, :confirm => "You sure?",

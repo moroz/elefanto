@@ -35,6 +35,7 @@ gem 'browser'
 gem 'geocoder'
 gem 'invisible_captcha'
 gem 'decent_exposure'
+gem 'stringex'
 
 group :development do
   gem 'puma'
