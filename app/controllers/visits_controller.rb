@@ -1,15 +1,12 @@
 class VisitsController < ApplicationController
   include LoggedIn
+  before_action :only_authorized
 
   def index
-    if only_authorized
-      @visits = Visit.all.order(:id => :desc).paginate(:page => params[:page])
-    end
+    @visits = Visit.all.order(:id => :desc).paginate(:page => params[:page])
   end
 
   def show
-    if only_authorized
-      @visits = Visit.where(:post_id => params[:post_id]).order(:id => :desc)
-    end
+    @visits = Visit.where(:post_id => params[:post_id]).order(:id => :desc)
   end
 end
