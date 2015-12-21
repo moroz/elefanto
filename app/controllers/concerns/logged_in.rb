@@ -17,6 +17,8 @@ module LoggedIn
       flash[:danger] = "You are not allowed to perform this action."
       redirect_to redirecting_to
       return false
+    else
+      return true
     end
   end
 end
