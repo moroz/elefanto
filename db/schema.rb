@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20151221073431) do
     t.integer  "views",           default: 0
     t.string   "language",        default: "en"
     t.integer  "word_count",      default: 0
-    t.integer  "comments_count",  default: 0
+    t.integer  "comments_count",  default: 0,     null: false
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree

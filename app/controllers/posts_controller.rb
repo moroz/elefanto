@@ -99,6 +99,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:language,:order,:show_all)
+      params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:comments_count,:language,:order,:show_all)
     end
 end

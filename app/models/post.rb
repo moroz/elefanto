@@ -65,6 +65,14 @@ class Post < ActiveRecord::Base
     self.word_count = count_words(self.content,self.is_chinese?)
   end
 
+  def set_comments_count!
+    Post.record_timestamps = false
+    self.comments_count = self.comments.count
+    self.save
+    Post.record_timestamps = true
+  end
+
+
   def set_word_count!
     Post.record_timestamps = false
     self.set_word_count
