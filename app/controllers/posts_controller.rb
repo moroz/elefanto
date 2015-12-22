@@ -65,12 +65,13 @@ class PostsController < ApplicationController
   end
 
   def update
-    if post.update_attributes(post_params)
+    # find_post
+    # @post.update(post_params)
+    if post.save
       flash[:success] = "The post was successfully saved."
       redirect_to post
     else
-      post.attributes = post_params
-      render 'new', post: post
+      render 'new'
     end
   end
 
@@ -95,10 +96,10 @@ class PostsController < ApplicationController
     end
 
     def find_post
-      post = Post.find_by_id_or_title(params[:id])
+      @post = Post.find_by_id_or_title(params[:id])
     end
 
     def post_params
-      params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:comments_count,:language,:order,:show_all,:url)
+      params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:language,:url,:comment_count,:page)
     end
 end

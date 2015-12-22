@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   include LoggedIn
 
+  before_filter do
+    resource = controller_name.singularize.to_sym
+    method = "#{resource}_params"
+    params[resource] &&= send(method) if respond_to?(method, true)
+  end
+
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
