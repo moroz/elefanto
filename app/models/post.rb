@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   has_and_belongs_to_many :categories
   before_save :set_word_count
   cattr_reader :per_page
-  acts_as_url :title, :allow_duplicates => true, :limit => 35
+  acts_as_url :title, :allow_duplicates => true
 
   scope :blog, -> { where('posts.number > ?', 0).order(:number => :desc) }
   scope :lang_zh, -> { where(:language => ["zh","zh-hans","zh-hant"]) }

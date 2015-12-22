@@ -13,6 +13,10 @@
   = f.text_field :description, :class => "form-control"
 
 .form-group
+  = f.label :url, "Slug:"
+  = f.text_field :url, :class => "form-control"
+
+.form-group
   = f.label :language, 'Language:'
   = f.collection_select :language, Post::LANGUAGES, :first, :last,
        :include_blank => false

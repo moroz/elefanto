@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
+  get "/log-in" => "sessions#new", as: :login
+  post "/log-in" => "sessions#create"
+  get "/log-out" => "sessions#destroy", as: :logout
+  get "/schedule" => "pages#schedule"
+
   scope "(:locale)", locale: /en|pl|zh|eo/ do
     resources :posts do
       resources :comments, shallow: true
@@ -32,11 +37,6 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :blog, :controller => 'posts', :only => [:show]
-
-  get "/log-in" => "sessions#new", as: :login
-  post "/log-in" => "sessions#create"
-  get "/log-out" => "sessions#destroy", as: :logout
-  get "/schedule" => "pages#schedule"
 
   # Example resource route with options:
   #   resources :products do

@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   include PostNumber
   include ClientData
 
-  expose(:post)
+  expose(:post, attributes: :post_params)
   expose(:posts)
   expose(:post_comments) { post.comments.paginate(:page => params[:page]) }
   expose(:new_comment) { Comment.new }
@@ -70,7 +70,7 @@ class PostsController < ApplicationController
       redirect_to post
     else
       post.attributes = post_params
-      render 'edit'
+      render 'new', post: post
     end
   end
 
@@ -99,6 +99,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:comments_count,:language,:order,:show_all)
+      params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:comments_count,:language,:order,:show_all,:url)
     end
 end
