@@ -10,13 +10,13 @@
         Created:
         = post.created_at.to_s
       - else
-        = l post.updated_at, :format => :long
+        = l post.created_at, :format => :long
       = link_to 'Permalink', slug(post), class: 'btn-xs btn-primary'
       - if logged_in?
         = link_to "Edit", edit_post_path(post), class: 'btn-xs btn-success'
         = link_to "Delete", post, :method => :delete, :confirm => "You sure?",
           :title => "Delete #{post.title}", :class => 'btn-xs btn-warning'
-  - unless post.description == nil or post.description == ""
+  - unless post.description.nil? or post.description == ""
     %span.post_description= do_formatting(post.description, post.textile_enabled)
   - unless post.lang_versions.empty?
     .post__lang_versions= raw(t("language_versions", language: t(post.language), versions: languages(post.lang_versions)))
@@ -25,8 +25,3 @@
   %p.views= t('post_views', :views => post.views+1)
   -# = render :partial => 'category', :collection => @categories
   = render :partial => 'posts/linkbox', :post => post
-  - if false # if Rails.env.development?
-    - if post.textile_enabled
-      TEXTILE IS ENABLED
-    - else
-      TEXTILE NOT ENABLED
