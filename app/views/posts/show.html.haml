@@ -1,9 +1,8 @@
 = render post
 %a{:name => "comments"}
 %section#comments
-  - unless post_comments.count == 0
+  - unless post_comments.empty?
     %h3 Comments
     = render post_comments
 %a{:name => "new_comment"}
-- new_comment ||= Comment.new
 = render 'comments/comment_form', :post => [post,new_comment]

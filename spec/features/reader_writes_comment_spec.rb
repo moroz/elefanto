@@ -20,6 +20,10 @@ feature "Reader writes a comment" do
     FactoryGirl.attributes_for(:comment)
   end
 
+  def accepted_urls(post1)
+    [post_path(id: post1.id, locale: 'en'), post_slug_path(id: post1.id, locale: 'en', slug: post1.url)]
+  end
+
   before do
     5.times { FactoryGirl.create(:post) } # fill the database with posts
   end
@@ -28,7 +32,7 @@ feature "Reader writes a comment" do
     post1 = visit_post
     args = valid_args
 
-    expect(current_path).to eq post_path(id: post1.id, locale: 'en')
+    expect(accepted_urls(post1)).to include(current_path)
     fill_in_comment_form_and_click_send(args)
 
     expect(Comment.count).to eq 1
@@ -39,11 +43,10 @@ feature "Reader writes a comment" do
     post1 = visit_post
     args = valid_args
 
-    expect(current_path).to eq post_path(id: post1.id, locale: 'en')
+    expect(accepted_urls(post1)).to include(current_path)
     2.times { fill_in_comment_form_and_click_send(args) }
 
     expect(Comment.count).to eq 1
-    visit post_path(id: post1.id)
     expect(page).to have_selector("div.comment", :count => 1)
   end
 end
