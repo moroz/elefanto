@@ -90,7 +90,7 @@ class Post < ActiveRecord::Base
     unless chinese
       ActionController::Base.helpers.strip_tags(string).split.length
     else
-      ActionController::Base.helpers.strip_tags(string).gsub(/[^\p{Han}\w]/,'').split('').length
+      ActionController::Base.helpers.strip_tags(string).scan(/\p{Han}/).length
     end
   end
 end
