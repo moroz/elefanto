@@ -38,6 +38,7 @@ gem 'invisible_captcha'
 gem 'decent_exposure'
 gem 'stringex'
 gem 'seed_dump'
+gem 'activerecord-import'
 
 group :development do
   gem 'puma'
