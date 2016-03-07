@@ -175,7 +175,6 @@ GEM
     notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    pg (0.17.1)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -254,6 +253,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    seed_dump (3.2.4)
+      activerecord (>= 4)
+      activesupport (>= 4)
     selenium-webdriver (2.48.1)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
@@ -330,7 +332,6 @@ DEPENDENCIES
   launchy
   minitest-reporters
   mysql2
-  pg
   pry-rails
   puma
   rack-livereload
@@ -338,6 +339,7 @@ DEPENDENCIES
   rspec-rails (~> 3.2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  seed_dump
   selenium-webdriver
   shoulda-matchers
   spring
@@ -351,4 +353,4 @@ DEPENDENCIES
   yaml_db
 
 BUNDLED WITH
-   1.11.0
+   1.11.2

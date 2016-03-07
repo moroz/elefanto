@@ -3,8 +3,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use PostgreSQL as the database for Active Record and MySQL on deployment
-gem 'pg'
-gem 'mysql2'
+# gem 'pg'
+# gem 'mysql2'
+gem 'sqlite3'
 gem 'i18n', github: 'svenfuchs/i18n'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -36,6 +37,7 @@ gem 'geocoder'
 gem 'invisible_captcha'
 gem 'decent_exposure'
 gem 'stringex'
+gem 'seed_dump'
 
 group :development do
   gem 'puma'

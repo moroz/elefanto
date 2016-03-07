@@ -81,7 +81,7 @@ class PostsController < ApplicationController
         flash[:success] = "The post was successfully destroyed."
         redirect_to root_path
       else
-        flash[:error] = "The post cannot be removed."
+        flash[:danger] = "The post cannot be removed."
         redirect_to post_path(post)
       end
     end
