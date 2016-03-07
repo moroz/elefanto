@@ -5,17 +5,17 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   timeout: 5000
   pool: 5
   host: localhost
-  username: elefanto_new
+  username: elefanto_ror
   password: 489D8z4kRv
 
 development:
   <<: *default
-  database: elefanto_dev
+  database: elefanto_ror
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -26,4 +26,4 @@ test:
 
 production:
   <<: *default
-  database: elefanto_dev
+  database: elefanto_ror
