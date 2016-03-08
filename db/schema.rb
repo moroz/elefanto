@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308085130) do
+ActiveRecord::Schema.define(version: 20160308163319) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name_en"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20160308085130) do
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"
   add_index "posts", ["number"], name: "index_posts_on_number"
-  add_index "posts", ["url"], name: "index_posts_on_url"
+  add_index "posts", ["url"], name: "index_posts_on_url", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
