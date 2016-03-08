@@ -21,7 +21,7 @@ feature "Reader writes a comment" do
   end
 
   def accepted_urls(post1)
-    [post_path(id: post1.id, locale: 'en'), post_slug_path(id: post1.id, locale: 'en', slug: post1.url)]
+    [post_path(id: post1.id, locale: 'en'), post_path(id: post1.id)]
   end
 
   before do

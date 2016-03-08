@@ -15,25 +15,20 @@ Rails.application.routes.draw do
   get "/log-in" => "sessions#new", as: :login
   post "/log-in" => "sessions#create"
   get "/log-out" => "sessions#destroy", as: :logout
-  get "/schedule" => "pages#schedule"
 
-  scope "(:locale)", locale: /en|pl|zh|eo/ do
-    resources :posts do
-      resources :comments, shallow: true
+  resources :posts do
+    resources :comments, shallow: true
+  end
+  get '/blog' => 'posts#index', show_all: false, :as => :blog
+  get "/about" => 'pages#about', as: :about
+  resources :visits, :only => [:index]
+  get "/visits/:post_id" => 'visits#show', :as => 'show_visits'
+  resources :categories do
+    member do
+      get 'manage'
+      post 'remove' => 'categories#remove_post'
+      post 'add' => 'categories#add_post'
     end
-    get '/blog' => 'posts#index', show_all: false, :as => :blog
-    get "/about" => 'pages#about', as: :about
-    get '/' => 'pages#home', as: :home
-    resources :visits, :only => [:index]
-    get "/visits/:post_id" => 'visits#show', :as => 'show_visits'
-    resources :categories do
-      member do
-        get 'manage'
-        post 'remove' => 'categories#remove_post'
-        post 'add' => 'categories#add_post'
-      end
-    end
-    get ':id(/:slug)' => 'posts#show', as: 'post_slug'
   end
   resources :users
   resources :blog, :controller => 'posts', :only => [:show]

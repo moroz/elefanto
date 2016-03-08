@@ -1,6 +1,4 @@
 module PostsHelper
-  include PostNumber
-
   def do_formatting(str, textile_enabled)
     if textile_enabled
       render_textilized(str)
@@ -55,9 +53,5 @@ module PostsHelper
       label = "外"
     end
     content_tag :div, label, :class => css_class
-  end
-
-  def slug(post)
-    post_slug_path(post, :slug => post.url, :locale => post.locale)
   end
 end

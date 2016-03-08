@@ -1,6 +1,4 @@
 class CategoriesController < ApplicationController
-  include LoggedIn
-
   def index
     @categories = Category.all
   end

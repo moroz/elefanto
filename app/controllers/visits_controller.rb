@@ -1,5 +1,4 @@
 class VisitsController < ApplicationController
-  include LoggedIn
   before_action :only_authorized
 
   def index

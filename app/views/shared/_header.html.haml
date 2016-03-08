@@ -1,11 +1,11 @@
 .row1__langs
-  = link_to("English", url_for( :locale => :en))
+  = link_to("English",lang: :en)
   &bull;
-  = link_to("中文", url_for( :locale => :zh))
+  = link_to("中文", lang: :zh)
   &bull;
-  = link_to("polski", url_for( :locale => :pl))
+  = link_to("polski", lang: :pl)
   &bull;
-  = link_to("Esperanto", url_for(:locale => :eo))
+  = link_to("Esperanto", lang: :eo)
 .row1__title
   %h1
     = t("elefanto")

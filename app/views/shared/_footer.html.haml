@@ -1,7 +1,7 @@
 &copy; 2008-2015 by Karol Moroz.
 - unless logged_in?
-  = link_to "Log in", "/log-in"
+  = link_to "Log in", login_path
 - else
-  = link_to "Log out", "/log-out"
+  = link_to "Log out", logout_path
   &bull;
-  = link_to "New post", "/posts/new"
+  = link_to "New post", new_post_path

@@ -3,17 +3,17 @@
     = image_tag "/images/elephant-zh-mobile.png", :id => "elephant"
   %nav.row1__menu.row
     .col-xs-6.text-center
-      = link_to t("homepage"), :controller => :pages, :action => :home, :locale => current_locale
+      = link_to t("homepage"), :controller => :pages, :action => :home
     .col-xs-6.text-center
-      = link_to t("blog"), :controller => :posts, :action => :index, :locale => current_locale
+      = link_to t("blog"), :controller => :posts, :action => :index
     .col-xs-6.text-center
-      = link_to t("about"), :controller => :pages, :action => :about, :locale => current_locale
+      = link_to t("about"), :controller => :pages, :action => :about
     .col-xs-6.text-center
-      = link_to t("faq") , :controller => :pages, :action => :faq,  :locale => current_locale
+      = link_to t("faq") , :controller => :pages, :action => :faq,  lang: current_locale
   .row.row1__langs.text-center
     .col-xs-4
-      = link_to("English", url_for( :locale => :en))
+      = link_to("English", url_for( lang: :en))
     .col-xs-4
-      = link_to("中文", url_for( :locale => :zh))
+      = link_to("中文", url_for( lang: :zh))
     .col-xs-4
-      = link_to("polski", url_for( :locale => :pl))
+      = link_to("polski", url_for( lang: :pl))

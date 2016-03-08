@@ -11,10 +11,10 @@
         = post.created_at.to_s
       - else
         = l post.created_at, :format => :long
-      = link_to 'Permalink', slug(post), class: 'btn-xs btn-primary'
+      = link_to 'Permalink', post, class: 'btn-xs btn-primary'
       - if logged_in?
         = link_to "Edit", edit_post_path(post), class: 'btn-xs btn-success'
-        = link_to "Delete", post, :method => :delete, :confirm => "You sure?",
+        = link_to "Delete", post, :method => :delete, data: { :confirm => "You sure?"},
           :title => "Delete #{post.title}", :class => 'btn-xs btn-warning'
   - unless post.description.nil? or post.description == ""
     %span.post_description= do_formatting(post.description, post.textile_enabled)

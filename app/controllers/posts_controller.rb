@@ -1,9 +1,6 @@
 class PostsController < ApplicationController
-  #before_action :find_post, :only => [:show,:edit,:update,:destroy]
-  before_action :only_authorized, :only => [:new,:create,:update,:destroy]
-  include LoggedIn
-  include PostNumber
-  include ClientData
+  before_action :only_authorized, :only => [:new,:create,:edit,:update,:destroy]
+  helper_method :post_number
 
   expose(:post, attributes: :post_params)
   expose(:posts)
@@ -26,8 +23,8 @@ class PostsController < ApplicationController
   def index
     if params[:show_all]
       self.posts = Post.all
-    elsif params[:lang].present?
-      case params[:lang]
+    elsif params[:post_lang]
+      case params[:post_lang]
       when "zh"
         self.posts = Post.lang_zh
       when "pl"
@@ -76,30 +73,48 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if only_authorized(post_path(post))
-      if post.delete
-        flash[:success] = "The post was successfully destroyed."
-        redirect_to root_path
-      else
-        flash[:danger] = "The post cannot be removed."
-        redirect_to post_path(post)
-      end
+    only_authorized(post_path(post))
+    if post.delete
+      flash[:success] = "The post was successfully destroyed."
+      redirect_to root_path
+    else
+      flash[:danger] = "The post cannot be removed."
+      redirect_to post_path(post)
+    end
+  end
+
+  def post_number(number)
+    return "" if number.nil? || number == 0
+    if number == number.floor
+      return "%d. " % number
+    else
+      return (("%.1f. " % number).sub('.', ','))
     end
   end
 
   private
 
-    def no_such_post(id)
-      logger.error "Attempt to access inexistent post #{id}, from #{request.remote_ip}."
-      flash[:danger] = "There is no such post."
-      redirect_to posts_path
-    end
+  def no_such_post(id)
+    logger.error "Attempt to access inexistent post #{id}, from #{request.remote_ip}."
+    flash[:danger] = "There is no such post."
+    redirect_to posts_path
+  end
 
-    def find_post
-      @post = Post.find_by_id_or_title(params[:id])
-    end
+  def find_post
+    @post = Post.find_by_id_or_title(params[:id])
+  end
 
-    def post_params
-      params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:language,:url,:comment_count,:page)
-    end
+  def post_params
+    params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:language,:url,:comment_count,:page)
+  end
+
+  def browser_name
+    metadata = browser.name + " "
+    metadata << browser.full_version.to_s
+    metadata << " mobile" if browser.mobile?
+    metadata << " tablet" if browser.tablet?
+    metadata << " bot" if browser.bot?
+    metadata << " #{browser.platform}"
+    return metadata
+  end
 end

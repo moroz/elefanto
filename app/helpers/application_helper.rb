@@ -6,8 +6,6 @@ module ApplicationHelper
     path = "url(/images/backgrounds/" + images.shuffle.first + ")"
   end
 
-  include LoggedIn
-  
   def current_locale
     I18n.locale
   end

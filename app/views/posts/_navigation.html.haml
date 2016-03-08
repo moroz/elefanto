@@ -5,8 +5,8 @@
     = link_to "Show posts in all languages", :lang => nil, :page => params[:page]
   - else
     Show only posts in
-    = link_to "English", :lang => "en"
-    = link_to "Polish", :lang => "pl"
-    = link_to "Chinese", :lang => "zh"
+    = link_to "English", :post_lang => "en"
+    = link_to "Polish", :post_lang => "pl"
+    = link_to "Chinese", :post_lang => "zh"
   %br
   = page_entries_info posts

@@ -85,7 +85,12 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def to_param
+    "#{number.floor} #{url}".parameterize
+  end
+
   private
+
   def count_words(string, chinese)
     unless chinese
       ActionController::Base.helpers.strip_tags(string).split.length
