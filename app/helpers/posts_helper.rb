@@ -22,10 +22,8 @@ module PostsHelper
   end
 
   def languages(lang_versions)
-    # full_names = {"pl" => "polski", "en" => "English", "zh" => "中文", "ru" => "русский", "de" => "Deutsch", "es" => "español"}
-    array = []
-    lang_versions.each do |x|
-      array << "<a href=\"/posts/#{x.id}\">"+I18n.t(x.language) + "</a>"
+    array = lang_versions.map do |x|
+      "<a href=\"#{post_path(x)}\">" + I18n.t(x.language) + "</a>"
     end
     array.join(I18n.t("lang_separator"))
   end
