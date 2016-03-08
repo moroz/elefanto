@@ -10,7 +10,7 @@ font-size: 85%;
   text-align: center;
   margin: auto;
   background-image: url(background-mountain.jpg);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .row1__subtitle {
@@ -26,7 +26,7 @@ font-size: 85%;
 }
 
 body {
-  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Arial, "Microsoft Yahei",
+  font-family: "Helvetica Neue", "Helvetica", "TeX Gyre Heros", Arial, "Microsoft Yahei",
     "微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback", sans-serif;
   overflow: hidden;
 }
@@ -74,7 +74,7 @@ img#elephant {
 .row2 {
   padding: 0.6em;
   color: #002626;
-  background-color: #ccc;
+  background-color: #ddd;
   font-size: 1.1rem;
 }
 
@@ -136,9 +136,6 @@ hr {
     width: 50%;
 }
 
-.post--lang_en {
-}
-
 .row2__flashbox {
   margin-bottom: 2.5em;
 }
@@ -147,4 +144,8 @@ hr {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+}
+
+strong {
+  font-weight: 500;
 }

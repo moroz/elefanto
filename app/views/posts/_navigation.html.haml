@@ -1,7 +1,7 @@
 %p
   = will_paginate posts
   %br
-  - if params[:lang]
+  - if params[:post_lang]
     = link_to "Show posts in all languages", :lang => nil, :page => params[:page]
   - else
     Show only posts in

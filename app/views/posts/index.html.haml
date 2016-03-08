@@ -1,6 +1,6 @@
 %h1= t("blog_archive")
 %strong= link_to "Categories", categories_path
 = render 'navigation'
-- for post in posts
+- posts.each do |post|
   = render :partial => 'posts/post_list', :locals => { :post => post }
 = render 'navigation'
