@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     else
       @title = I18n.t("elefanto") + ": #{post_number(post.number)}#{post.title}"
       session[:post_id] = post.id
-      post.increment_views(request.remote_ip, browser.bot?, browser_name, request.location)
+      post.increment_views(request.remote_ip, browser.bot?, browser_name)#, request.location)
       @lang_versions = post.lang_versions
       @previous_post = post.previous_post
       @next_post = post.next_post
