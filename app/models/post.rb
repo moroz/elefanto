@@ -48,12 +48,11 @@ class Post < ActiveRecord::Base
   end
 
   def read_number
-    if number == number.to_i
+    return "" if number.nil? || number == 0
+    if number == number.floor
       return "%d. " % number
-    elsif number != number.to_i
-      return (("%.1f" % number).gsub('.', ',')) + ". "
-    elsif number == 0
-      return ""
+    else
+      return (("%.1f. " % number).sub('.', ','))
     end
   end
 
@@ -87,6 +86,11 @@ class Post < ActiveRecord::Base
 
   def to_param
     "#{number.floor} #{url}".parameterize
+  end
+
+  def self.find_by_param(input)
+    number, url = input.split('-', 2)
+    where(number: number, url: url)
   end
 
   private

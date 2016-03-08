@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :only_authorized, :only => [:new,:create,:edit,:update,:destroy]
   helper_method :post_number
 
-  expose(:post, attributes: :post_params)
+  expose(:post, attributes: :post_params) { Post.includes(:comments).find_by_param(params[:id]).first }
   expose(:posts)
   expose(:post_comments) { post.comments.paginate(:page => params[:page]) }
   expose(:new_comment) { Comment.new }
