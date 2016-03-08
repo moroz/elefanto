@@ -17,14 +17,6 @@ class Post < ActiveRecord::Base
   LANGUAGES = {"en" => "English", "pl" => "Polish", "zh" => "Chinese",
     "zh-hans" => "Chinese (Simplified)", "zh-hant" => "Chinese (Traditional)", "es" => "Spanish", "ru" => "Russian"}
 
-  def self.find_by_id_or_title(string)
-    if string.to_i == 0
-      post = self.find_by(title: string)
-    else
-      post = self.find_by(id: string)
-    end
-  end
-
   def self.latest
     self.order(:updated_at).last
   end
@@ -84,12 +76,17 @@ class Post < ActiveRecord::Base
   end
 
   def to_param
-    "#{number.floor} #{url}".parameterize
+    if number.floor == number
+      "#{number.floor}-#{url}".parameterize
+    else
+      "#{number}-#{url}".parameterize
+    end
   end
 
   def self.find_by_param(input)
-    number, url = input.split('-', 2)
-    where(number: number, url: url)
+    number, url = input.match(/(\d+-\d+|\d+)-(.+)/)[1,2]
+    number = number.sub('-','.').to_f if number.match('-')
+    where(number: number.to_f, url: url)
   end
 
   private
