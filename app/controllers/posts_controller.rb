@@ -62,8 +62,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    # find_post
-    # @post.update(post_params)
     if post.save
       flash[:success] = "The post was successfully saved."
       redirect_to post
@@ -98,10 +96,6 @@ class PostsController < ApplicationController
     logger.error "Attempt to access inexistent post #{id}, from #{request.remote_ip}."
     flash[:danger] = "There is no such post."
     redirect_to posts_path
-  end
-
-  def find_post
-    @post = Post.find_by_id_or_title(params[:id])
   end
 
   def post_params

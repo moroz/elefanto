@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-#  attr_accessible :title, :number, :textile_enabled, :content, :description
   validates :title, presence: true, uniqueness: { case_sensitive: false }
   validates :content, presence: true
   has_many :comments
