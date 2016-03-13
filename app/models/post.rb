@@ -84,7 +84,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.find_by_param(input)
-    number, url = input.match(/(\d+-\d+|\d+)-(.+)/)[1,2]
+    number, url = input.match(/(\d+-\d|\d+)-(.+)/)[1,2]
     number = number.sub('-','.').to_f if number.match('-')
     where(number: number.to_f, url: url)
   end
