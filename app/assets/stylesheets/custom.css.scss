@@ -5,16 +5,18 @@ font-size: 85%;
 }
 
 .row1 {
-  height: auto;
-  color: #bf2501;
+  color: #eeeeee;
   text-align: center;
-  margin: auto;
-  background-image: url(background-mountain.jpg);
+  background-color: #007c44;
   font-weight: 500;
+
+  a, a:hover, a:visited {
+    color: #eeeeee;
+  }
 }
 
 .row1__subtitle {
-  color: #711600;
+  color: #eeeeee;
   font-size: 1.5rem;
   font-weight: 400;
 }
@@ -26,9 +28,10 @@ font-size: 85%;
 }
 
 body {
-  font-family: "Helvetica Neue", "Helvetica", "TeX Gyre Heros", Arial, "Microsoft Yahei",
+  font-family: Lato, "Helvetica", "Arial", "Microsoft Yahei",
     "微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback", sans-serif;
   overflow: hidden;
+  background-color: #eee;
 }
 
 img#elephant {
@@ -60,21 +63,16 @@ img#elephant {
 }
 
 .row1__langs {
-  color: #23355f;
+  color: #eeeeee;
   font-weight: bolder;
   margin-top: 5px;
   margin-bottom: -10px;
 }
 
-.row1__content {
-  color: #fff;
-  margin-bottom: 0.5em;
-}
-
 .row2 {
   padding: 0.6em;
-  color: #002626;
-  background-color: #ddd;
+  color: #062e4b;
+  background-color: #eeeeee;
   font-size: 1.1rem;
 }
 
@@ -85,15 +83,17 @@ img#elephant {
 
   .row1 {
     text-align: left;
+    height: 150px;
   }
 }
 
 a {
   color: #396700;
+  font-weight: bolder;
 }
 
 a:visited {
-  color: #065678;
+  color: #062e4b;
 }
 
 .row1--link {
@@ -106,30 +106,25 @@ a:visited {
 
 .row1__menu {
   a {
-    color: #034662;
+    color: #eeeeee;
     font-weight: 600;
   }
 }
 
 .row3 {
-  background-color: #023247;
-  color: #fff;
-  // padding: 1em;
+  background-color: #eeeeee;
+  color: #333;
 }
 
 .row3 a {
-  color: #bbb;
+  color: #024473;
   font-weight: bold;
 
 }
 
 .timestamp {
-    color: #003300;
+    color: #007c44;
     font-size: 90%;
-}
-
-.post__content {
-  color: #002626;
 }
 
 hr {
@@ -140,12 +135,14 @@ hr {
   margin-bottom: 2.5em;
 }
 
-.round {
+.round-5 {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
 
-strong {
-  font-weight: 500;
+.round-3 {
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
 }

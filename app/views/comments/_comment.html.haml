@@ -1,6 +1,6 @@
 - if comment.persisted?
   %a{:name => "comment_#{comment.id}"}
-  .comment.round{:id => "comment_#{comment.id}"}
+  .comment.round-5{:id => "comment_#{comment.id}"}
     %p= comment.text
     - unless comment.website.empty?
       %strong= (link_to "#{comment.signature}", comment.website) + ','
@@ -12,4 +12,4 @@
       Web:
       = link_to comment.website, comment.website
     - if logged_in?
-      = link_to "Delete", comment, method: :delete, :confirm => "Are you sure you want to delete this comment?", :class => "btn-xs btn-warning", :id => "delete_comment"
+      = link_to "Delete", comment, method: :delete, :confirm => "Are you sure you want to delete this comment?", :class => "btn__delete", :id => "delete_comment"

@@ -2,9 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .comment {
-  border: solid 1px #999;
+  border: 1px solid #999;
   padding: 1em;
   margin-left: 1em;
   margin-right: 1em;
@@ -16,16 +15,50 @@
   background-color: #7cba7c;
 }
 
+.btn__permalink, .btn__edit, .btn__delete {
+  padding: 0.2em 0.35em;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #eee;
+  margin: 0 1px;
+}
+
+a.btn__permalink, a:visited.btn__permalink {
+  background: #073b61;
+  color: #eee;
+}
+
+a.btn__edit, a:visited.btn__edit {
+  background: #007c44;
+  color: #eee;
+}
+
+a.btn__delete, a:visited.btn__delete {
+  background: #c81b16;
+  color: #eee;
+}
+
+.btn__send {
+  background: #007c44;
+  color: #eee;
+  font-weight: bold;
+  padding: 0.5em;
+  border: 1px solid #999;
+  width: 100%;
+  text-align: center;
+}
+
 .comment__newcomment {
-  border: solid 1px #999;
+  border: 1px solid #999;
   padding: 1em;
   margin: 1em;
   padding-top: 0;
 }
 
 .post__language {
-  background-color: #328cd6;
-  color: #ddd;
+  background-color: #7eb3e0;
+  color: #474747;
   padding-left: 3px;
   padding-right: 3px;
   display: inline;
@@ -33,27 +66,30 @@
 }
 
 .post__language--zh, .post__language--zh-hans, .post__language--zh-hant {
-  background-color: #ffcc2e;
-  color: #333;
+  background-color: #91e962;
 }
 
 .post__language--pl {
-  background-color: #ff6c2e;
-  color: #333;
+  background-color: #ed9a8c;
 }
-
 
 .post--lang_zh, .post--lang_zh-hant, .post--lang_zh-hans {
   font-size: 1.25rem;
 }
 
 .post__lang_versions {
-  background-color: #ccc;
-  border: solid 1px #999;
+  background-color: #073b61;
+  color: #eee;
+  border: 1px solid #999;
   padding: 0.5em;
   margin-bottom: 0.5em;
   margin-top: -0.5em;
   border-radius: 4px;
+
+  a {
+    color: #eee;
+    font-weight: bold;
+  }
 }
 
 .post__header--margin {
@@ -62,11 +98,10 @@
 
 .post__linkbox {
   background-color: #ccc;
-  border: solid 1px #999;
+  border: 1px solid #999;
   padding: 1em;
   margin: 1em;
   height: auto;
-  // font-weight: bolder;
 }
 
 .post__link {

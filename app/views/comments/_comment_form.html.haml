@@ -1,4 +1,4 @@
-.comment__newcomment.round
+.comment__newcomment.round-5
   %h3= raw(t("new_comment"))
   = form_for post, remote: true do |f|
     = invisible_captcha
@@ -17,4 +17,4 @@
       http://
       = f.text_field :website, :class => "form-control"
 
-    = f.submit t("send"), class: "form-control btn btn-success"
+    = f.submit t("send"), class: "btn__send round-3"
