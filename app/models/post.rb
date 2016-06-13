@@ -21,9 +21,9 @@ class Post < ActiveRecord::Base
     self.order(:updated_at).last
   end
 
-  def increment_views(ip,bot,browser_name)
+  def increment_views(ip,bot,browser_name,location)
     Post.increment_counter(:views, self.id) unless bot
-    Visit.create(:post_id => self.id, :ip => ip, :browser => browser_name)
+    Visit.create(:post_id => self.id, :ip => ip, :browser => browser_name, :city => location.try(:city), :country => location.try(:country))
   end
 
   def lang_versions

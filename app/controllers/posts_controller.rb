@@ -12,10 +12,13 @@ class PostsController < ApplicationController
       no_such_post(params[:id])
     else
       @title = I18n.t("elefanto") + ": #{post_number(post.number)}#{post.title}"
-      post.increment_views(request.remote_ip, browser.bot?, browser_name)
       @lang_versions = post.lang_versions
       @previous_post = post.previous_post
       @next_post = post.next_post
+      render
+      Thread.new do
+        post.increment_views(request.remote_ip, browser.bot?, browser_name, request.location)
+      end
     end
   end
 
