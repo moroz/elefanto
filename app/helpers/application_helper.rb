@@ -9,4 +9,8 @@ module ApplicationHelper
   def current_locale
     I18n.locale
   end
+
+  def locale_stylesheet_link_tag(locale = I18n.locale)
+    stylesheet_link_tag("lang_#{locale}")
+  end
 end

@@ -1,11 +1,8 @@
 .row1__langs
-  = link_to("English",lang: :en)
-  &bull;
-  = link_to("中文", lang: :zh)
-  &bull;
-  = link_to("polski", lang: :pl)
-  &bull;
-  = link_to("Esperanto", lang: :eo)
+  - if current_locale == :zh
+    = link_to("English",lang: :en)
+  - else
+    = link_to("中文版", lang: :zh)
 .row1__title
   %h1
     = t("elefanto")
