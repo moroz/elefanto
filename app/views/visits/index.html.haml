@@ -15,7 +15,7 @@
   - @visits.each do |visit|
     %tr
       %td= visit.id
-      %td= link_to visit.post_id, show_visits_path(:post_id => visit.post_id)
+      %td= link_to visit.post.number, visit.post
       %td= visit.timestamp
       %td= visit.ip
       %td= visit.city
