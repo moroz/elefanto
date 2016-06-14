@@ -1,12 +1,13 @@
 class Post < ActiveRecord::Base
   validates :title, presence: true, uniqueness: { case_sensitive: false }
+  validates :url, presence: true, uniqueness: true;
   validates :content, presence: true
   has_many :comments
   has_many :visits
   has_and_belongs_to_many :categories
   before_save :set_word_count
+  before_create :set_url
   cattr_reader :per_page
-  acts_as_url :title, :allow_duplicates => true
 
   scope :blog, -> { where('posts.number > ?', 0).order(:number => :desc) }
   scope :lang_zh, -> { where(:language => ["zh","zh-hans","zh-hant"]) }
@@ -63,6 +64,22 @@ class Post < ActiveRecord::Base
     Post.record_timestamps = true
   end
 
+  def set_url
+    if self.url.empty?
+      self.url = "#{read_number} #{title}".to_url
+    elsif !self.url.match /\A\d{1,3}-.+/
+      self.url = "#{read_number} #{url}".to_url
+    end
+    self.url
+  end
+
+  def set_url!
+    Post.record_timestamps = false
+    self.set_url
+    self.save
+    Post.record_timestamps = true
+  end
+
   def is_chinese?
     ["zh","zh-hans","zh-hant"].include?(self.language)
   end
@@ -84,9 +101,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.find_by_param(input)
-    number, url = input.match(/(\d+-\d|\d+)-(.+)/)[1,2]
-    number = number.sub('-','.').to_f if number.match('-')
-    where(number: number.to_f, url: url)
+    self.where url: input
   end
 
   private
