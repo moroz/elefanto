@@ -93,11 +93,7 @@ class Post < ActiveRecord::Base
   end
 
   def to_param
-    if number.floor == number
-      "#{number.floor}-#{url}".parameterize
-    else
-      "#{number}-#{url}".parameterize
-    end
+    url
   end
 
   def self.find_by_param(input)
