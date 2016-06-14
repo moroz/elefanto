@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :only_authorized, :only => [:new,:create,:edit,:update,:destroy]
-  helper_method :post_number
 
   expose(:post, attributes: :post_params) { Post.includes(:comments).find_by_param(params[:id]).first }
   expose(:posts)
@@ -81,15 +80,6 @@ class PostsController < ApplicationController
     else
       flash[:danger] = "The post cannot be removed."
       redirect_to post_path(post)
-    end
-  end
-
-  def post_number(number)
-    return "" if number.nil? || number == 0
-    if number == number.floor
-      return "%d. " % number
-    else
-      return (("%.1f. " % number).sub('.', ','))
     end
   end
 
