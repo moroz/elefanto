@@ -1,5 +1,6 @@
 module PostsHelper
   def do_formatting(str, textile_enabled)
+    str.gsub! /<!--(.*?)-->(\n|\r\n|\n\r)/i, ''
     if textile_enabled
       render_textilized(str)
     else
@@ -13,10 +14,8 @@ module PostsHelper
 
   def render_wiki_code(str)
     s = str.dup
-    s = str.gsub(/'{3}[^']+'{3}/) { |s| "<strong>#{s[3..-4]}</strong>" }
-    s = s.gsub(/'{2}([^']+)'{2}/) { |s| "<em>#{s[2..-3]}</em>" }
-    s = s.gsub(/\[{2}([\w\d ]+)\]{2}/) { |s| link_to s[2..-3], "/posts/#{s[2..-3]}" }
-    #s = word_wrap(s)
+    s = str.gsub(/'{3}([^']+)'{3}/, '<strong>\1</strong>')
+    s = s.gsub(/'{2}([^']+)'{2}/, '<em>\1</em>')
     s = simple_format(s)
     return s
   end

@@ -10,7 +10,7 @@ feature "Reader writes a comment" do
   end
 
   def fill_in_comment_form_and_click_send(args)
-    page.find("textarea#comment_text").set(args[:text])
+    find(:css, "textarea#comment_text").set(args[:text])
     page.find("input#comment_signature").set(args[:signature])
     page.find("input#comment_website").set(args[:website])
     click_button 'Send'
@@ -18,10 +18,6 @@ feature "Reader writes a comment" do
 
   def valid_args
     FactoryGirl.attributes_for(:comment)
-  end
-
-  def accepted_urls(post1)
-    [post_path(id: post1.id, locale: 'en'), post_path(id: post1.id)]
   end
 
   before do
@@ -32,7 +28,7 @@ feature "Reader writes a comment" do
     post1 = visit_post
     args = valid_args
 
-    expect(accepted_urls(post1)).to include(current_path)
+    expect(current_path).to eq post_path(post1)
     fill_in_comment_form_and_click_send(args)
 
     expect(Comment.count).to eq 1
@@ -43,8 +39,10 @@ feature "Reader writes a comment" do
     post1 = visit_post
     args = valid_args
 
-    expect(accepted_urls(post1)).to include(current_path)
-    2.times { fill_in_comment_form_and_click_send(args) }
+    expect(current_path).to eq post_path(post1)
+    fill_in_comment_form_and_click_send(args)
+    puts page.body
+    fill_in_comment_form_and_click_send(args)
 
     expect(Comment.count).to eq 1
     expect(page).to have_selector("div.comment", :count => 1)

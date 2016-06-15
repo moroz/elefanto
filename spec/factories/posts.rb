@@ -6,5 +6,6 @@ FactoryGirl.define do
     created_at { Faker::Time.backward(13, :evening) }
     textile_enabled true
     content { Faker::Lorem.paragraph(6) }
+    url { "#{number} #{title}".to_url }
   end
 end
