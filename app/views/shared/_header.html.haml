@@ -4,13 +4,13 @@
     %br.row1__title--linebreak
     %span.row1__subtitle= t("memoirs")
 .row1__menu.row
-  .col-sm-3.row1--link.col-xs-3
+  .col-sm-3.row1--link.col-xs-6
     = link_to t("homepage"), root_path
-  .col-sm-3.row1--link.col-xs-3
+  .col-sm-3.row1--link.col-xs-6
     = link_to t("blog"), blog_path
-  .col-sm-3.row1--link.col-xs-3
+  .col-sm-3.row1--link.col-xs-6
     = link_to t("about"), about_path
-  .col-sm-3.row1--link.col-xs-3
+  .col-sm-3.row1--link.col-xs-6
     - if current_locale == :zh
       = link_to("English", lang: :en)
     - else
