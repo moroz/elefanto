@@ -1,6 +1,7 @@
 module PostsHelper
   def do_formatting(str, textile_enabled)
     str.gsub! /<!--(.*?)-->(\n|\r\n|\n\r)/i, ''
+    str.gsub! /<br\s*\/*>(\n|\r\n|\n\r)/, "\n"
     if textile_enabled
       render_textilized(str)
     else
@@ -24,7 +25,14 @@ module PostsHelper
     array = lang_versions.map do |x|
       "<a href=\"#{post_path(x)}\">" + I18n.t(x.language) + "</a>"
     end
-    array.join(I18n.t("lang_separator"))
+    array.join(I18n.t("separator"))
+  end
+
+  def category_list(categories)
+    array = categories.map do |x|
+      "<a href=\"#{category_path(x)}\">#{x.name}</a>"
+    end
+    array.join(I18n.t("separator"))
   end
 
   def language_label(language)

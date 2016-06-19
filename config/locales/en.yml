@@ -29,6 +29,7 @@ en:
   elefanto: "Travels Small and Big"
   memoirs: "The official blog of Karol Moroz"
   language_versions: "This post is in <strong>%{language}</strong> language. Available versions: %{versions}."
+  category_list: "This post belongs to categories %{list}."
   contact_me: "Contact"
   en: English
   pl: Polish
@@ -48,6 +49,7 @@ en:
   post_views: "This post has been viewed %{views} times."
   next_post: "Next post"
   previous_post: "Previous post"
+  separator: ", "
 
   titles:
     blog_archive: "Blog Archive – Travels Small and Big"

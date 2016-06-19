@@ -7,7 +7,7 @@ zh:
   faq: "标准问题 标准答案"
   elefanto: "大象日記"
   memoirs: "來自波蘭的大象日記"
-  lang_separator: "、"
+  separator: "、"
   language_versions: "本文章的语言为<strong>%{language}</strong>。本文章还有%{versions}版本。"
   contact_me: "联系我"
   pl: 波兰文
