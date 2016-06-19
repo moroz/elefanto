@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     if post.nil?
       no_such_post(params[:id])
     else
-      @title = I18n.t("elefanto") + ": #{post_number(post.number)}#{post.title}"
+      @title = "#{post_number(post.number)}#{post.title}" + t("titles.show_post")
       @lang_versions = post.lang_versions
       @previous_post = post.previous_post
       @next_post = post.next_post
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
       self.posts = Post.blog
     end
     self.posts = self.posts.order("number DESC").paginate(:page => params[:page])
-    @title = "Elefanto — blog archive"
+    @title = t("titles.blog_archive")
   end
 
   def new

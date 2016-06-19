@@ -27,6 +27,13 @@ zh:
   send: "发送"
   post_views: "此文章已被访问过%{views}次。"
 
+  titles:
+    blog_archive: "网志档案——大象日记"
+    default: "大象日记"
+    homepage: "大象日记"
+    about: "关于我——大象日记"
+    show_post: "——大象日记"
+
   will_paginate:
     next_label: "下一页 &#8594;"
     previous_label: "&#8592; 上一页"

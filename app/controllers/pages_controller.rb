@@ -1,14 +1,10 @@
 class PagesController < ApplicationController
   def home
-    @title = "Elefanto — " + I18n.t("homepage")
+    @title = t("titles.homepage")
   end
 
   def about
-    @title = "Elefanto — " + I18n.t("about")
+    @title = t("titles.about")
     @mobile = browser.mobile?
-  end
-
-  def faq
-    @title = "Elefanto — " + I18n.t("faq")
   end
 end

@@ -2,7 +2,7 @@
 %html
   %head
     %title
-      = @title || "Elefanto — Memoirs of an Elephant"
+      = @title || t("titles.default")
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track' => true
@@ -16,8 +16,6 @@
     %div{:class => "row1 row1--#{current_locale}"}
       .wrapper.container
         = render 'shared/header'
-        .row1__content
-          = render 'shared/header_nav'
     .row2
       .wrapper.container
         - flash.each do |key, value|

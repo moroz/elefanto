@@ -5,14 +5,6 @@ class Category < ActiveRecord::Base
   validates :name_pl, :uniqueness => true, :allow_blank => true
   validates :name_zh, :uniqueness => true, :allow_blank => true
 
-  #def name_pl
-  #  self.name_pl || name_en
-  #end
-
-  #def name_zh
-  #  self.name_zh || name_en
-  #end
-
   def name
     self.name_en
   end
