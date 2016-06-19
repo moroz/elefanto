@@ -1,14 +1,14 @@
 class CommentsController < ApplicationController
   invisible_captcha :only => [:create]
-  expose(:post)
   expose(:post_comments) { post.comments }
-  expose(:comment)
   expose(:new_comment) { Comment.new }
 
+  helper_method :post, :comment
+
   def create
-    comment = post.comments.build(comment_params)
-    comment.ip = request.remote_ip
-    if comment.save
+    @comment = post.comments.build(comment_params)
+    @comment.ip = request.remote_ip
+    if @comment.save
         respond_to do |format|
           format.html {
             flash[:success] = "Your comment was saved successfully."
@@ -19,23 +19,31 @@ class CommentsController < ApplicationController
     else
       flash[:danger] = "There was an error saving your comment."
       self.new_comment = post.comments.build(comment_params)
-      # self.post_comments = post.comments
       render :template => "posts/show", post: post, lang_versions: post.lang_versions
     end
   end
 
   def destroy
+    @post = comment.post
     if comment.delete
-      Post.reset_counters(post.id)
+      Post.reset_counters(@post.id)
       flash[:success] = "The comment ##{comment.id} has been deleted successfully."
-      redirect_to post
+      redirect_to @post
     else
       flash[:danger] = "The comment could not be deleted."
-      redirect_to post_path(post, :anchor => "comment_#{id}")
+      redirect_to post_path(post, :anchor => "comment_#{comment.id}")
     end
   end
 
   private
+
+  def comment
+    @comment ||= Comment.find(params[:id])
+  end
+
+  def post
+    @post ||= Post.includes(:comments).find_by_param(params[:post_id]).first
+  end
 
   def comment_params
     params.require(:comment).permit(:text,:website,:signature,:post_id)

@@ -41,10 +41,9 @@ feature "Reader writes a comment" do
 
     expect(current_path).to eq post_path(post1)
     fill_in_comment_form_and_click_send(args)
-    puts page.body
     fill_in_comment_form_and_click_send(args)
 
     expect(Comment.count).to eq 1
-    expect(page).to have_selector("div.comment", :count => 1)
+    expect(page).to have_css("div.comment", :count => 1)
   end
 end

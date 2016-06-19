@@ -12,7 +12,7 @@ feature "Showing post list" do
   end
 
   it "shows 5 posts" do
-    expect(page).to have_selector("a.post__link", :count => Post.all.size)
+    expect(page).to have_selector(".post__link", :count => Post.all.size)
   end
 
   it "shows proper comment count" do

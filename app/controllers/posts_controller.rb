@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :only_authorized, :only => [:new,:create,:edit,:update,:destroy]
 
-  expose(:post, attributes: :post_params) { Post.includes(:comments).find_by_param(params[:id]).first }
+  helper_method :post
+
   expose(:posts)
   expose(:post_comments) { post.comments.paginate(:page => params[:page]) }
   expose(:new_comment) { Comment.new }
@@ -44,14 +45,14 @@ class PostsController < ApplicationController
 
   def new
     number = Post.blog.first.try(:number).to_i + 1
-    self.post = Post.new(:number => number, :textile_enabled => true)
+    @post = Post.new(:number => number, :textile_enabled => true)
     @title = "Create new post"
   end
 
   def create
-    post = Post.new(post_params)
-    if post.save
-      redirect_to post
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to @post
     else
       render :new
     end
@@ -81,6 +82,10 @@ class PostsController < ApplicationController
       flash[:danger] = "The post cannot be removed."
       redirect_to post_path(post)
     end
+  end
+
+  def post
+    @post ||= Post.includes(:comments).find_by_param(params[:id]).first
   end
 
   private

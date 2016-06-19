@@ -15,7 +15,7 @@ feature 'User creates a post' do
     page.find('input#post_textile_enabled').set(true)
     click_button('Send')
     expect(Post.count).to eq 1
-    expect(current_path).to eq(post_path(id: Post.last.id, locale: 'en'))
+    expect(current_path).to eq(post_path(Post.last))
     expect(page).to have_content valid_attr[:title]
     expect(page).to have_content valid_attr[:number].to_i
   end

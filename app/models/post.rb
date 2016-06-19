@@ -1,12 +1,11 @@
 class Post < ActiveRecord::Base
   validates :title, presence: true, uniqueness: { case_sensitive: false }
-  validates :url, presence: true, uniqueness: true;
+  validates :url, uniqueness: true;
   validates :content, presence: true
   has_many :comments
   has_many :visits
   has_and_belongs_to_many :categories
-  before_save :set_word_count
-  before_create :set_url
+  before_save :set_word_count, :set_url
   cattr_reader :per_page
 
   scope :blog, -> { where('posts.number > ?', 0).order(:number => :desc) }

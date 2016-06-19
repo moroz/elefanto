@@ -46,6 +46,8 @@ en:
   send: "Send!"
   your_website: "Your website"
   post_views: "This post has been viewed %{views} times."
+  next_post: "Next post"
+  previous_post: "Previous post"
 
   will_paginate:
     next_label: "Next &#8594;"
