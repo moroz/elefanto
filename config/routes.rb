@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :blog, :controller => 'posts', :only => [:show]
+  resources :images
 
   # Example resource route with options:
   #   resources :products do
