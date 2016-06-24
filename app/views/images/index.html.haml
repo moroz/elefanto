@@ -1,0 +1,16 @@
+%h1 Image list
+
+%table.table
+  %tr
+    %th ID
+    %th Title
+  - @images.each do |x|
+    %tr
+      %td= x.id
+      %td= link_to x.title, x
+      %td
+        = link_to "Del", x, :method => :delete, data: { :confirm => "You sure?"},
+        :title => "Delete #{x.title}"
+        = link_to "Edit", edit_image_path(x)
+
+= image_from_s3 "Nowy obrazek"

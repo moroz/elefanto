@@ -2,6 +2,7 @@ module PostsHelper
   def do_formatting(str, textile_enabled)
     str.gsub! /<!--(.*?)-->(\n|\r\n|\n\r)/i, ''
     str.gsub! /<br\s*\/*>(\n|\r\n|\n\r)/, "\n"
+    str.gsub!(/\[\[Image\:(\w+)\]\]/) { |x| image_from_s3($1) }
     if textile_enabled
       render_textilized(str)
     else

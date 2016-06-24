@@ -9,4 +9,13 @@ module ApplicationHelper
   def current_locale
     I18n.locale
   end
+
+  def image_from_s3(title)
+    image = Image.find_by(title: title)
+    if image
+      image_tag image.url, class: 'img-responsive', alt: title
+    else
+      link_to "[Image:#{title}]", new_image_url(title: title)
+    end
+  end
 end
