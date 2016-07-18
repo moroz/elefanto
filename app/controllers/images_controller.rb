@@ -62,7 +62,6 @@ class ImagesController < ApplicationController
   end
 
   def set_s3_direct_post
-    logger.debug S3_BUCKET.inspect
     @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
   end
 end

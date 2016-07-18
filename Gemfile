@@ -41,6 +41,10 @@ gem 'stringex'
 gem 'seed_dump'
 gem 'activerecord-import'
 
+group :production do
+  gem 'passenger'
+end
+
 group :development do
   gem 'puma'
   gem 'better_errors'
