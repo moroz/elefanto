@@ -1,7 +1,7 @@
 ﻿%h1 关于我与联系方式
 
 %p 这是我的朋友和我，在贵州安顺（我在右边）：
-- if @mobile
+- if mobile?
   = image_tag 'pictures/anshun-square.jpg', :class => 'img-responsive'
 - else
   = image_tag 'pictures/anshun-rectangle.jpg', :class => 'img-responsive'

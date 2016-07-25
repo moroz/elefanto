@@ -5,6 +5,5 @@ class PagesController < ApplicationController
 
   def about
     @title = t("titles.about")
-    @mobile = browser.mobile?
   end
 end

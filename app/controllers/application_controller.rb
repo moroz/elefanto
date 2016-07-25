@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :set_locale
-  helper_method :current_user, :count_words, :"logged_in?", :post_number
+  helper_method :current_user, :count_words, "logged_in?", :post_number, 'mobile?', 'desktop?'
 
   before_filter do
     resource = controller_name.singularize.to_sym
@@ -39,6 +39,14 @@ class ApplicationController < ActionController::Base
     else
       return (("%.1f. " % number).sub('.', ','))
     end
+  end
+  
+  def mobile?
+    browser.device.mobile? || browser.device.tablet?
+  end
+  
+  def desktop?
+    !mobile?
   end
 
   private

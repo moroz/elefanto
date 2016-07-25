@@ -21,7 +21,7 @@ feature "Reader writes a comment" do
   end
 
   before do
-    5.times { FactoryGirl.create(:post) } # fill the database with posts
+    1.times { FactoryGirl.create(:post) } # fill the database with posts
   end
 
   it "saves a comment with valid args" do
@@ -29,9 +29,9 @@ feature "Reader writes a comment" do
     args = valid_args
 
     expect(current_path).to eq post_path(post1)
-    fill_in_comment_form_and_click_send(args)
-
-    expect(Comment.count).to eq 1
+    puts page.body
+    
+    expect { fill_in_comment_form_and_click_send(args) }.to change { Comment.count }
     expect(page).to have_selector("div.comment", :count => 1)
   end
 
