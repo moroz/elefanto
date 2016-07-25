@@ -14,71 +14,71 @@
 ActiveRecord::Schema.define(version: 20160623113348) do
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name_en"
-    t.string   "name_pl"
-    t.string   "name_zh"
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name_en",     limit: 255
+    t.string   "name_pl",     limit: 255
+    t.string   "name_zh",     limit: 255
+    t.string   "description", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "categories_posts", id: false, force: :cascade do |t|
-    t.integer "post_id",     null: false
-    t.integer "category_id", null: false
+    t.integer "post_id",     limit: 4, null: false
+    t.integer "category_id", limit: 4, null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text     "text"
-    t.string   "signature"
-    t.integer  "post_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "ip"
-    t.string   "website"
+    t.text     "text",       limit: 65535
+    t.string   "signature",  limit: 255
+    t.integer  "post_id",    limit: 4,     null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "ip",         limit: 255
+    t.string   "website",    limit: 255
   end
 
   create_table "images", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "title",       limit: 255
+    t.string   "description", limit: 255
+    t.string   "url",         limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title"
-    t.float    "number"
-    t.text     "description"
-    t.text     "content"
-    t.integer  "category_id"
+    t.string   "title",           limit: 255
+    t.float    "number",          limit: 24
+    t.text     "description",     limit: 65535
+    t.text     "content",         limit: 65535
+    t.integer  "category_id",     limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "textile_enabled", default: false
-    t.integer  "views",           default: 0
-    t.string   "language",        default: "en"
-    t.integer  "word_count",      default: 0
-    t.integer  "comments_count",  default: 0,     null: false
-    t.string   "url"
+    t.boolean  "textile_enabled",               default: false
+    t.integer  "views",           limit: 4,     default: 0
+    t.string   "language",        limit: 255,   default: "en"
+    t.integer  "word_count",      limit: 4,     default: 0
+    t.integer  "comments_count",  limit: 4,     default: 0,     null: false
+    t.string   "url",             limit: 255
   end
 
-  add_index "posts", ["category_id"], name: "index_posts_on_category_id"
-  add_index "posts", ["number"], name: "index_posts_on_number"
-  add_index "posts", ["url"], name: "index_posts_on_url", unique: true
+  add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
+  add_index "posts", ["number"], name: "index_posts_on_number", using: :btree
+  add_index "posts", ["url"], name: "index_posts_on_url", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_hash"
-    t.string   "password_salt"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "email",         limit: 255
+    t.string   "password_hash", limit: 255
+    t.string   "password_salt", limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "visits", force: :cascade do |t|
-    t.integer  "post_id"
-    t.string   "ip"
-    t.string   "browser"
-    t.string   "city"
-    t.string   "country"
+    t.integer  "post_id",   limit: 4
+    t.string   "ip",        limit: 255
+    t.string   "browser",   limit: 255
+    t.string   "city",      limit: 255
+    t.string   "country",   limit: 255
     t.datetime "timestamp"
   end
 

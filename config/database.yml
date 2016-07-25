@@ -1,15 +1,19 @@
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
   timeout: 5000
   pool: 5
-  database: db/production.sqlite3
+  username: root
+  password: 7R2h2djZ
+  socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
+  database: elefanto
 
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: elefanto_test
 
 production:
   <<: *default
+  database: elefanto
