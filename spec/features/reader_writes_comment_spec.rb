@@ -2,11 +2,11 @@ require 'rails_helper'
 
 feature "Reader writes a comment" do
   def visit_post
-    post1 = Post.last
+    blog_post = Post.last
     visit posts_path
-    expect(page).to have_content(post1.title)
-    click_link(post1.title)
-    post1
+    expect(page).to have_content(blog_post.title)
+    click_link(blog_post.title)
+    blog_post
   end
 
   def fill_in_comment_form_and_click_send(args)
@@ -20,30 +20,24 @@ feature "Reader writes a comment" do
     FactoryGirl.attributes_for(:comment)
   end
 
-  before do
-    1.times { FactoryGirl.create(:post) } # fill the database with posts
-  end
+  before(:example) { FactoryGirl.create(:post) } # fill the database with posts
 
   it "saves a comment with valid args" do
-    post1 = visit_post
-    args = valid_args
+    blog_post = visit_post
 
-    expect(current_path).to eq post_path(post1)
-    puts page.body
-    
-    expect { fill_in_comment_form_and_click_send(args) }.to change { Comment.count }
-    expect(page).to have_selector("div.comment", :count => 1)
+    expect(current_path).to eq post_path(blog_post)
+    expect { fill_in_comment_form_and_click_send(valid_args) }.to change { Comment.count }
+    expect(page).to have_selector("div.comment", count: 1)
   end
 
   it "doesn't save two identical comments" do
-    post1 = visit_post
+    blog_post = visit_post
     args = valid_args
 
-    expect(current_path).to eq post_path(post1)
-    fill_in_comment_form_and_click_send(args)
-    fill_in_comment_form_and_click_send(args)
+    expect(current_path).to eq post_path(blog_post)
+    2.times { fill_in_comment_form_and_click_send(args) }
 
     expect(Comment.count).to eq 1
-    expect(page).to have_css("div.comment", :count => 1)
+    expect(page).to have_css("div.comment", count: 1)
   end
 end

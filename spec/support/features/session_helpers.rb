@@ -10,16 +10,17 @@ module Features
       end
     end
 
-    def sign_in(capybara: false)
+    def sign_in
       user = create(:user)
-      if capybara
-        visit login_path
-        fill_in 'Email', with: user.email
-        fill_in 'Password', with: user.password
-        click_button 'Log in'
-      else
-        session[:user_id] = user.id
-      end
+      session[:user_id] = user.id
+    end
+
+    def sign_in_with_capybara
+      user = create(:user)
+      visit login_path
+      fill_in "Email", with: user.email
+      fill_in "Password", with: user.password
+      click_button "Log in"
     end
 
     def logout

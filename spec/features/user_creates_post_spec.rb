@@ -4,7 +4,7 @@ feature 'User creates a post' do
   valid_attr = FactoryGirl.attributes_for(:post)
 
   before do
-    sign_in(capybara: true)
+    sign_in_with_capybara
     visit new_post_path
   end
 

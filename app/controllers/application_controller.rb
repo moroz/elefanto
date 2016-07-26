@@ -5,11 +5,11 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   helper_method :current_user, :count_words, "logged_in?", :post_number, 'mobile?', 'desktop?'
 
-  before_filter do
-    resource = controller_name.singularize.to_sym
-    method = "#{resource}_params"
-    params[resource] &&= send(method) if respond_to?(method, true)
-  end
+  # before_action do
+  #   resource = controller_name.singularize.to_sym
+  #   method = "#{resource}_params"
+  #   params[resource] &&= send(method) if respond_to?(method, true)
+  # end
 
   def set_locale
     session[:locale] = params[:lang] if params[:lang]
