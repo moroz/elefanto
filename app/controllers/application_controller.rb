@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     session[:locale] = params[:lang] if params[:lang]
-    I18n.locale = session[:locale] || extract_locale_from_http_header || I18n.default_locale
+    I18n.locale = session[:locale] || extract_locale_from_http_header
   end
 
   def count_words(string, chinese)
@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 
   def extract_locale_from_http_header
     locale = request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first if request.env['HTTP_ACCEPT_LANGUAGE']
-    I18n.available_locales.include?(locale) ? locale : false
+    I18n.available_locales.include?(locale) ? locale : I18n.default_locale
   end
 
   def only_authorized(redirecting_path = root_path)

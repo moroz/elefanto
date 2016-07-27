@@ -15,5 +15,5 @@ test:
   database: elefanto_test
 
 production:
-  adapter: sqlite
+  adapter: sqlite3
   database: db/production.sqlite3
