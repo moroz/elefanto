@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :only_authorized, :only => [:new,:create,:edit,:update,:destroy]
 
-  helper_method :post
+  helper_method :post, :post_number
 
   expose(:posts)
   expose(:post_comments) { post.comments.paginate(:page => params[:page]) }
@@ -108,5 +108,14 @@ class PostsController < ApplicationController
     metadata << " bot" if browser.bot?
     metadata << " #{browser.platform}"
     return metadata
+  end
+
+  def post_number(number)
+    return "" if number.nil? || number == 0
+    if number == number.floor
+      return "%d. " % number
+    else
+      return (("%.1f. " % number).sub('.', ','))
+    end
   end
 end

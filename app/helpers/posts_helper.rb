@@ -1,7 +1,7 @@
 module PostsHelper
   def do_formatting(str, textile_enabled)
-    str.gsub! /<!--(.*?)-->(\n|\r\n|\n\r)/i, ''
-    str.gsub! /<br\s*\/*>(\n|\r\n|\n\r)/, "\n"
+    str.gsub!(/<!--(.*?)-->(\n|\r\n|\n\r)/i, '')
+    str.gsub!(/<br\s*\/*>(\n|\r\n|\n\r)/, "\n")
     str.gsub!(/\[\[Image\:(\w+)\]\]/) { |x| image_from_s3($1) }
     if textile_enabled
       render_textilized(str)
@@ -38,25 +38,12 @@ module PostsHelper
 
   def language_label(language)
     css_class = "post__language"
-    label = ""
-    case language
-    when "pl"
-      css_class << " post__language--pl"
-      label = "波"
-    when "en"
-      css_class << " post__language--en"
-      label = "英"
-    when "zh"
-      css_class << " post__language--zh"
-      label = "中"
-    when "zh-hans"
-      css_class << " post__language--zh"
-      label = "简"
-    when "zh-hant"
-      css_class << " post__language--zh"
-      label = "繁"
+    hash = { "pl" => ["pl","波"], "en" => ["en","英"], "zh-hans" => ["zh","简"], "zh-hant" => ["zh","繁"]}
+    css_class << " post__language--#{hash[language][0]}" if hash[language].present?
+    label = if hash[language].present?
+      hash[language][1]
     else
-      label = "外"
+      "外"
     end
     content_tag :div, label, :class => css_class
   end
