@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :count_words, :"logged_in?", :'mobile?', :'desktop?'
 
   def set_locale
-    session[:locale] = params[:lang] if params[:lang]
-    I18n.locale = session[:locale] || extract_locale_from_http_header
+    session[:locale] = params[:lang] if params[:lang].present?
+    I18n.locale = params[:lang] || session[:locale] || extract_locale_from_http_header
   end
 
   def count_words(string, chinese)
