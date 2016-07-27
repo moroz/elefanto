@@ -15,8 +15,16 @@ class VisitLogger
     "bot" if @browser.bot?
   end
 
+  def device
+    return "ipad" if @browser.device.ipad?
+    return "iphone" if @browser.device.iphone?
+    return "mobile" if @browser.device.mobile?
+    return "tablet" if @browser.device.tablet?
+    @browser.device.id
+  end
+
   def browser_string
-    @browser_string = [@browser.name, @browser.full_version.to_s, @browser.device.name, bot?, @browser.platform].reject(&:blank?).join(' ') 
+    @browser_string = [@browser.name, @browser.full_version, device, bot?, @browser.platform].reject(&:blank?).join(' ') 
   end
 
   def log
