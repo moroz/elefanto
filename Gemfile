@@ -4,34 +4,33 @@ source 'https://rubygems.org'
 gem 'rails', '5.0.0'
 # Use PostgreSQL as the database for Active Record and MySQL on deployment
 # gem 'pg'
-gem 'mysql2'
-# gem 'sqlite3'
+gem 'mysql2', group: [:development, :test]
+gem 'sqlite3', group: :production
 gem 'i18n', github: 'svenfuchs/i18n'
 # Use SCSS for stylesheets
-gem 'sass-rails'#, '~> 5.0'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier'#, '>= 1.3.0'
+gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails'#, '~> 4.1.0'
+gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
-gem 'aws-sdk'#, '~> 2'
+gem 'aws-sdk'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder'#, '~> 2.0'
+gem 'jbuilder'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc'#, '~> 0.4.0', group: :doc
 # HAML generator
 gem 'haml-rails'
 gem 'RedCloth'
 gem 'will_paginate'
 gem 'yaml_db'
-gem 'bcrypt', '~> 3.1.5', require: "bcrypt"
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bcrypt', require: "bcrypt"
+gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'browser'
 gem 'geocoder'
@@ -40,17 +39,13 @@ gem 'decent_exposure'
 gem 'stringex'
 gem 'seed_dump'
 gem 'activerecord-import'
-
-group :production do
-  gem 'passenger'
-end
+gem 'rack-livereload'
 
 group :development do
   gem 'puma'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
-  gem "rack-livereload"
   gem "guard-livereload"
   gem 'web-console'
 end
@@ -60,7 +55,7 @@ group :development, :test do
   gem 'byebug'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'rspec-rails'#, '~> 3.2.0'
+  gem 'rspec-rails'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'guard-rspec'
