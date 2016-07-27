@@ -2,7 +2,7 @@ class VisitsController < ApplicationController
   before_action :only_authorized
 
   def index
-    @visits = Visit.all.order(:id => :desc).paginate(:page => params[:page])
+    @visits = Visit.includes(:posts).all.order(:id => :desc).paginate(:page => params[:page])
   end
 
   def show

@@ -7,6 +7,12 @@ class PostsController < ApplicationController
   expose(:post_comments) { post.comments.paginate(:page => params[:page]) }
   expose(:new_comment) { Comment.new }
 
+  after_action only: :show do
+    Thread.new do
+      VisitLogger.new(ip: request.remote_ip, post_id: post.id, location: request.location, browser: browser).log
+    end
+  end
+
   def show
     if post.nil?
       no_such_post(params[:id])
@@ -15,10 +21,7 @@ class PostsController < ApplicationController
       @lang_versions = post.lang_versions
       @previous_post = post.previous_post
       @next_post = post.next_post
-      render
-      Thread.new do
-        post.increment_views(request.remote_ip, browser.bot?, browser_name, request.location)
-      end
+      post.increment_views unless browser.bot?
     end
   end
 
@@ -98,16 +101,6 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:language,:url,:comment_count,:page)
-  end
-
-  def browser_name
-    metadata = browser.name + " "
-    metadata << browser.full_version.to_s
-    metadata << " mobile" if browser.mobile?
-    metadata << " tablet" if browser.tablet?
-    metadata << " bot" if browser.bot?
-    metadata << " #{browser.platform}"
-    return metadata
   end
 
   def post_number(number)
