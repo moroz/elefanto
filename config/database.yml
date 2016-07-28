@@ -19,4 +19,4 @@ production:
   database: elefanto_ror
   username: elefanto_ror
   password: <%= ENV['ELEFANTO_MYSQL_PASS'] %>
-  host: localhost
+  host: sql.s15.vdl.pl

@@ -52,7 +52,7 @@ class Post < ActiveRecord::Base
   end
 
   def set_word_count
-    self.word_count = count_words(self.content,self.is_chinese?)
+    self.word_count = count_words
   end
 
   def set_word_count!
