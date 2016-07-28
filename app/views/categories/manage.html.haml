@@ -8,4 +8,4 @@
         = render 'add', :post_id => post.id
       - else
         = render 'remove', :post_id => post.id
-      != "#{post.read_number} <b>#{post.title}</b> (id: #{post.id})"
+      != "#{post.readable_number} <b>#{post.title}</b> (id: #{post.id})"

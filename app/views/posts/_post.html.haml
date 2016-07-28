@@ -1,5 +1,5 @@
 .post
-  %h3= (post.read_number) + post.title
+  %h3= post.title_with_number
   %span.timestamp
     - if logged_in?
       Modified:

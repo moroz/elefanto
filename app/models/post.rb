@@ -37,15 +37,6 @@ class Post < ActiveRecord::Base
     self.class.where("number > ?", number).order(number: :asc).first
   end
 
-  def read_number
-    return "" if number.nil? || number == 0
-    if number == number.floor
-      return "%d. " % number
-    else
-      return (("%.1f. " % number).sub('.', ','))
-    end
-  end
-
   def set_lang(lang)
     self.language = lang.to_s
     self.save
@@ -64,9 +55,9 @@ class Post < ActiveRecord::Base
 
   def set_url
     if self.url.empty?
-      self.url = "#{read_number} #{title}".to_url
+      self.url = new_url
     elsif !self.url.match(/\A\d{1,3}-.+/)
-      self.url = "#{read_number} #{url}".to_url
+      self.url = "#{readable_number} #{url}".to_url
     end
     self.url
   end
@@ -99,11 +90,15 @@ class Post < ActiveRecord::Base
     int, dec = number.divmod(1)
     str = int.to_s
     str << ",%1d" % (dec*10) unless dec.zero?
-    str << ". "
+    str
   end
 
   def title_with_number
-    readable_number + self.title
+    readable_number + ". " + self.title
+  end
+
+  def new_url
+    (number.to_s + " " + title).to_url
   end
 
   private
