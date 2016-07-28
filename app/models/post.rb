@@ -103,7 +103,7 @@ class Post < ActiveRecord::Base
   end
 
   def title_with_number
-    number_for_url + ". " + self.title
+    readable_number + ". " + self.title
   end
 
   def new_url
