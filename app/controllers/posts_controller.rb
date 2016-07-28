@@ -9,7 +9,11 @@ class PostsController < ApplicationController
 
   after_action only: :show do
     Thread.new do
-      VisitLogger.new(ip: request.remote_ip, post_id: post.id, location: request.location, browser: browser).log
+      begin
+        VisitLogger.new(ip: request.remote_ip, post_id: post.id, location: request.location, browser: browser).log
+      ensure
+        ActionRecord::Base.connection_pool.release_connection
+      end
     end
   end
 
@@ -21,13 +25,15 @@ class PostsController < ApplicationController
       @lang_versions = post.lang_versions
       @previous_post = post.previous_post
       @next_post = post.next_post
+      @categories = post.categories
       post.increment_views unless browser.bot?
+      render
     end
   end
 
   def index
     if params[:show_all]
-      self.posts = Post.includes(:comments).all
+      self.posts = Post.all
     elsif params[:post_lang]
       case params[:post_lang]
       when "zh"
@@ -87,7 +93,7 @@ class PostsController < ApplicationController
   end
 
   def post
-    @post ||= Post.includes(:comments).find_by_param(params[:id]).first
+    @post ||= Post.unscoped.includes(:categories).find_by_param(params[:id]).first
   end
 
   private
@@ -99,6 +105,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:language,:url,:comment_count,:page)
+    params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:language,:url,:page)
   end
 end

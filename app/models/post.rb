@@ -8,6 +8,7 @@ class Post < ActiveRecord::Base
   before_save :set_word_count, :set_url
   cattr_reader :per_page
 
+  default_scope { includes(:comments) }
   scope :blog, -> { where('posts.number > ?', 0).order(:number => :desc) }
   scope :lang_zh, -> { where(:language => ["zh","zh-hans","zh-hant"]) }
   scope :lang_pl, -> { where(:language => "pl") }
@@ -30,11 +31,11 @@ class Post < ActiveRecord::Base
   end
 
   def previous_post
-    self.class.where("number < ?", number).order(number: :desc).first
+    self.class.unscoped.where("number < ?", number).order(number: :desc).first
   end
 
   def next_post
-    self.class.where("number > ?", number).order(number: :asc).first
+    self.class.unscoped.where("number > ?", number).order(number: :asc).first
   end
 
   def set_lang(lang)
