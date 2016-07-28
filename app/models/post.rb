@@ -63,12 +63,12 @@ class Post < ActiveRecord::Base
   end
 
   def set_url
-    if self.url.empty?
-      self.url = "#{read_number} #{title}".to_url
-    elsif !self.url.match /\A\d{1,3}-.+/
-      self.url = "#{read_number} #{url}".to_url
+    str = if self.url.empty?
+      "#{read_number} #{title}"
+    elsif !self.url.match(/\A\d{1,3}-.+/)
+      "#{read_number} #{url}"
     end
-    self.url
+    self.url = str.to_url
   end
 
   def set_url!
@@ -82,14 +82,6 @@ class Post < ActiveRecord::Base
     ["zh","zh-hans","zh-hant"].include?(self.language)
   end
 
-  def locale
-    if ["zh","zh-hans","zh-hant"].include?(self.language)
-      "zh"
-    else
-      self.language
-    end
-  end
-
   def to_param
     url
   end
@@ -98,13 +90,29 @@ class Post < ActiveRecord::Base
     self.where url: input
   end
 
+  def no_tags
+    ActionController::Base.helpers.strip_tags(self.content)
+  end
+
+  def readable_number
+    return "" if number.blank? || number.zero?
+    int, dec = number.divmod(1)
+    str = int.to_s
+    str << ",%1d" % (dec*10) unless dec.zero?
+    str << ". "
+  end
+
+  def title_with_number
+    readable_number + self.title
+  end
+
   private
 
-  def count_words(string, chinese)
-    unless chinese
-      ActionController::Base.helpers.strip_tags(string).split.length
+  def count_words
+    if is_chinese?
+      no_tags.scan(/\p{Han}/).length
     else
-      ActionController::Base.helpers.strip_tags(string).scan(/\p{Han}/).length
+      no_tags.split.length
     end
   end
 end

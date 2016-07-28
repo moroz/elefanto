@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :only_authorized, :only => [:new,:create,:edit,:update,:destroy]
 
-  helper_method :post, :post_number
+  helper_method :post
 
   expose(:posts)
   expose(:post_comments) { post.comments.paginate(:page => params[:page]) }
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 
   def index
     if params[:show_all]
-      self.posts = Post.all
+      self.posts = Post.includes(:comments).all
     elsif params[:post_lang]
       case params[:post_lang]
       when "zh"
@@ -62,8 +62,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    post_number = post_number(post.number)
-    @title = "Editing post #{post_number}#{post.title}"
+    @title = "Editing post " + post.title_with_number
     render 'new'
   end
 
@@ -101,14 +100,5 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title,:number,:content,:description,:textile_enabled,:language,:url,:comment_count,:page)
-  end
-
-  def post_number(number)
-    return "" if number.nil? || number == 0
-    if number == number.floor
-      return "%d. " % number
-    else
-      return (("%.1f. " % number).sub('.', ','))
-    end
   end
 end

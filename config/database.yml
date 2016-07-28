@@ -15,5 +15,8 @@ test:
   database: elefanto_test
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  <<: *default
+  database: elefanto_ror
+  username: elefanto_ror
+  password: <%= ENV['ELEFANTO_MYSQL_PASS'] %>
+  host: localhost

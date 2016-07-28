@@ -4,8 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '5.0.0'
 # Use PostgreSQL as the database for Active Record and MySQL on deployment
 # gem 'pg'
-gem 'mysql2', group: [:development, :test]
-gem 'sqlite3', group: :production
+gem 'mysql2'
+# gem 'sqlite3', group: :production
 gem 'i18n', github: 'svenfuchs/i18n'
 # Use SCSS for stylesheets
 gem 'sass-rails'
