@@ -57,7 +57,7 @@ class Post < ActiveRecord::Base
   def set_url
     if self.url.empty?
       self.url = new_url
-    elsif !self.url.match(/\A\d{1,3}-.+/)
+    elsif !self.url.match(/\A\d{1,4}-.+/)
       self.url = "#{readable_number} #{url}".to_url
     end
     self.url
@@ -94,8 +94,16 @@ class Post < ActiveRecord::Base
     str
   end
 
+  def number_for_url
+    return if number.blank? || number.zero?
+    int, dec = number.divmod(1)
+    str = int.to_s
+    str << "-%1d" % (dec*10) unless dec.zero?
+    str
+  end
+
   def title_with_number
-    readable_number + ". " + self.title
+    number_for_url + ". " + self.title
   end
 
   def new_url
