@@ -63,12 +63,12 @@ class Post < ActiveRecord::Base
   end
 
   def set_url
-    str = if self.url.empty?
-      "#{read_number} #{title}"
+    if self.url.empty?
+      self.url = "#{read_number} #{title}".to_url
     elsif !self.url.match(/\A\d{1,3}-.+/)
-      "#{read_number} #{url}"
+      self.url = "#{read_number} #{url}".to_url
     end
-    self.url = str.to_url
+    self.url
   end
 
   def set_url!
