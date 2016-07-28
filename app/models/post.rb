@@ -58,7 +58,7 @@ class Post < ActiveRecord::Base
     if self.url.empty?
       self.url = new_url
     elsif !self.url.match(/\A\d{1,4}-.+/)
-      self.url = "#{readable_number} #{url}".to_url
+      self.url = "#{number_for_url} #{url}".to_url
     end
     self.url
   end
