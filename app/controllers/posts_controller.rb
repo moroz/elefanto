@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   helper_method :post
 
   expose(:posts)
-  expose(:post_comments) { post.comments.paginate(:page => params[:page]) }
   expose(:new_comment) { Comment.new }
 
   after_action only: :show do
@@ -26,6 +25,7 @@ class PostsController < ApplicationController
       @previous_post = post.previous_post
       @next_post = post.next_post
       @categories = post.categories
+      @comments = post.comments.paginate(:page => params[:page])
       post.increment_views unless browser.bot?
       render
     end
