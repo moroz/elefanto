@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Showing post list" do
+RSpec.describe "Showing post list" do
   before do
     2.times { FactoryGirl.create(:post) }
     3.times { FactoryGirl.create(:random_comment, post: Post.first) }

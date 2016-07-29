@@ -17,9 +17,9 @@
         :title => "Delete #{post.title}", :class => 'btn__delete'
   - unless post.description.blank?
     %span.post_description= do_formatting(post.description, post.textile_enabled)
-  - unless @lang_versions.empty?
+  - unless @lang_versions.blank?
     .post__lang_versions= raw(t("language_versions", language: t(post.language), versions: languages(@lang_versions)))
-  - unless @categories.empty?
+  - unless @categories.blank?
     .post__categories= raw(t("category_list", list: category_list(@categories)))
   = content_tag :div, do_formatting(post.content, post.textile_enabled), class: "post--lang_#{post.language}"
   %p.views= t('post_views', :views => post.views+1)

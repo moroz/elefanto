@@ -18,8 +18,7 @@ class CommentsController < ApplicationController
         end
     else
       flash[:danger] = "There was an error saving your comment."
-      self.new_comment = post.comments.build(comment_params)
-      render :template => "posts/show", post: post, lang_versions: post.lang_versions
+      redirect_to post_path(post), new_comment: post.comments.build(comment_params)
     end
   end
 
