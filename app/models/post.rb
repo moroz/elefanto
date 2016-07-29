@@ -1,4 +1,4 @@
-class Post < ActiveRecord::Base
+class Post < ApplicationRecord
   validates :title, presence: true, uniqueness: { case_sensitive: false }
   validates :url, uniqueness: true;
   validates :content, presence: true

@@ -1,20 +1,10 @@
 class PostsController < ApplicationController
   before_action :only_authorized, :only => [:new,:create,:edit,:update,:destroy]
 
-  helper_method :post
+  helper_method :post, :posts
 
   expose(:posts)
   expose(:new_comment) { Comment.new }
-
-  after_action only: :show do
-    Thread.new do
-      begin
-        VisitLogger.new(ip: request.remote_ip, post_id: post.id, location: request.location, browser: browser).log
-      ensure
-        ActionRecord::Base.connection_pool.release_connection
-      end
-    end
-  end
 
   def show
     if post.nil?
@@ -28,6 +18,11 @@ class PostsController < ApplicationController
       @comments = post.comments.paginate(:page => params[:page])
       post.increment_views unless browser.bot?
       render
+      Thread.new do
+        ApplicationRecord.connection_pool.with_connection do |conn|
+          VisitLogger.new(ip: request.remote_ip, post_id: post.id, location: request.location, browser: browser).log
+        end
+      end
     end
   end
 

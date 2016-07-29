@@ -70,4 +70,5 @@ group :test do
   gem 'faker'
   gem 'fuubar'
   gem 'selenium-webdriver'
+  gem 'rails-controller-testing'
 end

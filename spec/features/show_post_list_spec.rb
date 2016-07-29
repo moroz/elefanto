@@ -2,20 +2,16 @@ require 'rails_helper'
 
 feature "Showing post list" do
   before do
-    5.times { FactoryGirl.create(:post) }
-    Post.all.each do |post|
-      rand(1..10).times do
-        FactoryGirl.create(:comment, :post => post)
-      end
-    end
+    2.times { FactoryGirl.create(:post) }
+    3.times { FactoryGirl.create(:random_comment, post: Post.first) }
     visit posts_path
   end
 
-  it "shows 5 posts" do
-    expect(page).to have_selector(".post__link", :count => Post.all.size)
+  it "shows the proper number of posts" do
+    expect(page).to have_selector(".post", :count => Post.all.size)
   end
 
   it "shows proper comment count" do
-    expect(page).to have_content("#{Post.first.comments.size} comments")
+    expect(page).to have_content("3 comments")
   end
 end

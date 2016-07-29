@@ -1,4 +1,4 @@
-class Visit < ActiveRecord::Base
+class Visit < ApplicationRecord
   before_save :set_timestamp
   cattr_reader :per_page
   belongs_to :post
