@@ -1,12 +1,10 @@
-.row1__menu.row
-  .col-sm-3.row1--link.col-xs-3
-    = link_to t("homepage"), root_path
-  .col-sm-3.row1--link.col-xs-3
-    = link_to t("blog"), blog_path
-  .col-sm-3.row1--link.col-xs-3
-    = link_to t("about"), about_path
-  .col-sm-3.row1--link.col-xs-3
-    - if current_locale == :zh
-      = link_to("English", lang: :en)
-    - else
-      = link_to("中文版", lang: :zh)
+%div{class: "navigation navigation-#{current_locale}"}
+  .wrapper--nopadding
+    .navigation__link= link_to t("homepage"), root_path
+    .navigation__link= link_to t("blog"), blog_path
+    .navigation__link= link_to t("about"), about_path
+    .navigation__link.navigation--right
+      - if current_locale == :zh
+        = link_to("English", lang: :en)
+      - else
+        = link_to("中文版", lang: :zh)

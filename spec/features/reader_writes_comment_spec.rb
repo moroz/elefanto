@@ -17,10 +17,12 @@ feature "Reader writes a comment", js: true do
 
   it "saves a comment with valid args" do
     expect(current_path).to eq post_path(blog_post)
-    expect { fill_in_comment_form_and_click_send }.to change { Comment.count }
+    fill_in_comment_form_and_click_send
     expect(page).to have_selector("div.comment", count: 1)
+    blog_post.reload
+    expect(blog_post.comments.count).to eq(1)
   end
-
+  
   it "doesn't save two identical comments" do
     expect(current_path).to eq post_path(blog_post)
     2.times { fill_in_comment_form_and_click_send }

@@ -13,7 +13,8 @@
     = yield :head
     = csrf_meta_tags
   %body
-    %div{:class => "row1 row1--#{current_locale}"}
+    = render 'shared/header_nav'
+    %div{:class => "row1"}
       .wrapper.container
         = render 'shared/header'
     .row2
