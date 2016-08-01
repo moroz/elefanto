@@ -15,14 +15,15 @@ background-color: #aaa;
   // background-color: #eee;
   text-align: center;
   font-weight: 500;
-  padding-top: 90px;
-  height: 280px;
+  padding-top: 55px;
+  height: 180px;
   background-image: url("background-night.jpg");
   // background-size: cover;
   background-position: 0 80%;
   background-attachment: fixed;
   h1 {
     text-align: center;
+    font-size: 1.8rem;
   }
 }
 
@@ -102,7 +103,11 @@ h1 {
 
   .row1 {
     text-align: left;
-    // height: 140px;
+    height: 280px;
+    padding-top: 90px;
+    h1 {
+      font-size: 3.2rem;
+    }
   }
 
   .navigation {
