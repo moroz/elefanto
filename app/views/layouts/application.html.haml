@@ -22,6 +22,6 @@
         - flash.each do |key, value|
           %div{:class => "row2__flashbox alert alert-#{key}"}= value
         = yield
-    .row3
+    .row3{class: "footer-#{current_locale}"}
       .wrapper.container
         = render 'shared/footer'

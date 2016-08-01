@@ -1,6 +1,6 @@
 - if comment.persisted?
   %a{:name => dom_id(comment)}
-  .comment.round-5{:id => dom_id(comment)}
+  = div_for(comment, class: "round-5") do
     %p= comment.text
     %strong= comment.signature
     = "from #{comment.ip}, on"

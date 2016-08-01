@@ -40,6 +40,7 @@ gem 'stringex'
 gem 'seed_dump'
 gem 'activerecord-import'
 gem 'rack-livereload'
+gem 'record_tag_helper'
 
 group :development do
   gem 'puma'

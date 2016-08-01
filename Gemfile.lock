@@ -234,6 +234,8 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    record_tag_helper (1.0.0)
+      actionview (~> 5.x)
     ref (2.0.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
@@ -355,6 +357,7 @@ DEPENDENCIES
   rack-livereload
   rails (= 5.0.0)
   rails-controller-testing
+  record_tag_helper
   rspec-rails
   sass-rails
   seed_dump
