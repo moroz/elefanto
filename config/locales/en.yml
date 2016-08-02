@@ -39,17 +39,19 @@ en:
   ru: Russian
   zh-hans: Chinese (Simplified)
   zh-hant: Chinese (Traditional)
-  no_such_post: "Sorry, this is the end&#133;"
   new_comment: "And what do <em>you</em> think?"
   signature: "Signature"
   required: "(required)"
   optional: "(optional)"
   send: "Send!"
   your_website: "Your website"
-  post_views: "This post has been viewed %{views} times."
-  next_post: "Next post"
-  previous_post: "Previous post"
   separator: ", "
+  post:
+    no_such_post: "Sorry, this is the end&#133;"
+    next_post: "Next post"
+    previous_post: "Previous post"
+    post_views: "This post has been viewed %{views} times."
+    unpublished: "This post has not been published yet."
 
   titles:
     blog_archive: "Blog Archive – Travels Small and Big"

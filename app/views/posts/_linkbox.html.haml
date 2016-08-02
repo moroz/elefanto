@@ -1,19 +1,19 @@
 .linkbox.round-5
   .row
     .col-sm-6.col-xs-12
-      %strong= t("previous_post")
+      %strong= t("post.previous_post")
       %br
       - if @previous_post.present?
         = link_to @previous_post.title_with_number, @previous_post
       - else
-        = raw(t("no_such_post"))
+        = raw(t("post.no_such_post"))
     .col-sm-6.col-xs-12.text-right
-      %strong= t("next_post")
+      %strong= t("post.next_post")
       %br
       - if @next_post.present?
         = link_to @next_post.title_with_number, @next_post
       - else
-        = raw(t("no_such_post"))
+        = raw(t("post.no_such_post"))
   .row
     .col-sm-12.col-xs-12.text-center
       %strong= link_to t("blog_archive"), "/blog"

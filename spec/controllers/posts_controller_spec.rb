@@ -50,7 +50,7 @@ RSpec.describe PostsController do
     it "denies access when not signed in" do
       session.delete(:user) if session[:user].present?
       put :update, params: { id: blog_post.to_param, post: { title: "Foobar post" } }
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to post_path(blog_post)
     end
 
     describe "when signed in" do
@@ -79,7 +79,7 @@ RSpec.describe PostsController do
     it "denies access when not signed in" do
       session.delete(:user) if session[:user].present?
       delete :destroy, params: { id: blog_post.to_param }
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to post_path(blog_post)
       expect(Post.find(blog_post.id)).not_to be_blank
     end
 
@@ -89,6 +89,18 @@ RSpec.describe PostsController do
         blog_post
         expect { delete :destroy, params: { id: blog_post.to_param } }.to change { Post.count }.by(-1)         
       end
+    end
+  end
+
+  describe "POST publish" do
+    let(:blog_post) { FactoryGirl.create(:post, title: "Example post", number: 108) }
+
+    it "denies access when not signed in" do
+      session.delete(:user) if session[:user].present?
+      post :publish, params: { id: blog_post.to_param }
+      expect(response).to redirect_to post_path(blog_post)
+      expect(blog_post).not_to be_published
+      expect(blog_post.published_at).to be_nil
     end
   end
 end

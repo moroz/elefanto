@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "/log-out" => "sessions#destroy", as: :logout
 
   resources :posts do
+    post :publish, on: :member
     resources :comments, shallow: true
   end
   get '/blog' => 'posts#index', show_all: false, :as => :blog

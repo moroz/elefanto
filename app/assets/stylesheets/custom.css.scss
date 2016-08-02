@@ -4,21 +4,19 @@
 }
 
 html {
-overflow: -moz-scrollbars-vertical;
-overflow-y: scroll;
-font-size: 92%;
-background-color: #aaa;
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+  font-size: 92%;
+  background-color: #ccc;
 }
 
 .row1 {
   color: #eee;
-  // background-color: #eee;
   text-align: center;
   font-weight: 500;
   padding-top: 55px;
   height: 180px;
   background-image: url("background-night.jpg");
-  // background-size: cover;
   background-position: 0 80%;
   background-attachment: fixed;
   h1 {
@@ -49,7 +47,6 @@ body {
   font-family: Lato, "Helvetica", "Arial", "Microsoft Yahei",
     "微软雅黑", STXihei, "华文细黑", "Droid Sans Fallback", sans-serif;
   overflow: hidden;
-  background-color: #062;
 }
 
 a {
@@ -120,12 +117,11 @@ h1 {
 }
 
 .row3 {
- # background-color: #062e4b;
   color: #eee;
 }
 
-.row3 a {
-  color: #024473;
+.row3 a, .row3 a:visited {
+  color: #eee;
   font-weight: bold;
 
 }

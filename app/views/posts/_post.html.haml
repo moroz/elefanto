@@ -8,19 +8,27 @@
       Created:
       = post.created_at.to_s
       %br
+      Published:
+      = post.published? ? "yes" : "no"
+      = post.published_at.to_s if post.published_at.present?
+      %br
     - else
-      = l post.created_at, :format => :long
+      = l post.publishing_date, format: :long
     = link_to 'Permalink', post, class: 'btn__permalink'
     - if logged_in?
       = link_to "Edit", edit_post_path(post), class: 'btn__edit'
-      = link_to "Delete", post, :method => :delete, data: { :confirm => "You sure?"},
-        :title => "Delete #{post.title}", :class => 'btn__delete'
+      = link_to "Delete", post, method: :delete, data: { confirm: "Are you sure you want to delete this post?"},
+        title: "Delete #{post.title_with_number}", class: 'btn__delete'
+      - unless post.published?
+        = link_to "Publish", publish_post_path(post), method: :post, data: { confirm: "Are you sure you want to publish this post NOW?" }, class: "btn__publish", title: "Publish #{post.title_with_number}"
   - unless post.description.blank?
     %span.post_description= do_formatting(post.description, post.textile_enabled)
-  - unless @lang_versions.blank?
+  - unless @lang_versions.empty?
     .post__lang_versions= raw(t("language_versions", language: t(post.language), versions: languages(@lang_versions)))
-  - unless @categories.blank?
+  - unless @categories.empty?
     .post__categories= raw(t("category_list", list: category_list(@categories)))
+  - unless post.published?
+    .post__unpublished= t("post.unpublished")
   = content_tag :div, do_formatting(post.content, post.textile_enabled), class: "post--lang_#{post.language}"
-  %p.views= t('post_views', :views => post.views+1)
-  = render :partial => 'posts/linkbox', :post => post
+  %p.views= t('post.post_views', :views => post.views+1)
+  = render partial: 'posts/linkbox', :post => post

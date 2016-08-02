@@ -1,26 +1,33 @@
 require 'rails_helper'
 
 feature 'User views a post' do
-  let(:post) { create :post }
+  let(:blog_post) { FactoryGirl.create(:post, title: "Example post", number: 108) }
 
-  background do
-    visit post_path(post)
-    expect(page).to have_content "Log in"
+  describe "displaying elements of post" do
+    before(:example) do
+      blog_post.publish!
+      visit post_path(blog_post)
+    end
+
+    specify { expect(page).to have_content "Log in" }
+    specify { expect(current_path).to eq(post_path(blog_post)) }
+    specify { expect(page).to have_content blog_post.title }
+    specify { expect(page).to have_content blog_post.content }
+    specify { expect(page).to have_content "108" }
   end
 
-  it "has the correct path" do
-    expect(current_path).to eq(post_path(Post.last))
+  describe "publishing status" do
+    it "shows nothing when published" do
+      blog_post.publish!
+      visit post_path(blog_post)
+      expect(page).to have_no_selector('.post__unpublished')
+    end
+
+    it "shows a div.unpublished when not published" do
+      allow(blog_post).to receive(:published?).and_return(false)
+      visit post_path(blog_post)
+      expect(page).to have_selector('.post__unpublished')
+    end
   end
 
-  it "it shows the page title" do
-    expect(page).to have_content post.title
-  end
-
-  it "it shows the page content" do
-    expect(page).to have_content post.content
-  end
-
-  it "it shows the page number" do
-    expect(page).to have_content post.number.to_i
-  end
 end

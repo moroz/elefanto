@@ -31,7 +31,7 @@ gem 'will_paginate'
 gem 'yaml_db'
 gem 'bcrypt', require: "bcrypt"
 gem 'bootstrap-sass'
-gem 'autoprefixer-rails'
+# gem 'autoprefixer-rails'
 gem 'browser'
 gem 'geocoder'
 gem 'invisible_captcha'

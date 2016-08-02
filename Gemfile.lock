@@ -50,8 +50,6 @@ GEM
     addressable (2.4.0)
     ansi (1.5.0)
     arel (7.1.0)
-    autoprefixer-rails (6.3.7)
-      execjs
     aws-sdk (2.4.2)
       aws-sdk-resources (= 2.4.2)
     aws-sdk-core (2.4.2)
@@ -326,7 +324,6 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   activerecord-import
-  autoprefixer-rails
   aws-sdk
   bcrypt
   better_errors

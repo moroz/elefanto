@@ -15,7 +15,7 @@
   background-color: #7cba7c;
 }
 
-.btn__permalink, .btn__edit, .btn__delete {
+.btn__permalink, .btn__edit, .btn__delete, .btn__publish {
   padding: 0.2em 0.35em;
   border-radius: 3px;
   -moz-border-radius: 3px;
@@ -25,22 +25,27 @@
 }
 
 a.btn__permalink, a:visited.btn__permalink {
-  background: #073b61;
   color: #eee;
+  background-color: #073b61;
 }
 
 a.btn__edit, a:visited.btn__edit {
-  background: #007c44;
+  background-color: #007c44;
   color: #eee;
 }
 
 a.btn__delete, a:visited.btn__delete {
-  background: #c81b16;
+  background-color: #c81b16;
   color: #eee;
 }
 
+a.btn__publish, a:visited.btn__publish {
+  color: #eee;
+  background-color: #e80052;
+}
+
 .btn__send {
-  background: #007c44;
+  background-color: #007c44;
   color: #eee;
   font-weight: bold;
   padding: 0.5em;
@@ -77,7 +82,7 @@ a.btn__delete, a:visited.btn__delete {
   font-size: 1.25rem;
 }
 
-.post__lang_versions, .post__categories {
+.post__lang_versions, .post__categories, .post__unpublished {
   border: 1px solid #999;
   padding: 0.55em;
   margin-bottom: 0.7em;

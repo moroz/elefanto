@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
-  before_action :only_authorized, :only => [:new,:create,:edit,:update,:destroy]
+  before_action :only_authorized, only: [:new,:create]
+  before_action only: [:edit,:update,:destroy,:publish] do
+    only_authorized(post_path(post))
+  end
 
   helper_method :post, :posts
 
@@ -77,13 +80,22 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    only_authorized(post_path(post))
     if post.delete
       flash[:success] = "The post was successfully destroyed."
       redirect_to root_path
     else
       flash[:danger] = "The post cannot be removed."
       redirect_to post_path(post)
+    end
+  end
+
+  def publish
+    if post.publish!
+      flash[:success] = "The post has been successfully published."
+      redirect_to post
+    else
+      flash[:danger] = "The post could not be published."
+      redirect_to post
     end
   end
 

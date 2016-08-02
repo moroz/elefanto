@@ -7,8 +7,10 @@ class Post < ApplicationRecord
   has_and_belongs_to_many :categories
   before_save :set_word_count, :set_url
   cattr_reader :per_page
+  before_create :set_publishing_status
 
   default_scope { includes(:comments) }
+  scope :published, -> { where(published: true) }
   scope :blog, -> { where('posts.number > ?', 0).order(:number => :desc) }
   scope :lang_zh, -> { where(:language => ["zh","zh-hans","zh-hant"]) }
   scope :lang_pl, -> { where(:language => "pl") }
@@ -42,6 +44,11 @@ class Post < ApplicationRecord
     self.language = lang.to_s
     self.save
   end
+  
+  def publish!(at: Time.current)
+    return if self.published
+    self.update_attributes(published: true, published_at: at)
+  end
 
   def set_word_count
     self.word_count = count_words
@@ -52,15 +59,6 @@ class Post < ApplicationRecord
     self.set_word_count
     self.save
     Post.record_timestamps = true
-  end
-
-  def set_url
-    if self.url.empty?
-      self.url = new_url
-    elsif !self.url.match(/\A\d{1,4}-.+/)
-      self.url = "#{number_for_url} #{url}".to_url
-    end
-    self.url
   end
 
   def set_url!
@@ -76,6 +74,10 @@ class Post < ApplicationRecord
 
   def to_param
     url
+  end
+
+  def publishing_date
+    published_at || created_at
   end
 
   def self.find_by_param(input)
@@ -111,6 +113,20 @@ class Post < ApplicationRecord
   end
 
   private
+
+  def set_url
+    if self.url.empty?
+      self.url = new_url
+    elsif !self.url.match(/\A\d{1,4}-.+/)
+      self.url = "#{number_for_url} #{url}".to_url
+    end
+    self.url
+  end
+
+  def set_publishing_status
+    self.published = false
+    self.published_at = nil
+  end
 
   def count_words
     if is_chinese?
