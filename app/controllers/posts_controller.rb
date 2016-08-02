@@ -82,21 +82,29 @@ class PostsController < ApplicationController
   def destroy
     if post.delete
       flash[:success] = "The post was successfully destroyed."
-      redirect_to root_path
+      redirect_to posts_path
     else
       flash[:danger] = "The post cannot be removed."
       redirect_to post_path(post)
     end
   end
 
+  def unpublish
+    if post.unpublish!
+      flash[:success] = "The post has been successfully unpublished."
+    else
+      flash[:danger] = "The post could not be unpublished."
+    end
+    redirect_to post
+  end
+
   def publish
     if post.publish!
       flash[:success] = "The post has been successfully published."
-      redirect_to post
     else
       flash[:danger] = "The post could not be published."
-      redirect_to post
     end
+    redirect_to post
   end
 
   def post

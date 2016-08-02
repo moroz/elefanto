@@ -19,7 +19,9 @@
       = link_to "Edit", edit_post_path(post), class: 'btn__edit'
       = link_to "Delete", post, method: :delete, data: { confirm: "Are you sure you want to delete this post?"},
         title: "Delete #{post.title_with_number}", class: 'btn__delete'
-      - unless post.published?
+      - if post.published?
+        = link_to "Unpublish", unpublish_post_path(post), method: :post, data: { confirm: "Are you sure you want to unpublish this post NOW?" }, class: "btn__publish", title: "Unpublish #{post.title_with_number}"
+      - else
         = link_to "Publish", publish_post_path(post), method: :post, data: { confirm: "Are you sure you want to publish this post NOW?" }, class: "btn__publish", title: "Publish #{post.title_with_number}"
   - unless post.description.blank?
     %span.post_description= do_formatting(post.description, post.textile_enabled)

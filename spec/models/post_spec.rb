@@ -29,5 +29,23 @@ RSpec.describe Post do
         expect(blog_post.publishing_date).to eq(blog_post.created_at)
       end
     end
+
+    describe "url" do
+      it "creates correct urls for blog posts" do
+        int_post = FactoryGirl.build_stubbed(:post, title: "Lorem ipsum", number: 108)
+        dec_post = Post.create(title: "Dolor sit amet", content: "Lorem ipsum dolor sit amet", number: 666.5)
+        expect(int_post.url).to eq("108-lorem-ipsum")
+        expect(dec_post.to_param).to eq("666-5-dolor-sit-amet")
+      end
+    end
+
+    describe "readable_number" do
+      it "shows a number with a comma when number is not an integer" do
+        int_post = Post.new(number: 108)
+        expect(int_post.readable_number).to eq("108")
+        dec_post = Post.new(number: 666.5)
+        expect(dec_post.readable_number).to eq("666,5")
+      end
+    end
   end
 end

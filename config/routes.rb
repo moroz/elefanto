@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     post :publish, on: :member
+    post :unpublish, on: :member
     resources :comments, shallow: true
   end
   get '/blog' => 'posts#index', show_all: false, :as => :blog

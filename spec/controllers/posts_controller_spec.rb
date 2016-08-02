@@ -22,6 +22,7 @@ RSpec.describe PostsController do
       session.delete(:user) if session[:user].present?
       post :create, params: { post: FactoryGirl.attributes_for(:post, id: 108, title: "Example post") }
       expect(response).to redirect_to root_path
+      expect(flash[:danger]).to be_present
     end
 
     describe "when signed in" do
@@ -51,6 +52,7 @@ RSpec.describe PostsController do
       session.delete(:user) if session[:user].present?
       put :update, params: { id: blog_post.to_param, post: { title: "Foobar post" } }
       expect(response).to redirect_to post_path(blog_post)
+      expect(flash[:danger]).to be_present
     end
 
     describe "when signed in" do
@@ -80,6 +82,7 @@ RSpec.describe PostsController do
       session.delete(:user) if session[:user].present?
       delete :destroy, params: { id: blog_post.to_param }
       expect(response).to redirect_to post_path(blog_post)
+      expect(flash[:danger]).to be_present
       expect(Post.find(blog_post.id)).not_to be_blank
     end
 
@@ -88,7 +91,35 @@ RSpec.describe PostsController do
         allow(controller).to receive(:current_user).and_return(double('user'))
         blog_post
         expect { delete :destroy, params: { id: blog_post.to_param } }.to change { Post.count }.by(-1)         
+        expect(response).to redirect_to posts_path
+        expect(flash[:success]).to be_present
       end
+    end
+  end
+
+  describe "POST unpublish" do
+    let(:blog_post) { FactoryGirl.create(:post, title: "Example post", number: 108) }
+
+    it "denies access when not signed in" do
+      session.delete(:user) if session[:user].present?
+      blog_post.publish!
+      post :unpublish, params: { id: blog_post.to_param }
+      expect(response).to redirect_to post_path(blog_post)
+      expect(flash[:danger]).to be_present
+      blog_post.reload
+      expect(blog_post).to be_published
+      expect(blog_post.published_at).to be_nil
+    end
+
+    it "unpublishes post when signed in" do
+      allow(controller).to receive(:current_user).and_return(double('user'))
+      blog_post.publish!
+      post :unpublish, params: { id: blog_post.to_param }
+      expect(response).to redirect_to post_path(blog_post)
+      expect(flash[:success]).to be_present
+      blog_post.reload
+      expect(blog_post).not_to be_published
+      expect(Post.published.to_a).not_to include(blog_post)
     end
   end
 
@@ -99,8 +130,21 @@ RSpec.describe PostsController do
       session.delete(:user) if session[:user].present?
       post :publish, params: { id: blog_post.to_param }
       expect(response).to redirect_to post_path(blog_post)
+      expect(flash[:danger]).to be_present
+      blog_post.reload
       expect(blog_post).not_to be_published
       expect(blog_post.published_at).to be_nil
+    end
+
+    it "publishes post when signed in" do
+      allow(controller).to receive(:current_user).and_return(double('user'))
+      blog_post
+      post :publish, params: { id: blog_post.to_param }
+      expect(response).to redirect_to post_path(blog_post)
+      expect(flash[:success]).to be_present
+      blog_post.reload
+      expect(blog_post).to be_published
+      expect(Post.published.to_a).to include(blog_post)
     end
   end
 end

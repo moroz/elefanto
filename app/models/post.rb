@@ -45,6 +45,11 @@ class Post < ApplicationRecord
     self.save
   end
   
+  def unpublish!
+    return unless self.published
+    self.update_attributes(published: false, published_at: nil)
+  end
+
   def publish!(at: Time.current)
     return if self.published
     self.update_attributes(published: true, published_at: at)
@@ -96,6 +101,10 @@ class Post < ApplicationRecord
     str
   end
 
+  def title_with_number
+    readable_number + ". " + self.title
+  end
+
   def number_for_url
     return if number.blank? || number.zero?
     int, dec = number.divmod(1)
@@ -103,22 +112,13 @@ class Post < ApplicationRecord
     str << "-%1d" % (dec*10) unless dec.zero?
     str
   end
-
-  def title_with_number
-    readable_number + ". " + self.title
-  end
-
-  def new_url
-    (number.to_s + " " + title).to_url
-  end
-
   private
 
   def set_url
-    if self.url.empty?
-      self.url = new_url
+    if self.url.blank?
+      self.url = "#{number_for_url}-#{title.to_url}"
     elsif !self.url.match(/\A\d{1,4}-.+/)
-      self.url = "#{number_for_url} #{url}".to_url
+      self.url = "#{number_for_url}-#{url}"
     end
     self.url
   end
