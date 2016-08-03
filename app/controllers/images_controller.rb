@@ -39,7 +39,7 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    @image = Image.find(params[:id])
+    @image = Image.find_by_param(params[:id])
     if @image.delete
       flash[:success] = "The image has been successfully removed."
       redirect_to images_path
@@ -56,6 +56,6 @@ class ImagesController < ApplicationController
   end
 
   def image
-    @image ||= Image.find(params[:id])
+    @image ||= Image.find_by_param(params[:id])
   end
 end
