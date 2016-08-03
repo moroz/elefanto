@@ -1,6 +1,3 @@
-Aws.config.update({
-  region: 'eu-central-1',
-  credentials: Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY']),
-})
-
-S3_BUCKET = Aws::S3::Resource.new.bucket(ENV['S3_BUCKET'])
+Paperclip.interpolates(:s3_eu_url) { |attachment, style|
+  "#{attachment.s3_protocol}://#{attachment.bucket_name}.s3-eu-central-1.amazonaws.com/#{attachment.path(style).gsub(%r{^/}, "")}"
+}

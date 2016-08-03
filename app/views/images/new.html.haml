@@ -1,6 +1,6 @@
 %h1 Upload image
 
-= form_for @image, html: { class: "directUpload", data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f|
+= form_for @image do |f|
   = render 'shared/error_messages', object: f.object
 
   .form-group
@@ -9,5 +9,5 @@
 
   .form-group
     = f.label :url
-    = f.file_field :url, class: "form-control"
-  = f.submit class: "form-control"
+    = f.file_field :asset, class: "form-control"
+  = f.submit 'Upload', class: "form-control"

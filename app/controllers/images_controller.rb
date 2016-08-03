@@ -1,16 +1,14 @@
 class ImagesController < ApplicationController
-  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
-  before_action :only_authorized, only: [:new, :edit, :create, :update]
+ # before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
+ # before_action :only_authorized, only: [:new, :edit, :create, :update]
 
   def new
-    @image = Image.new
-    if params[:title].present?
-      @image.title = params[:title]
-    end
+    params = image_params if params.try(:image).present?
+    @image = Image.new(params)
   end
 
   def create
-    @image = Image.new(image_params);
+    @image = Image.new(image_params)
     if @image.save
       redirect_to @image
     else
@@ -54,14 +52,10 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:url, :title, :description)
+    params.require(:image).permit(:url, :title, :description, :asset)
   end
 
   def image
     @image ||= Image.find(params[:id])
-  end
-
-  def set_s3_direct_post
-    @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
   end
 end

@@ -1,6 +1,6 @@
 %h1= "Showing image #{@image.title}"
 = link_to "Back to list", images_url
 %br
-= image_tag @image.url
+= image_asset_tag @image
 %br
 = text_area_tag 'image_url', @image.url, class: 'form-control monofont'
