@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
  # before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
- # before_action :only_authorized, only: [:new, :edit, :create, :update]
+  before_action :only_authorized, only: [:new, :edit, :create, :update]
 
   def new
     params = image_params if params.try(:image).present?
