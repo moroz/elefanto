@@ -30,9 +30,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    if params[:show_all]
-      self.posts = Post.all
-    elsif params[:post_lang]
+    if params[:post_lang]
       case params[:post_lang]
       when "zh"
         self.posts = Post.lang_zh
@@ -46,6 +44,7 @@ class PostsController < ApplicationController
     else
       self.posts = Post.blog
     end
+    self.posts = self.posts.published unless logged_in?
     self.posts = self.posts.order("number DESC").paginate(:page => params[:page])
     @title = t("titles.blog_archive")
   end

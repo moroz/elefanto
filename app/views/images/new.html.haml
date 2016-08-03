@@ -8,6 +8,15 @@
     = f.text_field :title, class: "form-control"
 
   .form-group
-    = f.label :url
+    = f.label :asset, 'Image file:'
     = f.file_field :asset, class: "form-control"
-  = f.submit 'Upload', class: "form-control"
+
+  .form-group
+    = f.label :url, 'Slug:'
+    = f.text_field :title, class: "form-control"
+
+  .form-group
+    = f.label :description
+    = f.text_area :title, class: "form-control", rows: 6
+
+  = f.submit 'Upload', class: "form-control btn btn-success"

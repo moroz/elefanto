@@ -9,8 +9,8 @@ class Post < ApplicationRecord
   cattr_reader :per_page
   before_create :set_publishing_status
 
-  default_scope { includes(:comments) }
   scope :published, -> { where(published: true) }
+  default_scope { includes(:comments) }
   scope :blog, -> { where('posts.number > ?', 0).order(:number => :desc) }
   scope :lang_zh, -> { where(:language => ["zh","zh-hans","zh-hant"]) }
   scope :lang_pl, -> { where(:language => "pl") }

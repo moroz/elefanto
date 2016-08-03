@@ -10,12 +10,12 @@ module ApplicationHelper
     I18n.locale
   end
 
-  def image_from_s3(title)
-    image = Image.find_by(title: title)
+  def image_from_s3(slug)
+    image = Image.find_by_param(slug)
     if image
-      image_tag image.url, class: 'img-responsive', alt: title
+      image_asset_tag image
     else
-      link_to "[Image:#{title}]", new_image_url(title: title)
+      link_to "[Image:#{slug}]", new_image_url(url: slug)
     end
   end
 end

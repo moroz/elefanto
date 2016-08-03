@@ -30,6 +30,7 @@ en:
   memoirs: "The official blog of Karol Moroz"
   language_versions: "This post is in <strong>%{language}</strong> language. Available versions: %{versions}."
   category_list: "This post belongs to categories %{list}."
+  categories: Category list
   contact_me: "Contact"
   en: English
   pl: Polish
@@ -47,11 +48,15 @@ en:
   your_website: "Your website"
   separator: ", "
   post:
-    no_such_post: "Sorry, this is the end&#133;"
+    show_only_lang: "Show only posts in languages: "
+    no_such_post_html: "Sorry, this is the end&#133;"
+    show_all_lang: "Show posts in all languages"
     next_post: "Next post"
     previous_post: "Previous post"
     post_views: "This post has been viewed %{views} times."
-    unpublished: "This post has not been published yet."
+    unpublished: "This post has not been published yet. This means you can read it, but it won't be shown in the post list."
+  image:
+    enlarge_html: "Click to enlarge&#133;"
 
   titles:
     blog_archive: "Blog Archive – Travels Small and Big"
