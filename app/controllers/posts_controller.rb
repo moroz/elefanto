@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :only_authorized, only: [:new,:create]
-  before_action only: [:edit,:update,:destroy,:publish] do
+  before_action only: [:edit,:update,:destroy,:publish,:unpublish] do
     only_authorized(post_path(post))
   end
 

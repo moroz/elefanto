@@ -108,7 +108,6 @@ RSpec.describe PostsController do
       expect(flash[:danger]).to be_present
       blog_post.reload
       expect(blog_post).to be_published
-      expect(blog_post.published_at).to be_nil
     end
 
     it "unpublishes post when signed in" do
@@ -119,7 +118,6 @@ RSpec.describe PostsController do
       expect(flash[:success]).to be_present
       blog_post.reload
       expect(blog_post).not_to be_published
-      expect(Post.published.to_a).not_to include(blog_post)
     end
   end
 
@@ -133,7 +131,6 @@ RSpec.describe PostsController do
       expect(flash[:danger]).to be_present
       blog_post.reload
       expect(blog_post).not_to be_published
-      expect(blog_post.published_at).to be_nil
     end
 
     it "publishes post when signed in" do
@@ -144,7 +141,6 @@ RSpec.describe PostsController do
       expect(flash[:success]).to be_present
       blog_post.reload
       expect(blog_post).to be_published
-      expect(Post.published.to_a).to include(blog_post)
     end
   end
 end
