@@ -16,6 +16,6 @@ class Image < ApplicationRecord
   private
 
   def set_url
-    url = title.to_url
+    url = title.to_url unless url.present?
   end
 end
