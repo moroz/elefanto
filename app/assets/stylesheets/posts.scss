@@ -61,24 +61,37 @@ a.btn__publish, a:visited.btn__publish {
   padding-top: 0;
 }
 
-.post__language {
-  background-color: #7eb3e0;
-  color: #474747;
+.post__language, .post__language-button {
+  background-color: #194267;
+  color: #fff;
   padding-left: 3px;
   padding-right: 3px;
   display: inline;
   font-weight: bold;
 }
 
-.post__language--zh, .post__language--zh-hans, .post__language--zh-hant {
-  background-color: #91e962;
+.post__language-button {
+  padding: 0.33em;
+  border-radius: 5px;
+  border: 1px solid #999;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  display: inline-block;
+}
+
+a:visited.post__language-button {
+  color: #fff;
+}
+
+.post__language--zh {
+  background-color: #28590d;
 }
 
 .post__language--pl {
-  background-color: #ed9a8c;
+  background-color: #9a2c18;
 }
 
-.post--lang_zh, .post--lang_zh-hant, .post--lang_zh-hans {
+.post--lang_zh {
   font-size: 1.25rem;
 }
 

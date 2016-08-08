@@ -38,7 +38,7 @@ module PostsHelper
 
   def language_label(language)
     css_class = "post__language"
-    hash = { "pl" => ["pl","波"], "en" => ["en","英"], "zh-hans" => ["zh","简"], "zh-hant" => ["zh","繁"]}
+    hash = { "pl" => ["pl","波"], "en" => ["en","英"], "zh" => ["zh","中"]}
     css_class << " post__language--#{hash[language][0]}" if hash[language].present?
     label = if hash[language].present?
       hash[language][1]
