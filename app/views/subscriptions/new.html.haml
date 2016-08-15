@@ -1,0 +1,14 @@
+%h1 Subscribe for the Moroz Newsletter
+
+= form_for @subscription do |f|
+  .form-group
+    = f.label :first_name, "First name:"
+    = f.text_field :first_name, class: 'form-control', placeholder: 'E.g. John'
+
+  .form-group
+    = f.label :last_name, "Last name:"
+    = f.text_field :last_name, class: 'form-control', placeholder: 'E.g. Smith'
+
+  .form-group
+    = f.label :email, "E-mail:"
+    = f.text_field :email, class: 'form-control', placeholder: 'user@example.com...'

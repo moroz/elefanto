@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20160815113315) do
     t.index ["url"], name: "index_posts_on_url", unique: true, using: :btree
   end
 
-  create_table "subscriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "subscriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "country"
