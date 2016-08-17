@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post do
-  let!(:blog_post) { FactoryGirl.create(:post) }
+  let!(:blog_post) { FactoryGirl.create(:post, published: false) }
   describe "publishing" do
     it "a post is not published when created" do
       expect(blog_post).not_to be_published
@@ -14,8 +14,7 @@ RSpec.describe Post do
     end
 
     it "scope published only shows published posts" do
-      published_post = FactoryGirl.create(:post, title: "Published")
-      published_post.publish!
+      published_post = FactoryGirl.create(:post, title: "Published", published: true)
       expect(Post.published.map(&:title)).to eq(["Published"])
     end
 

@@ -39,6 +39,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.include SeleniumHelper
   InvisibleCaptcha.timestamp_enabled = false
+  config.fixture_path = 'spec/fixtures'
   # Capybara.javascript_driver = :opera
   # Capybara.register_driver :opera do |app|
   #   Capybara::Selenium::Driver.new(app, browser: :opera)

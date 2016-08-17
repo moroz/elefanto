@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "User publishes a post" do
-  let!(:blog_post) { FactoryGirl.create(:post) }
+  let!(:blog_post) { FactoryGirl.create(:post, published: false) }
   before do
     sign_in_with_capybara
     visit post_path(blog_post)

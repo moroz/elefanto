@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get '/subscribe' => "subscriptions#new", as: :new_subscription
   resources :subscriptions, only: [:create]
+  get '/subscription_success' => "subscriptions#success"
   resources :posts do
     post :publish, on: :member
     post :unpublish, on: :member

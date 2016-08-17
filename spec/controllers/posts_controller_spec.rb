@@ -122,7 +122,7 @@ RSpec.describe PostsController do
   end
 
   describe "POST publish" do
-    let(:blog_post) { FactoryGirl.create(:post, title: "Example post", number: 108) }
+    let(:blog_post) { FactoryGirl.create(:post, title: "Example post", number: 108, published: false) }
 
     it "denies access when not signed in" do
       session.delete(:user) if session[:user].present?

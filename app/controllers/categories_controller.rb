@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @posts = @category.posts.order(:number => :desc)
+    @posts = @category.posts.order(number: :desc)
   end
 
   def edit
