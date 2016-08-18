@@ -1,6 +1,6 @@
 .post
   = language_label post.language
-  %strong= link_to post.title_with_number, post
+  = link_to post.title_with_number, post
   - words = post.word_count
   - if post.is_chinese?
     - word_count = "(" + pluralize(words, "character")

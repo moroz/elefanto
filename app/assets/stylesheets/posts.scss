@@ -28,13 +28,12 @@
   padding-left: 3px;
   padding-right: 3px;
   display: inline;
-  font-weight: bold;
 }
 
 .post__language-button {
   padding: 0.1em 0.5em 0.1em 0.5em;
   border-radius: 3px;
-  font-weight: 300;
+  font-weight: 400;
   text-transform: uppercase;
   border: 1px solid #999;
   margin-bottom: 0.5em;
@@ -63,10 +62,6 @@ a:visited.post__language-button {
   margin-bottom: 0.7em;
   margin-top: 0.7em;
   border-radius: 4px;
-
-  a {
-    font-weight: bold;
-  }
 }
 
 .post__header--margin {

@@ -1,0 +1,13 @@
+.subscription__ad#subscription-ad
+  如果您想收到有關我的臺灣遊的更新，
+  %br
+  請
+  = link_to "訂閱莫若思報到", new_subscription_path, class: "btn blue"
+  。
+  = link_to "關閉", "javascript:void(null)", class: "btn orange", id: "dismiss"
+
+<script>
+$('#dismiss').on('click', function() {
+$('#subscription-ad').hide();
+});
+</script>
