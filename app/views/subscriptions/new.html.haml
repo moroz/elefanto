@@ -4,7 +4,7 @@
   .form-group
     = f.label :first_name, "First name:"
     = f.text_field :first_name, class: 'form-control', placeholder: 'E.g. John'
-    %small.form-text.form-muted I'm asking for your name to know who is reading my Newsletter. I will share this information with anyone else. Except perhaps your ex-girlfriend, your boss, or your mother-in-law.
+    %small.form-text.form-muted I'm asking for your name to know who is reading my Newsletter. I will not share this information with anyone else.
 
   .form-group
     = f.label :last_name, "Last name:"
@@ -22,4 +22,4 @@
   .form-group
     = f.label :language, "Language:"
     = collection_select :subscription, :language, Subscription::SUBSCRIPTION_LANGUAGES, :to_s, :to_s, {prompt: true}, {class: 'form-control'}
-  = f.submit "Subscribe!", class: 'btn-submit btn-submit-green'
+  = f.submit "Subscribe!", class: 'btn__submit'

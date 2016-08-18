@@ -14,7 +14,7 @@
     = csrf_meta_tags
   %body
     = render 'shared/header_nav'
-    %div{:class => "row1"}
+    .row1
       .wrapper.container
         = render 'shared/header'
     .row2
@@ -22,6 +22,6 @@
         - flash.each do |key, value|
           %div{:class => "row2__flashbox alert alert-#{key}"}= value
         = yield
-    .row3{class: "footer-#{current_locale}"}
+    .row3.footer
       .wrapper.container
         = render 'shared/footer'

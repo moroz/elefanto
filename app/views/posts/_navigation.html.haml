@@ -3,7 +3,7 @@
   = link_to t('post.show_all_lang'), {lang: nil, page: params[:page]}, class: 'post__language-button'
 - else
   %strong= t('post.show_only_lang')
-  %br
+  %br.only_mobile
   = link_to t('en'), {:post_lang => "en"}, class: 'post__language-button'
   = link_to t('pl'), {:post_lang => "pl"}, class: 'post__language-button post__language--pl'
   = link_to t('zh'), {:post_lang => "zh"}, class: 'post__language-button post__language--zh'
