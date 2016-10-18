@@ -1,0 +1,2 @@
+class SubscriptionCountry < ApplicationRecord
+end

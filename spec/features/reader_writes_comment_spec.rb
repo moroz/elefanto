@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Reader writes a comment", js: true do
+RSpec.describe "Reader writes a comment", js: true do
   def fill_in_comment_form_and_click_send
     find("textarea#comment_text").set("The quick brown fox jumps over the lazy dog.")
     find("input#comment_signature").set("OJ Simpson")

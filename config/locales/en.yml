@@ -32,6 +32,7 @@ en:
   category_list: "This post belongs to categories %{list}."
   categories: Category list
   contact_me: "Contact"
+  subscribe: "Subscribe"
   en: English
   pl: Polish
   zh: Chinese

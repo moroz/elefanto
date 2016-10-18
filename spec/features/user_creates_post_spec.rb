@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User creates a post' do
+RSpec.describe 'User creates a post' do
   valid_attr = FactoryGirl.attributes_for(:post)
 
   before do

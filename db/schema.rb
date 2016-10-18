@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803151239) do
+ActiveRecord::Schema.define(version: 20160815120307) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "name_en"
@@ -67,6 +67,26 @@ ActiveRecord::Schema.define(version: 20160803151239) do
     t.index ["category_id"], name: "index_posts_on_category_id", using: :btree
     t.index ["number"], name: "index_posts_on_number", using: :btree
     t.index ["url"], name: "index_posts_on_url", unique: true, using: :btree
+  end
+
+  create_table "subscription_countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string "name"
+  end
+
+  create_table "subscription_languages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string "name"
+    t.string "code"
+  end
+
+  create_table "subscriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "country"
+    t.string   "email"
+    t.string   "language"
+    t.boolean  "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|

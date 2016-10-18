@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User deletes a comment" do
+RSpec.describe "User deletes a comment" do
   let(:blog_post) { FactoryGirl.create(:post) }
 
   before do

@@ -38,7 +38,7 @@ html {
 }
 
 .container {
-  padding: 0.5em;
+  padding: 1.5em;
 }
 
 .wrapper--nopadding {
@@ -65,6 +65,10 @@ a:visited {
 @media (min-width: 500px) {
   .wrapper {
     padding: 1.5em;
+  }
+
+  .only_mobile {
+    display: none;
   }
 
   body {
@@ -122,6 +126,7 @@ h1 {
 
 .row3 {
   color: #eee;
+  background-color: #062e4b;
 }
 
 .row3 a, .row3 a:visited {
@@ -170,3 +175,93 @@ hr {
   float: right;
   right: 0;
 }
+
+.btn__submit {
+  background-color: #fff;
+  color: #000;
+  font-variant: all-caps;
+  width: 100%;
+  padding: 0.5em;
+}
+
+.btn {
+  padding: 0.2em 0.35em;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #eee;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0 1px;
+}
+
+a.btn:hover {
+  text-decoration: none;
+}
+
+a.blue, a:visited.blue {
+  color: #eee;
+  background-color: #085289;
+}
+
+a.blue:hover {
+  background-color: #f8c49e;
+  color: #111;
+}
+
+a.green, a:visited.green {
+  background-color: #007c44;
+  color: #eee;
+}
+
+a.green:hover {
+  background-color: #ff83bb;
+  color: #111;
+}
+
+a.orange, a:visited.orange {
+  background-color: #e82200;
+  color: #eee;
+}
+
+a.orange:hover {
+  background-color: #37e4e9;
+  color: #111;
+}
+
+a.purple, a:visited.purple {
+  color: #eee;
+  background-color: #e80052;
+}
+
+a.btn--center {
+  margin: 0 auto;
+}
+
+a.purple:hover {
+  background-color: #17ffad;
+  color: #111;
+}
+
+.btn__send {
+  background-color: #007c44;
+  color: #eee;
+  padding: 0.5em;
+  border: 1px solid #999;
+  width: 100%;
+  text-align: center;
+}
+
+.subscription__ad {
+  padding: 0.5em;
+  border: 1px solid #999;
+  text-align: center;
+  font-weight: bold;
+}
+
+input[type="submit"].btn__send:hover {
+  color: #111;
+  background-color: #ff83bb;
+}
+
+

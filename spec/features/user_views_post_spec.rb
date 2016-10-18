@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'User views a post' do
-  let(:blog_post) { FactoryGirl.create(:post, title: "Example post", number: 108) }
+RSpec.describe 'User views a post' do
+  let(:blog_post) { FactoryGirl.create(:post, title: "Example post", number: 108, published: false) }
 
   describe "displaying elements of post" do
     before(:example) do

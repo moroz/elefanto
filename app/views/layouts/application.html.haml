@@ -6,7 +6,6 @@
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag 'custom', media: 'all', 'data-turbolinks-track' => true
-    = stylesheet_link_tag 'locales'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="dz69cMD0CqaDioTMEsQ3i2DVT9jK_tjegfnc0757_t8" />
@@ -14,7 +13,7 @@
     = csrf_meta_tags
   %body
     = render 'shared/header_nav'
-    %div{:class => "row1"}
+    .row1
       .wrapper.container
         = render 'shared/header'
     .row2
@@ -22,6 +21,6 @@
         - flash.each do |key, value|
           %div{:class => "row2__flashbox alert alert-#{key}"}= value
         = yield
-    .row3{class: "footer-#{current_locale}"}
+    .row3.footer
       .wrapper.container
         = render 'shared/footer'

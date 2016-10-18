@@ -15,45 +15,6 @@
   background-color: #7cba7c;
 }
 
-.btn__permalink, .btn__edit, .btn__delete, .btn__publish {
-  padding: 0.2em 0.35em;
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  color: #eee;
-  margin: 0 1px;
-}
-
-a.btn__permalink, a:visited.btn__permalink {
-  color: #eee;
-  background-color: #073b61;
-}
-
-a.btn__edit, a:visited.btn__edit {
-  background-color: #007c44;
-  color: #eee;
-}
-
-a.btn__delete, a:visited.btn__delete {
-  background-color: #c81b16;
-  color: #eee;
-}
-
-a.btn__publish, a:visited.btn__publish {
-  color: #eee;
-  background-color: #e80052;
-}
-
-.btn__send {
-  background-color: #007c44;
-  color: #eee;
-  font-weight: bold;
-  padding: 0.5em;
-  border: 1px solid #999;
-  width: 100%;
-  text-align: center;
-}
-
 .comment__newcomment {
   border: 1px solid #999;
   padding: 1em;
@@ -62,17 +23,18 @@ a.btn__publish, a:visited.btn__publish {
 }
 
 .post__language, .post__language-button {
-  background-color: #194267;
+  background-color: #085289;
   color: #fff;
   padding-left: 3px;
   padding-right: 3px;
   display: inline;
-  font-weight: bold;
 }
 
 .post__language-button {
-  padding: 0.33em;
-  border-radius: 5px;
+  padding: 0.1em 0.5em 0.1em 0.5em;
+  border-radius: 3px;
+  font-weight: 400;
+  text-transform: uppercase;
   border: 1px solid #999;
   margin-bottom: 0.5em;
   display: inline-block;
@@ -83,11 +45,11 @@ a:visited.post__language-button {
 }
 
 .post__language--zh {
-  background-color: #28590d;
+  background-color: #079555;
 }
 
 .post__language--pl {
-  background-color: #9a2c18;
+  background-color: #e82200;
 }
 
 .post--lang_zh {
@@ -100,10 +62,6 @@ a:visited.post__language-button {
   margin-bottom: 0.7em;
   margin-top: 0.7em;
   border-radius: 4px;
-
-  a {
-    font-weight: bold;
-  }
 }
 
 .post__header--margin {
