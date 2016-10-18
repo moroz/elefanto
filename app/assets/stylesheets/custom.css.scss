@@ -205,8 +205,18 @@ a.blue, a:visited.blue {
 }
 
 a.blue:hover {
-  background-color: #f8c49e;
+  background-color: #38a0ed;
   color: #111;
+}
+
+a.lblue, a:visited.lblue {
+  background-color: #38a0ed;
+  color: #111;
+}
+
+a.lblue:hover {
+  background-color: #0b62a3;
+  color: #eee;
 }
 
 a.green, a:visited.green {
@@ -215,7 +225,7 @@ a.green, a:visited.green {
 }
 
 a.green:hover {
-  background-color: #ff83bb;
+  background-color: #07af63;
   color: #111;
 }
 
@@ -225,7 +235,7 @@ a.orange, a:visited.orange {
 }
 
 a.orange:hover {
-  background-color: #37e4e9;
+  background-color: #fc4120;
   color: #111;
 }
 
@@ -234,13 +244,13 @@ a.purple, a:visited.purple {
   background-color: #e80052;
 }
 
-a.btn--center {
-  margin: 0 auto;
+a.purple:hover {
+  background-color: #f72e75;
+  color: #111;
 }
 
-a.purple:hover {
-  background-color: #17ffad;
-  color: #111;
+a.btn--center {
+  margin: 0 auto;
 }
 
 .btn__send {

@@ -22,8 +22,8 @@ zh:
   zh-hant: 繁體中文
   new_comment: "你覺得呢？"
   signature: "姓名"
-  required: "（必要）"
-  optional: "（不必要）"
+  required: "（必填）"
+  optional: "（不必填）"
   your_website: "你的網站："
   send: "傳送"
   language_versions: "本文章的語言為<strong>%{language}</strong>。本文章還有%{versions}版本。"
